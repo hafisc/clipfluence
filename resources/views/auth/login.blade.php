@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-<form action="#" method="POST" class="space-y-5">
+<form action="{{ route('login') }}" method="POST" class="space-y-5">
     @csrf
 
     <!-- Input Email -->
