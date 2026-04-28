@@ -1,36 +1,64 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-
-public function showLoginForm()
+    /**
+     * Show the login form.
+     */
+    public function showLoginForm()
     {
         return view('auth.login');
     }
 
-public function login(Request $request)
-{
-    // validasi dulu
-    $credentials = $request->validate([
-        'email' => ['required', 'email'],
-        'password' => ['required'],
-    ]);
+    /**
+     * Handle an incoming authentication request.
+     */
+    public function login(Request $request)
+    {
+        $credentials = $request->validate([
+            'email'    => ['required', 'email'],
+            'password' => ['required'],
+        ]);
 
-    // cek login
-    if (Auth::attempt($credentials)) {
-        $request->session()->regenerate();
+        if (Auth::attempt($credentials, $request->boolean('remember'))) {
+            $request->session()->regenerate();
 
-        return redirect('/dashboard'); // pindah ke dashboard
+            return $this->redirectBasedOnRole(Auth::user());
+        }
+
+        return back()->withErrors([
+            'email' => 'Email atau kata sandi yang Anda masukkan tidak cocok.',
+        ])->onlyInput('email');
     }
 
-    // kalau gagal
-    return back()->withErrors([
-        'email' => 'Email atau password salah',
-    ])->withInput();
-}
+    /**
+     * Redirect user to the appropriate dashboard based on their role.
+     */
+    protected function redirectBasedOnRole($user)
+    {
+        return match ($user->role) {
+            // 'admin'   => redirect('/admin/dashboard'),
+            // 'brand'   => redirect('/brand/dashboard'),
+            default   => redirect('/admin/dashboard'),
+        };
+    }
+
+    /**
+     * Log the user out of the application.
+     */
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/');
+    }
 }
