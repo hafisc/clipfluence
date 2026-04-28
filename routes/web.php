@@ -1,16 +1,22 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
 
 Route::get('/', function () {
     return view('landing.index');
 });
 
-// Temporary Preview Routes for Auth Pages
-Route::get('/login', function () {
-    return view('auth.login');
-});
+// LOGIN
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [LoginController::class, 'login']);
 
-Route::get('/register', function () {
-    return view('auth.register');
+// REGISTER
+// Route::get('/register', [RegisterController::class, 'showRegisterForm']);
+// Route::post('/register', [RegisterController::class, 'register']);
+
+// DASHBOARD
+Route::get('/dashboard', function () {
+    return view('admin.dashboard.index');
 });
