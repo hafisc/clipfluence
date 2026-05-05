@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Brand\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -75,4 +76,62 @@ Route::middleware('auth')
         Route::get('/logs', function () {
             return view('admin.logs.index');
         })->name('logs');
+    });
+
+/*
+|--------------------------------------------------------------------------
+| Brand Routes (dummy dulu)
+|--------------------------------------------------------------------------
+*/
+
+Route::middleware('auth')
+    ->prefix('brand')
+    ->name('brand.')
+    ->group(function () {
+
+        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+        Route::get('/campaigns', function () {
+            return view('brand.campaigns.index');
+        })->name('campaigns');
+
+        Route::get('/campaigns/create', function () {
+            return view('brand.campaigns.create');
+        })->name('campaigns.create');
+
+        Route::post('/campaigns', function () {
+            // dummy
+        })->name('campaigns.store');
+
+        Route::get('/submissions', function () {
+            return view('brand.submissions.index');
+        })->name('submissions');
+
+        Route::get('/finance', function () {
+            return view('brand.finance.index');
+        })->name('finance');
+
+        Route::get('/payments', function () {
+            return view('brand.payments.index');
+        })->name('payments');
+
+        Route::get('/settings', function () {
+            return view('brand.settings.index');
+        })->name('settings');
+    });
+
+/*
+|--------------------------------------------------------------------------
+| Kreator Routes (dummy dulu)
+|--------------------------------------------------------------------------
+*/
+
+Route::middleware('auth')
+    ->prefix('kreator')
+    ->name('kreator.')
+    ->group(function () {
+
+        Route::get('/dashboard', function () {
+            return view('kreator.dashboard.index');
+        })->name('dashboard');
     });

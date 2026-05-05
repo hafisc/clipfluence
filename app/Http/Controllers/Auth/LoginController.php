@@ -45,7 +45,7 @@ class LoginController extends Controller
         return match ($user->role) {
             // 'admin'   => redirect('/admin/dashboard'),
             // 'brand'   => redirect('/brand/dashboard'),
-            default   => redirect('/admin/dashboard'),
+            default   => redirect('/brand/dashboard'),
         };
     }
 
