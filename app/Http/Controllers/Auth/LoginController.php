@@ -43,9 +43,9 @@ class LoginController extends Controller
     protected function redirectBasedOnRole($user)
     {
         return match ($user->role) {
-            // 'admin'   => redirect('/admin/dashboard'),
-            // 'brand'   => redirect('/brand/dashboard'),
-            default   => redirect('/brand/dashboard'),
+            'admin'   => redirect('/admin/dashboard'),
+            'brand'   => redirect('/brand/dashboard'),
+            default   => redirect('/kreator/dashboard'),
         };
     }
 
