@@ -130,5 +130,5 @@ Jika semuanya berhasil, buka browser Anda dan akses aplikasi melalui:
 ---
 
 <div align="center">
-  <i>Dibuat dengan ❤️ oleh tim Clipfluence.</i>
+  <i>Dibuat dengan ❤️ oleh Kelompok 4.</i>
 </div>
