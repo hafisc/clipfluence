@@ -53,29 +53,21 @@ Route::middleware('auth')
     ->name('admin.')
     ->group(function () {
 
-        Route::get('/dashboard', function () {
-            return view('admin.dashboard.index');
-        })->name('dashboard');
-
-        Route::get('/ugc', function () {
-            return view('admin.ugc.index');
-        })->name('ugc');
-
-        Route::get('/kyc', function () {
-            return view('admin.kyc.index');
-        })->name('kyc');
-
-        Route::get('/withdrawals', function () {
-            return view('admin.withdrawals.index');
-        })->name('withdrawals');
-
-        Route::get('/campaigns', function () {
-            return view('admin.campaigns.index');
-        })->name('campaigns');
-
-        Route::get('/logs', function () {
-            return view('admin.logs.index');
-        })->name('logs');
+         Route::get('/dashboard', fn() => view('admin.dashboard.index'))->name('dashboard');
+        Route::get('/users', fn() => view('admin.users.index'))->name('users');
+        Route::get('/kreators', fn() => view('admin.kreators.index'))->name('kreators');
+        Route::get('/brands', fn() => view('admin.brands.index'))->name('brands');
+        Route::get('/kyc', fn() => view('admin.kyc.index'))->name('kyc');
+        Route::get('/campaigns', fn() => view('admin.campaigns.index'))->name('campaigns');
+        Route::get('/ugc', fn() => view('admin.ugc.index'))->name('ugc');
+        Route::get('/payouts', fn() => view('admin.payouts.index'))->name('payouts');
+        Route::get('/withdrawals', fn() => view('admin.withdrawals.index'))->name('withdrawals');
+        Route::get('/disputes', fn() => view('admin.disputes.index'))->name('disputes');
+        Route::get('/analytics', fn() => view('admin.analytics.index'))->name('analytics');
+        Route::get('/fraud', fn() => view('admin.fraud.index'))->name('fraud');
+        Route::get('/notifications', fn() => view('admin.notifications.index'))->name('notifications');
+        Route::get('/logs', fn() => view('admin.logs.index'))->name('logs');
+        Route::get('/settings', fn() => view('admin.settings.index'))->name('settings');
     });
 
 /*
