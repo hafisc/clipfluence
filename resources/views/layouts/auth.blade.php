@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>@yield('title', 'Autentikasi') - Clipfluence</title>
+    <link rel="icon" type="image/png" href="{{ asset('images/brand/logo-icon.png') }}">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('images/brand/logo-icon.png') }}">
     
     <!-- Memuat aset CSS & JS Laravel Vite -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -13,8 +15,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- Lucide Icons -->
+    <!-- Lucide Icons & Alpine.js -->
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     
     <style>
         body { font-family: 'Inter', sans-serif; }
@@ -41,10 +44,13 @@
     <main class="relative z-10 w-full max-w-md px-6 py-12">
         <!-- Logo -->
         <div class="flex flex-col items-center justify-center mb-10 text-center">
-            <a href="/" class="flex flex-col items-center gap-3">
-                <span class="font-bold text-2xl tracking-tight text-white mt-1">
-                    Clip<span class="text-brand-light">fluence</span>
-                </span>
+            <a href="/" class="flex items-center justify-center gap-3 group">
+                <div class="flex-shrink-0">
+                    <img src="{{ asset('images/brand/logo-icon.png') }}" alt="Clipfluence" class="w-12 h-12 object-contain drop-shadow-[0_0_16px_rgba(139,92,246,0.6)]">
+                </div>
+                <div class="pt-1">
+                    <span class="font-black text-2xl tracking-tight text-white leading-none">Clip<span class="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-fuchsia-400">fluence</span></span>
+                </div>
             </a>
             @yield('subtitle')
         </div>

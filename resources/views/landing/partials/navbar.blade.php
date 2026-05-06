@@ -8,7 +8,7 @@
         <div class="flex items-center justify-between h-20">
             <!-- Bagian Logo Kiri -->
             <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer">
-                
+                <img src="{{ asset('images/brand/logo-icon.png') }}" alt="Clipfluence" class="w-9 h-9 object-contain drop-shadow-[0_0_10px_rgba(139,92,246,0.5)]">
                 <!-- Typografi teks Logo -->
                 <span class="font-bold text-2xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-400">
                     Clip<span class="text-brand-light">fluence</span>

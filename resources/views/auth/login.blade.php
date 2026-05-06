@@ -10,6 +10,12 @@
 <form action="{{ route('login') }}" method="POST" class="space-y-5">
     @csrf
 
+    @if ($errors->any())
+    <div class="bg-red-500/10 border border-red-500/30 text-red-400 text-sm rounded-xl p-4">
+        {{ $errors->first() }}
+    </div>
+    @endif
+
     <!-- Input Email -->
     <div>
         <label for="email" class="block text-sm font-medium text-slate-300 mb-2">Alamat Email</label>
@@ -17,29 +23,33 @@
             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                 <i data-lucide="mail" class="h-5 w-5 text-slate-500 group-focus-within:text-brand transition-colors"></i>
             </div>
-            <input type="email" name="email" id="email" 
+            <input type="email" name="email" id="email" value="{{ old('email') }}"
                 class="block w-full pl-10 pr-3 py-3 border border-neutral-700 rounded-xl leading-5 bg-neutral-900/50 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand focus:border-brand sm:text-sm transition-all shadow-inner" 
                 placeholder="nama@email.com" required>
         </div>
     </div>
 
     <!-- Input Password -->
-    <div>
+    <div x-data="{ show: false }">
         <label for="password" class="block text-sm font-medium text-slate-300 mb-2">Kata Sandi</label>
         <div class="relative group">
             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                 <i data-lucide="lock" class="h-5 w-5 text-slate-500 group-focus-within:text-brand transition-colors"></i>
             </div>
-            <input type="password" name="password" id="password" 
-                class="block w-full pl-10 pr-3 py-3 border border-neutral-700 rounded-xl leading-5 bg-neutral-900/50 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand focus:border-brand sm:text-sm transition-all shadow-inner" 
+            <input :type="show ? 'text' : 'password'" name="password" id="password" 
+                class="block w-full pl-10 pr-12 py-3 border border-neutral-700 rounded-xl leading-5 bg-neutral-900/50 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand focus:border-brand sm:text-sm transition-all shadow-inner" 
                 placeholder="••••••••" required>
+            <button type="button" @click="show = !show" class="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-500 hover:text-white focus:outline-none transition-colors">
+                <span x-show="!show"><i data-lucide="eye" class="h-5 w-5"></i></span>
+                <span x-show="show" style="display: none;"><i data-lucide="eye-off" class="h-5 w-5"></i></span>
+            </button>
         </div>
     </div>
 
     <!-- Options: Remember Me & Forgot Password -->
     <div class="flex items-center justify-between pb-2">
         <div class="flex items-center">
-            <input id="remember-me" name="remember-me" type="checkbox" 
+            <input id="remember-me" name="remember" type="checkbox" 
                 class="h-4 w-4 bg-neutral-900 border-neutral-700 rounded text-brand focus:ring-brand focus:ring-offset-neutral-900 accent-brand transition-colors cursor-pointer">
             <label for="remember-me" class="ml-2 block text-sm text-slate-400 cursor-pointer hover:text-slate-300 transition-colors">
                 Ingat saya
@@ -47,7 +57,7 @@
         </div>
 
         <div class="text-sm">
-            <a href="#" class="font-medium text-brand hover:text-brand-light transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[1px] auto after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:bg-brand-light after:transition-transform">
+            <a href="#" class="font-medium text-brand hover:text-brand-light transition-colors">
                 Lupa sandi?
             </a>
         </div>
