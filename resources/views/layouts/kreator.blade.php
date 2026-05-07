@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'Dashboard') - Admin Clipfluence</title>
+    <title>@yield('title', 'Dashboard') - Clipper Workspace</title>
     <link rel="icon" type="image/png" href="{{ asset('images/brand/logo-icon.png') }}">
     <link rel="shortcut icon" type="image/png" href="{{ asset('images/brand/logo-icon.png') }}">
 
@@ -22,29 +22,32 @@
         ::-webkit-scrollbar-track { background: #0a0a0a; }
         ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 99px; }
         ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+        /* Smooth scroll for better mobile UX */
+        main { -webkit-overflow-scrolling: touch; scroll-behavior: smooth; }
     </style>
+    @stack('styles')
 </head>
 <body class="bg-[#080808] text-slate-50 antialiased h-full" x-data="{ sidebarOpen: false }">
 
     <!-- Mobile sidebar backdrop -->
     <div x-show="sidebarOpen" x-transition.opacity
         class="fixed inset-0 bg-black/60 backdrop-blur-sm z-30 lg:hidden"
-        @click="sidebarOpen = false">
+        @click="sidebarOpen = false" style="display: none;">
     </div>
 
     <div class="flex h-screen overflow-hidden">
 
         <!-- ===== SIDEBAR ===== -->
-        @include('admin.partials.sidebar')
+        @include('kreator.partials.sidebar')
 
         <!-- ===== MAIN CONTENT ===== -->
         <div class="flex-1 flex flex-col min-w-0 overflow-hidden">
 
             <!-- ===== TOP NAVBAR ===== -->
-            @include('admin.partials.navbar')
+            @include('kreator.partials.navbar')
 
             <!-- ===== PAGE CONTENT ===== -->
-            <main class="flex-1 overflow-y-auto p-6">
+            <main class="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8">
                 @yield('content')
             </main>
 
