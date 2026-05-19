@@ -6,11 +6,11 @@
 @section('content')
 @php
 $alerts = [
-    ['account'=>'bot_views99','type'=>'Bot Activity','detail'=>'Views naik 50K dalam 2 menit secara anomali','risk'=>'Kritis','time'=>'5 menit lalu','status'=>'Aktif'],
-    ['account'=>'spam_creator1','type'=>'Spam Submission','detail'=>'Mengirim 40+ konten identik dalam 1 jam','risk'=>'Tinggi','time'=>'30 menit lalu','status'=>'Aktif'],
-    ['account'=>'fake_account33','type'=>'Fake Account','detail'=>'Profil dibuat dengan foto AI, no konten asli','risk'=>'Sedang','time'=>'2 jam lalu','status'=>'Diperiksa'],
-    ['account'=>'brandspoof_id','type'=>'Brand Spoofing','detail'=>'Menggunakan logo brand tanpa izin di konten','risk'=>'Tinggi','time'=>'5 jam lalu','status'=>'Diblokir'],
-    ['account'=>'view_buyer22','type'=>'View Manipulation','detail'=>'Mencurigai pembelian views dari luar platform','risk'=>'Sedang','time'=>'1 hari lalu','status'=>'Diperiksa'],
+    ['account'=>'bot_views99','type'=>'Aktivitas Bot','detail'=>'Views naik 50K dalam 2 menit secara anomali','risk'=>'Kritis','time'=>'5 menit lalu','status'=>'Aktif'],
+    ['account'=>'spam_creator1','type'=>'Pengiriman Spam','detail'=>'Mengirim 40+ konten identik dalam 1 jam','risk'=>'Tinggi','time'=>'30 menit lalu','status'=>'Aktif'],
+    ['account'=>'fake_account33','type'=>'Akun Palsu','detail'=>'Profil dibuat dengan foto AI, tanpa konten asli','risk'=>'Sedang','time'=>'2 jam lalu','status'=>'Diperiksa'],
+    ['account'=>'brandspoof_id','type'=>'Penyamaran Brand','detail'=>'Menggunakan logo brand tanpa izin di konten','risk'=>'Tinggi','time'=>'5 jam lalu','status'=>'Diblokir'],
+    ['account'=>'view_buyer22','type'=>'Manipulasi Tayangan','detail'=>'Mencurigai pembelian views dari luar platform','risk'=>'Sedang','time'=>'1 hari lalu','status'=>'Diperiksa'],
 ];
 $riskClass=['Kritis'=>'bg-red-500/15 text-red-400 border-red-500/30','Tinggi'=>'bg-orange-500/15 text-orange-400 border-orange-500/30','Sedang'=>'bg-amber-500/15 text-amber-400 border-amber-500/30'];
 $statusClass=['Aktif'=>'bg-red-500/10 text-red-400 border-red-500/20','Diperiksa'=>'bg-amber-500/10 text-amber-400 border-amber-500/20','Diblokir'=>'bg-neutral-700 text-slate-500 border-neutral-600'];
@@ -32,7 +32,7 @@ $statusClass=['Aktif'=>'bg-red-500/10 text-red-400 border-red-500/20','Diperiksa
         <div class="flex items-center justify-between p-5 border-b border-neutral-800/60">
             <h3 class="text-sm font-semibold text-white flex items-center gap-2">
                 <span class="w-2 h-2 rounded-full bg-red-400 animate-pulse inline-block"></span>
-                Alert Fraud Real-Time
+                Pemberitahuan Penipuan Waktu Nyata
             </h3>
         </div>
         <div class="divide-y divide-neutral-800/40">

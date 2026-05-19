@@ -83,7 +83,7 @@
                 </div>
                 @if($pendingReview > 0)
                 <span class="text-[9px] font-bold text-amber-400 bg-amber-500/10 border border-amber-500/30 px-1.5 py-0.5 rounded-full animate-pulse">
-                    Action Needed
+                    Butuh Tindakan
                 </span>
                 @endif
             </div>

@@ -30,7 +30,7 @@ $kycs = [
 
     <div class="bg-neutral-900/60 border border-neutral-800/60 rounded-2xl overflow-hidden">
         <div class="p-5 border-b border-neutral-800/60">
-            <h3 class="text-sm font-semibold text-white">Antrian Verifikasi KYC</h3>
+            <h3 class="text-sm font-semibold text-white">Antrean Verifikasi KYC</h3>
         </div>
         <div class="divide-y divide-neutral-800/40">
             @foreach($kycs as $k)

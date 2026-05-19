@@ -95,7 +95,7 @@
                 </div>
             </div>
 
-            {{-- Social Accounts Card --}}
+            {{-- Kartu Akun Media Sosial --}}
             <div class="bg-[#111111] border border-[#1f1f1f] rounded-2xl relative overflow-hidden p-6 lg:p-8">
                 <div class="border-b border-white/10 pb-5 mb-6">
                     <h2 class="text-lg font-bold text-white mb-1">Tautan Sosial Media</h2>

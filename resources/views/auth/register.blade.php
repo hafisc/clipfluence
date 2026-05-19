@@ -71,7 +71,7 @@
                 <input type="password" name="password" id="password" 
                     class="block w-full pl-10 pr-3 py-3 border border-neutral-700 rounded-xl leading-5 bg-neutral-900/50 text-white placeholder-slate-500 focus:outline-none focus:ring-2 sm:text-sm transition-all shadow-inner" 
                     :class="role === 'brand' ? 'focus:ring-emerald-500 focus:border-emerald-500' : 'focus:ring-brand focus:border-brand'"
-                    placeholder="Minimal 8 karakter" required>
+                    placeholder="Minimal 8 huruf" required>
             </div>
         </div>
 

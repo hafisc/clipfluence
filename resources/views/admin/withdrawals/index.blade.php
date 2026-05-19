@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('title', 'Penarikan Dana')
 @section('page_title', 'Penarikan Dana')
-@section('page_subtitle', 'Approve atau tolak permintaan penarikan saldo kreator')
+@section('page_subtitle', 'Setujui atau tolak permintaan penarikan saldo kreator')
 
 @section('content')
 @php

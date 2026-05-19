@@ -22,7 +22,7 @@
 
     <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-5 mb-8">
         <div>
-            <h1 class="text-2xl lg:text-3xl font-black text-white tracking-tight mb-2">My Wallet</h1>
+            <h1 class="text-2xl lg:text-3xl font-black text-white tracking-tight mb-2">Dompet Saya</h1>
             <p class="text-sm text-slate-400">Atur penghasilan, tarik dana komisi, dan kelola rekening kamu.</p>
         </div>
         <button class="flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-sm font-bold text-white transition-all hover:scale-[1.02] active:scale-95 bg-gradient-to-br from-violet-600 to-fuchsia-500 shadow-[0_8px_24px_rgba(139,92,246,0.35)]" 
@@ -61,12 +61,12 @@
                 </div>
             </div>
             <div class="mt-auto">
-                <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1.5">Dana Tertahan (Pending)</p>
+                <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1.5">Dana Menunggu Pencairan</p>
                 <div class="flex items-baseline gap-2">
                     <h2 class="text-2xl font-black text-white leading-none tracking-tight">
                         <span class="text-lg text-slate-400 font-bold mr-0.5">Rp</span>{{ number_format($pending_withdrawal, 0, ',', '.') }}
                     </h2>
-                    <i data-lucide="info" class="w-3.5 h-3.5 text-slate-600 cursor-help" title="Menunggu pencairan diproses oleh admin/brand"></i>
+                    <i data-lucide="info" class="w-3.5 h-3.5 text-slate-600 cursor-help" title="Dana ini menunggu untuk diproses oleh pihak admin atau brand"></i>
                 </div>
             </div>
         </div>
@@ -96,13 +96,13 @@
 
     </div>
 
-    {{-- TRANSACTION HISTORY --}}
+    {{-- RIWAYAT TRANSAKSI --}}
     <div class="bg-[#0a0a0a] rounded-[1.5rem] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)] overflow-hidden">
         
         <div class="p-6 shadow-[0_1px_0_rgba(255,255,255,0.04)] flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 sm:gap-0">
             <h3 class="text-base font-black text-white">Riwayat Transaksi</h3>
             
-            {{-- Filter Pills --}}
+            {{-- Filter Kategori --}}
             <div class="flex items-center gap-1.5 p-1 rounded-xl bg-white/[0.03] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05)] w-fit">
                 <button class="px-3 py-1.5 rounded-lg text-xs font-bold bg-white/10 text-white shadow-sm transition-colors">Semua</button>
                 <button class="px-3 py-1.5 rounded-lg text-xs font-bold text-slate-400 hover:text-white transition-colors">Masuk</button>
@@ -132,8 +132,8 @@
                     <div class="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center mb-4">
                         <i data-lucide="receipt" class="w-8 h-8 text-slate-600"></i>
                     </div>
-                    <h3 class="text-white font-bold mb-1">Belum Ada Transaksi</h3>
-                    <p class="text-xs text-slate-500">Histori penarikan atau pembayaranmu akan muncul di sini.</p>
+                    <h3 class="text-white font-bold mb-1">Belum Ada Data Transaksi</h3>
+                    <p class="text-xs text-slate-500">Riwayat penarikan dan pembayaran kamu akan ditampilkan di sini.</p>
                 </div>
             @endforelse
         </div>
@@ -141,7 +141,7 @@
         {{-- Load More --}}
         <div class="p-4 flex justify-center w-full shadow-[0_-1px_0_rgba(255,255,255,0.03)]">
             <button class="text-[11px] font-bold text-slate-400 hover:text-white transition-colors flex items-center gap-1.5 px-4 py-2 rounded-lg hover:bg-white/5">
-                Tampilkan Lebih Banyak <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
+                Muat Lebih Banyak <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
             </button>
         </div>
 
@@ -199,7 +199,7 @@
                 @endif
             </div>
 
-            {{-- Action Button --}}
+            {{-- Tombol Aksi --}}
             <button type="submit" class="w-full py-4 text-white text-sm font-black rounded-xl transition-all shadow-[0_8px_20px_rgba(139,92,246,0.3)] hover:shadow-[0_8px_25px_rgba(139,92,246,0.45)] hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2 bg-gradient-to-br from-violet-600 to-fuchsia-500">
                 <i data-lucide="lock" class="w-4 h-4"></i> Konfirmasi Penarikan
             </button>

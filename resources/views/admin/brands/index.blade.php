@@ -32,7 +32,7 @@ $brands = [
             <h3 class="text-sm font-semibold text-white">Daftar Brand</h3>
             <div class="flex items-center gap-2">
                 <select class="bg-neutral-800 border border-neutral-700 rounded-xl px-3 py-1.5 text-xs text-slate-300 outline-none">
-                    <option>Semua Industri</option><option>E-Commerce</option><option>F&B</option><option>Tech</option>
+                    <option>Semua Industri</option><option>E-Commerce</option><option>F&B</option><option>Teknologi</option>
                 </select>
                 <div class="flex items-center gap-2 bg-neutral-800 border border-neutral-700 rounded-xl px-3 py-1.5">
                     <i data-lucide="search" class="w-3.5 h-3.5 text-slate-500"></i>

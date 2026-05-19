@@ -84,7 +84,7 @@
     </div>
 </div>
 
-<!-- Social Login -->
+<!-- Masuk dengan Media Sosial -->
 <div>
     <button type="button" 
         class="w-full flex justify-center items-center gap-3 py-3 px-4 rounded-xl text-sm font-medium text-slate-300 bg-neutral-800 border border-neutral-700 hover:bg-neutral-700 hover:text-white focus:outline-none transition-colors">

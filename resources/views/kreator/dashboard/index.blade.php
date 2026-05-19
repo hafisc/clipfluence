@@ -37,15 +37,15 @@
 
     {{-- ===== HERO / GREETING CARD ===== --}}
     <div class="bg-gradient-to-br from-[#5b21b6] via-[#7c3aed] to-[#c026d3] relative overflow-hidden rounded-2xl p-5 lg:p-8 shadow-2xl shadow-violet-900/30">
-        <!-- Decorative circles -->
+        <!-- Lingkaran Dekoratif -->
         <div class="absolute -top-[60px] -right-[60px] w-[220px] h-[220px] bg-white/5 rounded-full pointer-events-none"></div>
         <div class="absolute -bottom-[80px] -left-[30px] w-[180px] h-[180px] bg-black/15 rounded-full pointer-events-none"></div>
 
         <div class="relative z-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5">
 
-            {{-- Left: Greeting --}}
+            {{-- Kiri: Salam --}}
             <div class="flex-1">
-                {{-- Badge --}}
+                {{-- Lencana --}}
                 <h1 class="text-xl lg:text-3xl font-black text-white tracking-tight leading-snug">
                     Halo, {{ auth()->user()->name }}! 🔥
                 </h1>
@@ -54,7 +54,7 @@
                 </p>
             </div>
 
-            {{-- Right: Earnings Box --}}
+            {{-- Kanan: Kotak Penghasilan --}}
             <div class="bg-black/20 backdrop-blur-sm border border-white/10 rounded-xl p-4 lg:p-5 flex items-center justify-between lg:flex-col lg:items-start gap-3 lg:min-w-[220px]">
                 <div>
                     <p class="text-[10px] text-violet-300 font-semibold uppercase tracking-widest">Total Pendapatan</p>
@@ -128,14 +128,14 @@
             <p class="mt-2 lg:mt-3 text-[10px] lg:text-xs text-slate-600">dari {{ $stats['videos_approved'] }} video disetujui</p>
         </div>
 
-        {{-- Success Rate --}}
+        {{-- Tingkat Keberhasilan --}}
         <div class="bg-[#111111] border border-[#1f1f1f] rounded-[1.25rem] transition-all duration-200 active:scale-[0.97] p-4 lg:p-5 cursor-pointer">
             <div class="flex items-start justify-between mb-3 lg:mb-4">
                 <div class="w-9 h-9 lg:w-11 lg:h-11 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center">
                     <span class="text-xl lg:text-2xl drop-shadow-[0_2px_4px_rgba(59,130,246,0.3)]">🎯</span>
                 </div>
             </div>
-            <p class="text-[10px] lg:text-xs text-slate-500 font-semibold mb-1">Success Rate</p>
+            <p class="text-[10px] lg:text-xs text-slate-500 font-semibold mb-1">Tingkat Keberhasilan</p>
             <p class="text-lg lg:text-2xl font-black text-white leading-none">{{ number_format($stats['success_rate'], 1) }}%</p>
             <div class="mt-2 lg:mt-3 w-full h-1.5 bg-neutral-800 rounded-full overflow-hidden">
                 <div class="h-full bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full progress-bar" style="--fill: {{ $stats['success_rate'] }}%;"></div>
@@ -144,7 +144,7 @@
 
     </div>
 
-    {{-- ===== QUICK ACTIONS: 3-col on mobile, hidden on desktop (sidebar handles nav) ===== --}}
+    {{-- ===== AKSI CEPAT: 3-col di ponsel, tersembunyi di desktop (sidebar menangani nav) ===== --}}
     <div class="lg:hidden">
         <p class="text-[0.65rem] font-bold tracking-[0.12em] uppercase text-[#52525b] mb-2.5 px-0.5">Aksi Cepat</p>
         <div class="grid grid-cols-3 gap-2.5">
@@ -152,7 +152,7 @@
                 <div class="w-10 h-10 rounded-xl bg-violet-500/15 flex items-center justify-center">
                     <i data-lucide="upload" class="w-5 h-5 text-violet-400"></i>
                 </div>
-                <span class="text-[10px] font-bold text-slate-300 leading-tight">Submit<br>Views</span>
+                <span class="text-[10px] font-bold text-slate-300 leading-tight">Kirim<br>Views</span>
             </a>
             <a href="{{ route('kreator.campaigns') }}" class="bg-[#111111] border border-[#1f1f1f] rounded-2xl transition-all duration-150 hover:bg-[#161616] active:scale-[0.94] active:bg-[#1a1a1a] flex flex-col items-center justify-center gap-2 p-3.5 text-center">
                 <div class="w-10 h-10 rounded-xl bg-fuchsia-500/15 flex items-center justify-center">
@@ -169,7 +169,7 @@
         </div>
     </div>
 
-    {{-- ===== BOTTOM GRID: stacked on mobile → 2-col on desktop ===== --}}
+    {{-- ===== GRID BAWAH: tertumpuk di ponsel → 2-col di desktop ===== --}}
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
 
         {{-- ===== STATUS PEKERJAAN ===== --}}
@@ -187,7 +187,7 @@
                 </a>
             </div>
 
-            {{-- Job List (Data dari Controller) --}}
+            {{-- Daftar Pekerjaan (Data dari Controller) --}}
 
             <div class="px-5 pb-3 space-y-2 flex-1">
                 @foreach($jobs as $j)
@@ -220,27 +220,26 @@
                 <a href="{{ route('kreator.submissions.create') }}"
                     class="w-full py-3 flex items-center justify-center gap-2 bg-violet-600 hover:bg-violet-700 active:bg-violet-800 text-white text-xs lg:text-sm font-bold rounded-xl transition-colors">
                     <i data-lucide="upload" class="w-4 h-4"></i>
-                    Submit Screenshot Views Baru
-                </a>
+                    Kirim Tangkapan Jumlah Penonton                </a>
             </div>
         </div>
 
-        {{-- ===== CAMPAIGN REKOMENDASI ===== --}}
+        {{-- ===== REKOMENDASI CAMPAIGN ===== --}}
         <div class="bg-[#111111] ring-1 ring-white/5 rounded-2xl overflow-hidden flex flex-col">
 
             {{-- Header --}}
             <div class="flex items-center justify-between px-5 pt-5 pb-3">
                 <div>
-                    <h3 class="text-sm lg:text-base font-bold text-white">Campaign Rekomendasi</h3>
+                    <h3 class="text-sm lg:text-base font-bold text-white">Rekomendasi Campaign</h3>
                     <p class="text-[10px] text-slate-500 mt-0.5">Berdasarkan performa kamu</p>
                 </div>
                 <a href="{{ route('kreator.campaigns') }}"
                     class="text-[10px] font-bold text-violet-400 hover:text-violet-300 transition-colors flex items-center gap-1">
-                    Marketplace <i data-lucide="arrow-right" class="w-3 h-3"></i>
+                    Temukan Campaign <i data-lucide="arrow-right" class="w-3 h-3"></i>
                 </a>
             </div>
 
-            {{-- Data Recs dipass dari Controller --}}
+            {{-- Data Rekomendasi dipass dari Controller --}}
 
             <div class="px-5 pb-4 space-y-3 flex-1">
                 @foreach($recs as $r)

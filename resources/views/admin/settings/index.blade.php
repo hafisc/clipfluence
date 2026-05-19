@@ -19,7 +19,7 @@
         <div class="bg-neutral-900/60 border border-neutral-800/60 rounded-2xl p-6">
             <h3 class="text-sm font-semibold text-white mb-5">Pengaturan Umum</h3>
             <div class="space-y-4">
-                @foreach([['label'=>'Nama Platform','val'=>'Clipfluence','type'=>'text'],['label'=>'Email Support','val'=>'support@clipfluence.com','type'=>'email'],['label'=>'URL Platform','val'=>'https://clipfluence.com','type'=>'url'],['label'=>'Tagline','val'=>'Platform UGC & Clipper No. 1 di Indonesia','type'=>'text']] as $f)
+                @foreach([['label'=>'Nama Platform','val'=>'Clipfluence','type'=>'text'],['label'=>'Email Dukungan','val'=>'support@clipfluence.com','type'=>'email'],['label'=>'URL Platform','val'=>'https://clipfluence.com','type'=>'url'],['label'=>'Slogan','val'=>'Platform UGC & Clipper No. 1 di Indonesia','type'=>'text']] as $f)
                 <div>
                     <label class="block text-xs font-medium text-slate-400 mb-1.5">{{ $f['label'] }}</label>
                     <input type="{{ $f['type'] }}" value="{{ $f['val'] }}" class="w-full bg-neutral-800 border border-neutral-700 rounded-xl px-4 py-2.5 text-sm text-slate-300 outline-none focus:border-brand transition-colors">

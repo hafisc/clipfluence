@@ -159,7 +159,7 @@
 
                         {{-- Fee/Cost --}}
                         <div class="text-right sm:text-left">
-                            <p class="text-[9px] font-bold text-slate-500 uppercase tracking-widest mb-1.5">Fee Creator</p>
+                            <p class="text-[9px] font-bold text-slate-500 uppercase tracking-widest mb-1.5">Komisi Kreator</p>
                             <p class="text-xs lg:text-sm font-black text-emerald-400">Rp {{ number_format($s['cost'], 0, ',', '.') }}</p>
                         </div>
                     </div>
