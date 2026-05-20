@@ -14,3 +14,37 @@
     --color-brand-hover: oklch(49% 0.26 293.009);
     --color-brand-light: oklch(65% 0.281 293.009);
 }
+
+/* ===== Admin Panel Custom Classes ===== */
+@layer components {
+    .sidebar-link {
+        @apply flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-150;
+    }
+    .sidebar-link.active {
+        @apply text-white bg-brand/10 border border-brand/20;
+    }
+    .sidebar-link.active i,
+    .sidebar-link.active svg {
+        @apply text-brand;
+    }
+
+    /* Brand Custom Link */
+    .brand-link {
+        @apply flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-150;
+    }
+    .brand-link.active {
+        @apply bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20 shadow-[inset_2px_0_0_0_#34d399];
+    }
+
+    /* Kreator Custom Link */
+    .kreator-link {
+        @apply flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-slate-400 hover:text-white hover:bg-neutral-800/50 transition-all duration-200;
+    }
+    .kreator-link.active {
+        @apply bg-violet-500/10 text-violet-300 font-semibold shadow-[inset_3px_0_0_0_#8b5cf6];
+    }
+
+    .stat-card {
+        @apply bg-neutral-900/60 border border-neutral-800/60 rounded-2xl p-5 hover:border-neutral-700 transition-all duration-200;
+    }
+}
