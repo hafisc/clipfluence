@@ -73,8 +73,9 @@ class ProcessVideoClip implements ShouldQueue
             $outputResolution = $this->getOutputResolution($clip->quality, $clip->ratio);
             
             if ($clip->ratio === '9:16') {
-                // Untuk vertical (TikTok/Reels) - scale dan pad jika perlu
-                $videoFilters[] = "scale={$outputResolution['width']}:{$outputResolution['height']}:force_original_aspect_ratio=decrease,pad={$outputResolution['width']}:{$outputResolution['height']}:(ow-iw)/2:(oh-ih)/2:black";
+                // Untuk vertical (TikTok/Reels) - crop ke 9:16 dari tengah, lalu scale ke resolusi output
+                $videoFilters[] = "crop=w='min(iw\\,ih*9/16)':h='min(ih\\,iw*16/9)'";
+                $videoFilters[] = "scale={$outputResolution['width']}:{$outputResolution['height']}";
             } elseif ($clip->ratio === '16:9') {
                 // Untuk horizontal - scale dan pad jika perlu  
                 $videoFilters[] = "scale={$outputResolution['width']}:{$outputResolution['height']}:force_original_aspect_ratio=decrease,pad={$outputResolution['width']}:{$outputResolution['height']}:(ow-iw)/2:(oh-ih)/2:black";
