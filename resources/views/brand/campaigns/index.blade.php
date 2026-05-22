@@ -3,7 +3,7 @@
 @section('title', 'Campaign Saya')
 
 @section('content')
-<div class="max-w-7xl mx-auto pb-12 pt-2">
+<div class="max-w-7xl mx-auto pb-12 pt-2" x-data="{ currentStatus: 'all', searchQuery: '' }">
 
     {{-- FLASH MESSAGES --}}
     @if (session('success'))
@@ -16,14 +16,33 @@
     {{-- FILTER & SEARCH BAR --}}
     <div class="bg-[#0f0f0f] rounded-2xl p-3 border border-neutral-800 flex justify-between items-center flex-wrap gap-4 mb-8">
         <div class="flex gap-2 overflow-x-auto [&::-webkit-scrollbar]:hidden flex-1">
-            <a href="#" class="px-4 py-2 rounded-xl text-xs font-bold transition-all duration-200 whitespace-nowrap bg-violet-500/10 text-violet-400 border border-violet-500/25">Semua</a>
-            <a href="#" class="px-4 py-2 rounded-xl text-xs font-bold transition-all duration-200 whitespace-nowrap bg-transparent text-zinc-500 hover:text-zinc-100 hover:bg-white/5">🚀 Aktif</a>
-            <a href="#" class="px-4 py-2 rounded-xl text-xs font-bold transition-all duration-200 whitespace-nowrap bg-transparent text-zinc-500 hover:text-zinc-100 hover:bg-white/5">✅ Selesai</a>
-            <a href="#" class="px-4 py-2 rounded-xl text-xs font-bold transition-all duration-200 whitespace-nowrap bg-transparent text-zinc-500 hover:text-zinc-100 hover:bg-white/5">📝 Draft</a>
+            <button @click="currentStatus = 'all'" 
+                    :class="currentStatus === 'all' ? 'bg-white text-black' : 'bg-transparent text-zinc-500 hover:text-zinc-100 hover:bg-white/5'" 
+                    class="px-4 py-2 rounded-xl text-xs font-bold transition-all duration-200 whitespace-nowrap">
+                Semua
+            </button>
+            <button @click="currentStatus = 'active'" 
+                    :class="currentStatus === 'active' ? 'bg-white text-black' : 'bg-transparent text-zinc-500 hover:text-zinc-100 hover:bg-white/5'" 
+                    class="px-4 py-2 rounded-xl text-xs font-bold transition-all duration-200 whitespace-nowrap flex items-center gap-1.5">
+                <span class="text-sm">🚀</span> Aktif
+            </button>
+            <button @click="currentStatus = 'completed'" 
+                    :class="currentStatus === 'completed' ? 'bg-white text-black' : 'bg-transparent text-zinc-500 hover:text-zinc-100 hover:bg-white/5'" 
+                    class="px-4 py-2 rounded-xl text-xs font-bold transition-all duration-200 whitespace-nowrap flex items-center gap-1.5">
+                <span class="text-sm">✅</span> Selesai
+            </button>
+            <button @click="currentStatus = 'draft'" 
+                    :class="currentStatus === 'draft' ? 'bg-white text-black' : 'bg-transparent text-zinc-500 hover:text-zinc-100 hover:bg-white/5'" 
+                    class="px-4 py-2 rounded-xl text-xs font-bold transition-all duration-200 whitespace-nowrap flex items-center gap-1.5">
+                <span class="text-sm">📝</span> Draft
+            </button>
         </div>
         <div class="relative w-full sm:w-auto">
             <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500"></i>
-            <input type="text" placeholder="Cari campaign..." class="bg-black border border-zinc-800 text-sm font-semibold text-white rounded-2xl py-3 pr-4 pl-10 outline-none transition-colors duration-200 w-full sm:w-[250px] focus:border-violet-400 focus:ring-4 focus:ring-violet-500/15">
+            <input type="text" 
+                   x-model="searchQuery"
+                   placeholder="Cari campaign..." 
+                   class="bg-black border border-zinc-800 text-sm font-semibold text-white rounded-2xl py-3 pr-4 pl-10 outline-none transition-colors duration-200 w-full sm:w-[250px] focus:border-violet-400 focus:ring-4 focus:ring-violet-500/15">
         </div>
     </div>
 
@@ -42,6 +61,10 @@
     @else
     {{-- CAMPAIGN GRID --}}
     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 lg:gap-6">
+        @php
+            $hasVisibleCampaigns = false;
+        @endphp
+        
         @foreach($campaigns as $c)
         @php
             $budgetValue     = (float) ($c->budget ?? 0);
@@ -68,7 +91,11 @@
             $thumbUrl = $c->thumbnail ? asset('storage/' . $c->thumbnail) : asset('images/brand/campaign-placeholder.png');
         @endphp
         
-        <div class="bg-neutral-900 border border-neutral-800 rounded-2xl relative overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:border-violet-900 hover:shadow-[0_10px_40px_rgba(91,33,182,0.15)] group flex flex-col {{ $status === 'draft' ? 'opacity-70 grayscale-[50%]' : '' }}">
+        <div class="bg-neutral-900 border border-neutral-800 rounded-2xl relative overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:border-violet-900 hover:shadow-[0_10px_40px_rgba(91,33,182,0.15)] group flex flex-col {{ $status === 'draft' ? 'opacity-70 grayscale-[50%]' : '' }}"
+             x-show="(currentStatus === 'all' || currentStatus === '{{ $status }}') && (searchQuery === '' || '{{ strtolower(addslashes($c->title)) }}'.includes(searchQuery.toLowerCase()))"
+             x-transition:enter="transition ease-out duration-200"
+             x-transition:enter-start="opacity-0 scale-95"
+             x-transition:enter-end="opacity-100 scale-100">
             {!! $glowEffect !!}
 
             {{-- THUMBNAIL IMAGE --}}
@@ -132,6 +159,16 @@
             </div>
         </div>
         @endforeach
+    </div>
+    
+    {{-- Empty State for Filtered Results --}}
+    <div x-show="currentStatus !== 'all' && !document.querySelectorAll('[x-show]:not([style*=\"display: none\"])').length" 
+         class="w-full flex flex-col items-center justify-center py-16 px-6 border border-dashed border-neutral-800 rounded-3xl bg-[#111111]/30 mt-8">
+        <div class="w-16 h-16 bg-neutral-900 border border-neutral-800 rounded-full flex items-center justify-center mb-4">
+            <i data-lucide="filter-x" class="w-6 h-6 text-slate-500"></i>
+        </div>
+        <h3 class="text-lg font-bold text-white mb-1">Tidak Ada Campaign</h3>
+        <p class="text-sm text-slate-500 text-center" x-text="'Tidak ada campaign dengan status ' + (currentStatus === 'active' ? 'Aktif' : currentStatus === 'completed' ? 'Selesai' : 'Draft')"></p>
     </div>
     @endif
 

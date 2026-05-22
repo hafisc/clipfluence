@@ -19,7 +19,7 @@
     </div>
 
     {{-- FORM --}}
-    <form action="#" method="POST" enctype="multipart/form-data" class="space-y-4">
+    <form id="submissionForm" method="POST" enctype="multipart/form-data" class="space-y-4" x-data="{ submitting: false }">
         @csrf
 
         {{-- STEP 1 — Campaign --}}
@@ -34,11 +34,11 @@
             <div class="p-6">
                 <label class="text-[0.7rem] font-bold text-slate-500 uppercase tracking-widest block mb-2">Campaign <span class="text-red-500 normal-case font-black">*</span></label>
                 <div class="relative">
-                    <select class="w-full bg-[#080808] border-none shadow-[0_0_0_1px_rgba(255,255,255,0.07)] rounded-xl py-3 px-4 text-[0.875rem] text-slate-200 outline-none transition-shadow duration-200 focus:shadow-[0_0_0_1.5px_rgba(139,92,246,0.5),_0_0_0_4px_rgba(139,92,246,0.07)] appearance-none cursor-pointer bg-no-repeat pr-10 [&>option]:bg-[#111] [&>option]:text-slate-200" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'12\' height=\'12\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23475569\' stroke-width=\'2.5\'%3E%3Cpath d=\'m6 9 6 6 6-6\'/%3E%3C/svg%3E'); background-position: right 1rem center;">
+                    <select name="campaign_id" required class="w-full bg-[#080808] border-none shadow-[0_0_0_1px_rgba(255,255,255,0.07)] rounded-xl py-3 px-4 text-[0.875rem] text-slate-200 outline-none transition-shadow duration-200 focus:shadow-[0_0_0_1.5px_rgba(139,92,246,0.5),_0_0_0_4px_rgba(139,92,246,0.07)] appearance-none cursor-pointer bg-no-repeat pr-10 [&>option]:bg-[#111] [&>option]:text-slate-200" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'12\' height=\'12\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23475569\' stroke-width=\'2.5\'%3E%3Cpath d=\'m6 9 6 6 6-6\'/%3E%3C/svg%3E'); background-position: right 1rem center;">
                         <option value="" disabled selected>Pilih campaign yang sedang kamu kerjakan…</option>
-                        <option value="1">Tokopedia 12.12 Mega Sale — Rp 20.000 / 1K Views</option>
-                        <option value="2">Skincare Routine Challenge - Wardah — Rp 25.000 / 1K Views</option>
-                        <option value="3">GoFood Promo Akhir Tahun — Rp 18.000 / 1K Views</option>
+                        @foreach(\App\Models\Campaign::where('status', 'active')->get() as $campaign)
+                            <option value="{{ $campaign->id }}">{{ $campaign->title }} — Rp {{ number_format($campaign->price_per_1k, 0, ',', '.') }} / 1K Views</option>
+                        @endforeach
                     </select>
                 </div>
             </div>
@@ -58,10 +58,10 @@
                     <div>
                         <label class="text-[0.7rem] font-bold text-slate-500 uppercase tracking-widest block mb-2">Platform Video <span class="text-red-500 normal-case font-black">*</span></label>
                         <div class="relative">
-                            <select class="w-full bg-[#080808] border-none shadow-[0_0_0_1px_rgba(255,255,255,0.07)] rounded-xl py-3 px-4 text-[0.875rem] text-slate-200 outline-none transition-shadow duration-200 focus:shadow-[0_0_0_1.5px_rgba(139,92,246,0.5),_0_0_0_4px_rgba(139,92,246,0.07)] appearance-none cursor-pointer bg-no-repeat pr-10 [&>option]:bg-[#111] [&>option]:text-slate-200" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'12\' height=\'12\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23475569\' stroke-width=\'2.5\'%3E%3Cpath d=\'m6 9 6 6 6-6\'/%3E%3C/svg%3E'); background-position: right 1rem center;">
-                                <option>TikTok</option>
-                                <option>Instagram Reels</option>
-                                <option>YouTube Shorts</option>
+                            <select name="platform" required class="w-full bg-[#080808] border-none shadow-[0_0_0_1px_rgba(255,255,255,0.07)] rounded-xl py-3 px-4 text-[0.875rem] text-slate-200 outline-none transition-shadow duration-200 focus:shadow-[0_0_0_1.5px_rgba(139,92,246,0.5),_0_0_0_4px_rgba(139,92,246,0.07)] appearance-none cursor-pointer bg-no-repeat pr-10 [&>option]:bg-[#111] [&>option]:text-slate-200" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'12\' height=\'12\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23475569\' stroke-width=\'2.5\'%3E%3Cpath d=\'m6 9 6 6 6-6\'/%3E%3C/svg%3E'); background-position: right 1rem center;">
+                                <option value="TikTok">TikTok</option>
+                                <option value="Instagram">Instagram Reels</option>
+                                <option value="YouTube">YouTube Shorts</option>
                             </select>
                         </div>
                     </div>
@@ -71,7 +71,7 @@
                             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                 <i data-lucide="eye" class="w-3.5 h-3.5 text-slate-600"></i>
                             </div>
-                            <input type="number" class="w-full bg-[#080808] border-none shadow-[0_0_0_1px_rgba(255,255,255,0.07)] rounded-xl py-3 px-4 text-[0.875rem] text-slate-200 placeholder-zinc-700 outline-none transition-shadow duration-200 focus:shadow-[0_0_0_1.5px_rgba(139,92,246,0.5),_0_0_0_4px_rgba(139,92,246,0.07)] appearance-none pl-9" placeholder="Contoh: 154000" min="0" required>
+                            <input type="number" name="views_claimed" class="w-full bg-[#080808] border-none shadow-[0_0_0_1px_rgba(255,255,255,0.07)] rounded-xl py-3 px-4 text-[0.875rem] text-slate-200 placeholder-zinc-700 outline-none transition-shadow duration-200 focus:shadow-[0_0_0_1.5px_rgba(139,92,246,0.5),_0_0_0_4px_rgba(139,92,246,0.07)] appearance-none pl-9" placeholder="Contoh: 154000" min="0" required>
                         </div>
                     </div>
                 </div>
@@ -81,7 +81,7 @@
                         <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                             <i data-lucide="link-2" class="w-3.5 h-3.5 text-slate-600"></i>
                         </div>
-                        <input type="url" class="w-full bg-[#080808] border-none shadow-[0_0_0_1px_rgba(255,255,255,0.07)] rounded-xl py-3 px-4 text-[0.875rem] text-slate-200 placeholder-zinc-700 outline-none transition-shadow duration-200 focus:shadow-[0_0_0_1.5px_rgba(139,92,246,0.5),_0_0_0_4px_rgba(139,92,246,0.07)] appearance-none pl-9" placeholder="https://www.tiktok.com/@kamu/video/..." required>
+                        <input type="url" name="video_url" class="w-full bg-[#080808] border-none shadow-[0_0_0_1px_rgba(255,255,255,0.07)] rounded-xl py-3 px-4 text-[0.875rem] text-slate-200 placeholder-zinc-700 outline-none transition-shadow duration-200 focus:shadow-[0_0_0_1.5px_rgba(139,92,246,0.5),_0_0_0_4px_rgba(139,92,246,0.07)] appearance-none pl-9" placeholder="https://www.tiktok.com/@kamu/video/..." required>
                     </div>
                 </div>
 
@@ -124,7 +124,7 @@
                         </div>
                     </div>
                 </label>
-                <input type="file" id="sf-file-input" name="screenshot" accept="image/*" class="hidden">
+                <input type="file" id="sf-file-input" name="analytics_proof" accept="image/*" class="hidden" required>
             </div>
         </div>
 
@@ -149,6 +149,45 @@
 
 @push('scripts')
 <script>
+// Form submission
+document.getElementById('submissionForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(this);
+    const submitButton = this.querySelector('button[type="submit"]');
+    const buttonText = submitButton.querySelector('span') || submitButton;
+    const originalText = buttonText.textContent;
+    
+    try {
+        submitButton.disabled = true;
+        buttonText.textContent = 'Mengirim...';
+        
+        const response = await fetch('{{ route('kreator.submissions.store') }}', {
+            method: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+            },
+            body: formData
+        });
+        
+        const data = await response.json();
+        
+        if (!response.ok) {
+            throw new Error(data.message || 'Terjadi kesalahan');
+        }
+        
+        alert(data.message);
+        window.location.href = '{{ route('kreator.submissions') }}';
+        
+    } catch (error) {
+        console.error('Error:', error);
+        alert(error.message || 'Terjadi kesalahan saat mengirim submission');
+        submitButton.disabled = false;
+        buttonText.textContent = originalText;
+    }
+});
+
+// File upload
 const input    = document.getElementById('sf-file-input');
 const dropzone = document.getElementById('sf-dropzone');
 const preview  = document.getElementById('sf-preview');

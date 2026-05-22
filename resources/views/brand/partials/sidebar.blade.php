@@ -3,7 +3,7 @@
 
     <!-- Logo -->
     <div class="h-20 flex items-center px-6 border-b border-neutral-800/50 flex-shrink-0">
-        <a href="{{ route('kreator.dashboard') }}" class="flex items-center gap-3 md:gap-3.5 group">
+        <a href="{{ route('brand.dashboard') }}" class="flex items-center gap-3 md:gap-3.5 group">
             <div class="w-9 h-9 flex items-center justify-center flex-shrink-0">
                 <img src="{{ asset('images/brand/logo-icon.png') }}" alt="Clipfluence" class="w-9 h-9 object-contain drop-shadow-[0_0_12px_rgba(139,92,246,0.6)]">
             </div>
@@ -13,16 +13,7 @@
         </a>
     </div>
 
-    <!-- User Mini Profile -->
-    {{-- <div class="px-6 py-4 flex items-center gap-3">
-        <div class="w-10 h-10 rounded-full bg-neutral-800 border border-neutral-700 flex items-center justify-center text-slate-300 font-bold">
-            {{ strtoupper(substr(auth()->user()->name, 0, 1)) }}
-        </div>
-        <div class="overflow-hidden">
-            <p class="text-sm font-semibold text-white truncate">{{ auth()->user()->name }}</p>
-            <p class="text-xs text-slate-500 truncate">Sisa Saldo: Rp {{ number_format(auth()->user()->balance ?? 0, 0, ',', '.') }}</p>
-        </div>
-    </div> --}}
+   
 
 
 

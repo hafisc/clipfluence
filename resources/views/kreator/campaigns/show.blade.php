@@ -3,7 +3,19 @@
 @section('title', $campaign['title'] . ' | Clipfluence')
 
 @section('content')
-<div class="max-w-7xl mx-auto pb-12 relative" x-data="{ applied: false }">
+<div class="max-w-7xl mx-auto pb-12 relative">
+
+    {{-- ALERT MESSAGES --}}
+    @if(session('success'))
+    <div class="bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-sm rounded-xl p-4 mb-4 mx-4 md:mx-0">
+        {{ session('success') }}
+    </div>
+    @endif
+    @if(session('error'))
+    <div class="bg-red-500/10 border border-red-500/30 text-red-400 text-sm rounded-xl p-4 mb-4 mx-4 md:mx-0">
+        {{ session('error') }}
+    </div>
+    @endif
 
     {{-- TOP NAVIGATION HEADER --}}
     <div class="flex items-center justify-between mb-6 relative z-20">
@@ -194,17 +206,28 @@
                         <p class="text-[0.7rem] text-slate-500">Pastikan kamu sudah membaca seluruh syarat.</p>
                     </div>
                     
-                    <template x-if="!applied">
-                        <button @click="applied = true" class="w-full bg-violet-600 hover:bg-violet-500 text-white font-black py-4 px-6 rounded-[1rem] transition-all shadow-[0_0_20px_rgba(139,92,246,0.3)] hover:shadow-[0_0_30px_rgba(139,92,246,0.5)] hover:-translate-y-0.5 flex justify-center items-center gap-2 group">
-                            Gabung Campaign 
-                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
-                        </button>
-                    </template>
-                    <template x-if="applied">
-                        <button disabled class="w-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-black py-4 px-6 rounded-[1rem] flex justify-center items-center gap-2 cursor-not-allowed">
+                    @if(!$isJoined)
+                        @if(!$campaign['full'])
+                            <form action="{{ route('kreator.campaigns.join', $campaign['id']) }}" method="POST">
+                                @csrf
+                                <button type="submit" class="w-full bg-violet-600 hover:bg-violet-500 text-white font-black py-4 px-6 rounded-[1rem] transition-all shadow-[0_0_20px_rgba(139,92,246,0.3)] hover:shadow-[0_0_30px_rgba(139,92,246,0.5)] hover:-translate-y-0.5 flex justify-center items-center gap-2 group">
+                                    Gabung Campaign 
+                                    <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                                </button>
+                            </form>
+                        @else
+                            <button disabled class="w-full bg-red-500/10 text-red-400 border border-red-500/20 font-black py-4 px-6 rounded-[1rem] flex justify-center items-center gap-2 cursor-not-allowed">
+                                <i data-lucide="x-circle" class="w-5 h-5"></i> Slot Penuh
+                            </button>
+                        @endif
+                    @else
+                        <button disabled class="w-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-black py-4 px-6 rounded-[1rem] flex justify-center items-center gap-2 cursor-not-allowed mb-3">
                             <i data-lucide="check-circle" class="w-5 h-5"></i> Sudah Bergabung
                         </button>
-                    </template>
+                        <a href="{{ route('kreator.submissions.create') }}" class="w-full bg-neutral-800 hover:bg-neutral-700 border border-neutral-700 text-white font-bold py-3 px-6 rounded-[1rem] flex justify-center items-center gap-2 transition-colors">
+                            <i data-lucide="upload" class="w-4 h-4"></i> Submit Pekerjaan
+                        </a>
+                    @endif
                 </div>
             </div>
             

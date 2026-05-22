@@ -33,8 +33,19 @@
         </button>
 
         <!-- Avatar -->
-        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-brand to-brand flex items-center justify-center text-white text-sm font-bold border border-neutral-700/50 shadow-sm cursor-default">
-            {{ strtoupper(substr(auth()->user()->name, 0, 1)) }}
+        @php
+            $user = auth()->user();
+            // Prioritas: 1. Google avatar, 2. DiceBear random avatar
+            $avatarUrl = $user->avatar 
+                ? $user->avatar 
+                : 'https://api.dicebear.com/7.x/avataaars/svg?seed=' . urlencode($user->email);
+        @endphp
+        
+        <div class="w-9 h-9 rounded-xl overflow-hidden border border-neutral-700/50 shadow-sm cursor-default">
+            <img src="{{ $avatarUrl }}" 
+                 alt="{{ $user->name }}" 
+                 class="w-full h-full object-cover"
+                 onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/avataaars/svg?seed={{ urlencode($user->email) }}';">
         </div>
     </div>
 </header>

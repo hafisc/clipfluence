@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title', 'Dashboard')
-@section('page_title', 'Ringkasan Dashboard')
+@section('page_title', 'Dashboard Overview')
 @section('page_subtitle', 'Ringkasan performa platform Clipfluence hari ini')
 
 @section('title', 'Dashboard')
@@ -95,7 +95,7 @@
                         </div>
                         <span class="text-xs font-bold text-white bg-red-500 rounded-full px-2 py-0.5">12</span>
                     </div>
-                    <p class="text-xs text-slate-500 mb-3">Video dikumpulkan & menunggu ditinjau sebelum masuk ke Brand.</p>
+                    <p class="text-xs text-slate-500 mb-3">Video di-submit & menunggu ditinjau sebelum masuk ke Brand.</p>
                     <a href="{{ route('admin.ugc') }}" class="text-xs font-medium text-brand hover:text-brand-light flex items-center gap-1 w-max">
                         Tinjau Sekarang <i data-lucide="arrow-right" class="w-3 h-3"></i>
                     </a>
@@ -125,7 +125,7 @@
                         </div>
                         <span class="text-xs font-bold text-emerald-500 bg-emerald-500/10 border border-emerald-500/20 rounded-full px-2 py-0.5">7</span>
                     </div>
-                    <p class="text-xs text-slate-500 mb-3">Permintaan pembayaran dari wallet kreator ke rekening Bank.</p>
+                    <p class="text-xs text-slate-500 mb-3">Permintaan payout dari wallet kreator ke rekening Bank.</p>
                     <a href="{{ route('admin.withdrawals') }}" class="text-xs font-medium text-emerald-500 hover:text-emerald-400 flex items-center gap-1 w-max">
                         Proses Transfer <i data-lucide="arrow-right" class="w-3 h-3"></i>
                     </a>
@@ -138,7 +138,7 @@
             <div class="flex items-center justify-between mb-6">
                 <div>
                     <h3 class="text-lg font-bold text-white">Kinerja Keuangan</h3>
-                    <p class="text-xs text-slate-400 mt-1">Pergerakan Escrow VS Biaya Platform (30 hari)</p>
+                    <p class="text-xs text-slate-400 mt-1">Pergerakan Escrow VS Platform Fee (30 hari)</p>
                 </div>
                 <select class="bg-neutral-800 border border-neutral-700 text-slate-300 text-xs rounded-lg px-3 py-1.5 focus:outline-none focus:border-brand">
                     <option>Bulan Ini</option>
@@ -217,7 +217,7 @@
             <div class="flex items-center justify-between mb-6">
                 <div>
                     <h3 class="text-lg font-bold text-white">Campaign Paling Aktif</h3>
-                    <p class="text-xs text-slate-400 mt-1">Berdasarkan volume pengumpulan UGC</p>
+                    <p class="text-xs text-slate-400 mt-1">Berdasarkan volume submission UGC</p>
                 </div>
                 <a href="{{ route('admin.campaigns') }}" class="text-xs text-brand hover:text-brand-light font-medium transition-colors">Kelola →</a>
             </div>

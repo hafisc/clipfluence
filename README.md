@@ -1,81 +1,80 @@
-<div align="center">
-  <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="300" alt="Laravel Logo">
+# Clipfluence
 
-  <h1>✨ Clipfluence ✨</h1>
-  
-  <p><strong>Platform Berbasis Web Inovatif untuk Kolaborasi Brand dan Kreator</strong></p>
+Clipfluence adalah platform berbasis web yang dibangun menggunakan **Laravel 12** dan **TailwindCSS 4**.
 
-  <p>
-    <a href="https://laravel.com/"><img src="https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" alt="Laravel"></a>
-    <a href="https://tailwindcss.com/"><img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="TailwindCSS"></a>
-    <a href="https://www.php.net/"><img src="https://img.shields.io/badge/PHP_8.2+-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP"></a>
-    <a href="https://vitejs.dev/"><img src="https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E" alt="Vite"></a>
-  </p>
-</div>
+## Prasyarat
+
+Sebelum menginstal dan menjalankan website ini, pastikan sistem Anda telah terinstal:
+- **PHP** >= 8.2
+- **Composer** (untuk dependensi backend PHP)
+- **Node.js** dan **npm** (untuk dependensi frontend JS/CSS)
+- Server Database (MySQL / MariaDB / SQLite / PostgreSQL dll). Penggunaan **Laragon** sangat disarankan jika Anda menggunakan Windows.
+- **FFmpeg** (untuk video processing)
+- **yt-dlp** (untuk download video dari YouTube/TikTok)
+
+### Instalasi FFmpeg dan yt-dlp
+
+**Windows (menggunakan WinGet):**
+```bash
+winget install FFmpeg
+winget install yt-dlp
+```
+
+**Windows (menggunakan Chocolatey):**
+```bash
+choco install ffmpeg
+choco install yt-dlp
+```
+
+**Linux (Ubuntu/Debian):**
+```bash
+sudo apt update
+sudo apt install ffmpeg
+sudo apt install yt-dlp
+```
+
+**macOS (menggunakan Homebrew):**
+```bash
+brew install ffmpeg
+brew install yt-dlp
+```
+
+> **Catatan:** Setelah instalasi, restart terminal Anda dan verifikasi dengan menjalankan `ffmpeg -version` dan `yt-dlp --version`
 
 ---
 
-## 🚀 Fitur Utama
-- 🌟 **Dashboard Premium** untuk Brand dan Kreator.
-- 💳 **Integrasi Midtrans** untuk sistem pembayaran yang aman.
-- 🔒 **Google OAuth** untuk proses registrasi dan login yang mulus.
-- 🎨 **UI/UX Modern** menggunakan TailwindCSS 4.
+## Langkah-Langkah Menjalankan Website (Lokal)
 
----
+Ikuti langkah-langkah di bawah ini untuk mengonfigurasi dan menjalankan project Clipfluence di komputer Anda:
 
-## 🛠️ Prasyarat (*Prerequisites*)
-
-Sebelum menginstal dan menjalankan website ini, pastikan sistem Anda telah memiliki perangkat lunak berikut:
-
-| Kebutuhan | Versi Minimal | Keterangan |
-| --------- | ------------- | ---------- |
-| **PHP** | `>= 8.2` | Bahasa pemrograman utama backend. |
-| **Composer** | `Latest` | Dependency manager untuk PHP. |
-| **Node.js** | `>= 18.0` | Environment Javascript untuk frontend (Vite). |
-| **NPM** | `Latest` | Node Package Manager untuk dependensi frontend. |
-| **Database**| `MySQL 8 / SQLite`| Penggunaan **Laragon** sangat direkomendasikan untuk pengguna Windows. |
-
----
-
-## ⚙️ Cara Menjalankan Project (Local Setup)
-
-Ikuti langkah-langkah di bawah ini untuk mengonfigurasi dan menjalankan aplikasi Clipfluence di komputer Anda:
-
-<details>
-<summary><b>1. Kloning Repository (Opsional)</b></summary>
-
-Jika Anda belum mengunduh source code, lakukan *cloning* melalui terminal:
+### 1. Kloning Repository (Opsional)
+Jika Anda mengambil source code melalui Git, lakukan cloning:
 ```bash
 git clone https://github.com/hafisc/clipfluence.git
 cd clipfluence
 ```
-</details>
+*(Lewati langkah ini jika Anda sudah berada di dalam folder source code)*
 
-<details>
-<summary><b>2. Install Dependencies (PHP & Node)</b></summary>
-
-Instal paket backend dan frontend yang dibutuhkan aplikasi:
-
+### 2. Instalasi Dependensi PHP (Backend)
+Jalankan perintah Composer di terminal untuk menginstal kerangka kerja Laravel dan package pihak ketiga lainnya:
 ```bash
-# 1. Install dependensi backend (Laravel)
 composer install
+```
 
-# 2. Install dependensi frontend (Vite & Tailwind)
+### 3. Instalasi Dependensi NPM (Frontend)
+Jalankan NPM untuk menginstal library Javascript, Vite, dan Tailwind CSS:
+```bash
 npm install
 ```
-</details>
 
-<details>
-<summary><b>3. Konfigurasi Environment (`.env`)</b></summary>
-
-Salin file konfigurasi bawaan agar dapat diatur sesuai perangkat lokal Anda:
-
+### 4. Konfigurasi Environment (`.env`)
+Laravel membutuhkan file `.env` untuk pengaturan dasar (seperti database). Anda perlu menyalinnya dari file contoh:
 ```bash
 cp .env.example .env
 ```
-*(Pengguna Windows CMD dapat menggunakan perintah: `copy .env.example .env`)*
+*(Pengguna Windows di Command Prompt bisa menggunakan `copy .env.example .env` atau dapat men-copy paste file secara manual).*
 
-Buka file `.env` dan atur koneksi database Anda (Contoh menggunakan MySQL Laragon):
+Setelah `.env` dibuat, **buka file tersebut** dan sesuaikan baris *Database* (biasanya di baris-baris awal). Contoh penggunaan MySQL dengan Laragon standar:
 ```env
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
@@ -84,51 +83,137 @@ DB_DATABASE=clipfluence
 DB_USERNAME=root
 DB_PASSWORD=
 ```
-> 💡 **Tip:** Pastikan Anda membuat database kosong bernama `clipfluence` pada HeidiSQL/phpMyAdmin. Jika ingin cepat tanpa MySQL, ubah `DB_CONNECTION=sqlite` dan hapus variabel koneksi lainnya.
-</details>
+> **Catatan:** Pastikan Anda sudah membuat database kosong bernama `clipfluence` pada HeidiSQL / phpMyAdmin agar aplikasi bisa terkoneksi dengan sukses. Jika ingin langkah yang instan, ubah `DB_CONNECTION=sqlite` dan hapus konfigurasi koneksi DB lainnya.
 
-<details>
-<summary><b>4. Generate Key & Migrasi Database</b></summary>
-
-Buat kunci enkripsi aplikasi dan buat struktur tabel database beserta data awal (*seed*):
-
+### 5. Generate Application Key
+Lakukan generate kunci keamanan utama aplikasi Laravel dengan perintah:
 ```bash
-# Generate app key
 php artisan key:generate
-
-# Migrasi tabel dan seeding data
-php artisan migrate --seed
 ```
-</details>
 
-<details>
-<summary><b>5. Konfigurasi Storage & Serve! 🚀</b></summary>
-
-Hubungkan storage gambar dan jalankan server pengembangan:
-
+### 6. Migrasi Database
+Buat dan susun tabel-tabel di database (tabel User, dll) menggunakan fitur migrasi Laravel dengan perintah:
 ```bash
-# Link storage folder
-php artisan storage:link
+php artisan migrate
+```
+*(Bila ada prompt/konfirmasi pembuatan database saat menjalankan migrasi, ketik `yes`)*
 
-# Jalankan server backend & frontend secara bersamaan
-composer run dev
+### 7. Konfigurasi Queue Driver
+Untuk fitur AI Auto-Clipper, aplikasi menggunakan queue system. Ubah konfigurasi queue di file `.env`:
+```env
+QUEUE_CONNECTION=database
 ```
 
-> **Cara Alternatif (Buka 2 Terminal):**
-> Terminal 1: `php artisan serve`
-> Terminal 2: `npm run dev`
-</details>
+Kemudian jalankan migrasi untuk membuat tabel jobs:
+```bash
+php artisan migrate
+```
+
+### 8. Menjalankan Server Pengembangan (Dev Server)
+Karena project ini menggunakan Vite untuk kompilasi CSS (Tailwind) dan Javascript, serta Queue Worker untuk processing video, Anda perlu menjalankan **3 terminal** secara bersamaan:
+
+**Terminal 1 - Laravel Server (Backend):**
+```bash
+php artisan serve
+```
+
+**Terminal 2 - Vite Dev Server (Frontend):**
+```bash
+npm run dev
+```
+
+**Terminal 3 - Queue Worker (Video Processing):**
+```bash
+php artisan queue:work --timeout=300 --tries=1
+```
+
+> **PENTING:** Queue Worker (Terminal 3) **WAJIB** dijalankan agar fitur AI Auto-Clipper berfungsi. Tanpa queue worker, video tidak akan diproses dan akan stuck di status "Menunggu Antrian".
+
+**Tips Queue Worker:**
+- Jika Anda melakukan perubahan code di `app/Jobs/`, restart queue worker dengan: `php artisan queue:restart` kemudian jalankan ulang `php artisan queue:work`
+- Untuk membersihkan antrian yang gagal: `php artisan queue:clear`
+- Untuk test satu job saja: `php artisan queue:work --once`
+
+### 9. Selesai 🎉
+Buka browser dan kunjungi: **http://127.0.0.1:8000** atau **http://localhost:8000**.
+Jika Anda menggunakan fitur Auto Virtual Hosts Laragon, Anda juga bisa langsung mengakses alamat **http://clipfluence.test**.
+
+**Pastikan 3 terminal tetap berjalan:**
+- ✅ Terminal 1: `php artisan serve`
+- ✅ Terminal 2: `npm run dev`
+- ✅ Terminal 3: `php artisan queue:work --timeout=300 --tries=1`
 
 ---
 
-## 🎉 Selesai!
-
-Jika semuanya berhasil, buka browser Anda dan akses aplikasi melalui:
-
-👉 **[http://localhost:8000](http://localhost:8000)** atau **[http://clipfluence.test](http://clipfluence.test)** (jika menggunakan Laragon Auto Virtual Host).
+## Tumpukan Teknologi (Tech Stack)
+- **Framework Utama:** [Laravel 12](https://laravel.com/)
+- **Frontend / Styling:** [Tailwind CSS 4](https://tailwindcss.com/)
+- **Bundler:** [Vite](https://vitejs.dev/)
+- **HTTP Client (AJAX):** [Axios](https://axios-http.com/)
+- **Video Processing:** [FFmpeg](https://ffmpeg.org/)
+- **Video Downloader:** [yt-dlp](https://github.com/yt-dlp/yt-dlp)
+- **AI API:** [Groq](https://groq.com/) (untuk analisis video)
 
 ---
 
-<div align="center">
-  <i>Dibuat dengan ❤️ oleh Kelompok 4.</i>
-</div>
+## Troubleshooting
+
+### Video tidak diproses / stuck di "Menunggu Antrian"
+**Solusi:** Pastikan queue worker berjalan di terminal ke-3:
+```bash
+php artisan queue:work --timeout=300 --tries=1
+```
+
+### Error "FFmpeg not found" atau "yt-dlp not found"
+**Solusi:** Install FFmpeg dan yt-dlp sesuai petunjuk di bagian Prasyarat, kemudian restart terminal.
+
+### Queue worker error setelah update code
+**Solusi:** Restart queue worker:
+```bash
+php artisan queue:restart
+php artisan queue:work --timeout=300 --tries=1
+```
+
+### Membersihkan antrian yang gagal
+```bash
+php artisan queue:clear
+```
+
+### Test queue worker dengan 1 job saja
+```bash
+php artisan queue:work --once
+```
+
+---
+
+## Fitur Utama
+
+### 🎬 AI Auto-Clipper
+Fitur unggulan yang memungkinkan kreator untuk:
+- Paste link video dari YouTube, TikTok, atau platform lainnya
+- AI akan menganalisis dan memotong bagian terbaik secara otomatis
+- Pilih orientasi: Vertical (9:16) untuk TikTok/Reels atau Horizontal (16:9) untuk YouTube
+- Pilih kualitas: SD (480p), HD (720p), atau Full HD (1080p)
+- Pilih durasi clip: 30, 60, atau 90 detik
+- Generate 1-5 clip sekaligus
+- Auto-Captions: Subtitle otomatis dari audio
+- Real-time progress tracking dengan 4 tahap: Analyzing → Downloading → Processing → Uploading
+- Riwayat generate dengan filter dan download ulang
+
+### 👥 Role Management
+- **Brand:** Buat campaign, kelola budget, review submission
+- **Kreator:** Join campaign, submit konten, withdraw earnings
+- **Admin:** Kelola users, campaigns, dan transaksi
+
+### 💰 Finance System
+- Deposit untuk Brand
+- Withdrawal untuk Kreator
+- Integrasi Midtrans payment gateway
+
+---
+
+## Kontribusi
+Pull requests are welcome! Untuk perubahan besar, silakan buka issue terlebih dahulu untuk mendiskusikan apa yang ingin Anda ubah.
+
+## Lisensi
+[MIT](https://choosealicense.com/licenses/mit/)

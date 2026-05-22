@@ -40,54 +40,62 @@
     {{-- ===== STAT CARDS: 2-col mobile → 4-col desktop ===== --}}
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4">
         
-        <div class="bg-neutral-900 border border-neutral-800 rounded-2xl transition-all duration-200 active:scale-95 p-4 lg:p-5 text-left">
-            <div class="flex items-start justify-between mb-3 lg:mb-4">
+        {{-- Card 1: Saldo Deposit --}}
+        <div class="bg-neutral-900 border border-neutral-800 rounded-2xl transition-all duration-200 active:scale-95 p-4 lg:p-5 text-left flex flex-col justify-between h-full">
+            <div class="flex items-center gap-3 mb-3 lg:mb-4">
                 <div class="w-9 h-9 lg:w-11 lg:h-11 rounded-xl  flex items-center justify-center">
-                    <img src="{{ asset('assets/images/money.png') }}" alt="Coin" class="w-6 h-6"> 
+                    <img src="{{ asset('assets/images/money.png') }}" alt="Coin" class="w-5 h-5 lg:w-6 lg:h-6 drop-shadow-lg"> 
                 </div>
-                <p class="text-[10px] lg:text-xs text-slate-500 font-semibold mb-1">Saldo Deposit</p>
+                <p class="text-[10px] lg:text-[11px] text-slate-400 font-semibold uppercase tracking-wider">Saldo Deposit</p>
             </div>
             <h2 class="text-lg lg:text-2xl font-black text-white leading-none">
                 <span class="text-xs lg:text-lg text-slate-400 font-bold mr-0.5">Rp</span>{{ number_format($balance, 0, ',', '.') }}
             </h2>
         </div>
 
-        <div class="bg-neutral-900 border border-neutral-800 rounded-2xl transition-all duration-200 active:scale-95 p-4 lg:p-5 text-left">
-            <div class="flex items-start justify-between mb-3 lg:mb-4">
-                <div class="w-9 h-9 lg:w-11 lg:h-11 rounded-xl  flex items-center justify-center">
-                    <img src="{{ asset('assets/images/fire.png') }}" alt="View" class="w-6 h-6">
+        {{-- Card 2: Total Views --}}
+        <div class="bg-neutral-900 border border-neutral-800 rounded-2xl transition-all duration-200 active:scale-95 p-4 lg:p-5 text-left flex flex-col justify-between h-full">
+            <div class="flex items-center gap-3 mb-3 lg:mb-4">
+                <div class="w-9 h-9 lg:w-11 lg:h-11 rounded-xl flex items-center justify-center">
+                    <img src="{{ asset('assets/images/fire.png') }}" alt="View" class="w-5 h-5 lg:w-6 lg:h-6 drop-shadow-lg">
                 </div>
-                 <p class="text-[10px] lg:text-xs text-slate-500 font-semibold mb-1">Total Views</p>
+                 <p class="text-[10px] lg:text-[11px] text-slate-400 font-semibold uppercase tracking-wider">Total Views</p>
             </div>
-           
             <h2 class="text-lg lg:text-2xl font-black text-white leading-none">
                 {{ number_format($totalViews, 0, ',', '.') }}
             </h2>
         </div>
 
-        <div class="bg-neutral-900 border border-neutral-800 rounded-2xl transition-all duration-200 active:scale-95 p-4 lg:p-5 text-left">
-            <div class="flex items-start justify-between mb-3 lg:mb-4">
-                <div class="w-9 h-9 lg:w-11 lg:h-11 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center">
+        {{-- Card 3: Video UGC Dibuat --}}
+        <div class="bg-neutral-900 border border-neutral-800 rounded-2xl transition-all duration-200 active:scale-95 p-4 lg:p-5 text-left flex flex-col justify-between h-full">
+            <div class="flex items-center gap-3 mb-3 lg:mb-4">
+                <div class="w-9 h-9 lg:w-11 lg:h-11 rounded-xl  flex items-center justify-center">
                     <span class="text-xl lg:text-2xl drop-shadow-[0_2px_4px_rgba(59,130,246,0.3)]">🎥</span>
                 </div>
+                <p class="text-[10px] lg:text-[11px] text-slate-400 font-semibold uppercase tracking-wider">Video UGC Dibuat</p>
             </div>
-            <p class="text-[10px] lg:text-xs text-slate-500 font-semibold mb-1">Video UGC Dibuat</p>
             <h2 class="text-lg lg:text-2xl font-black text-white leading-none">{{ $totalUgc }}</h2>
         </div>
 
-        <div class="bg-neutral-900 border border-neutral-800 rounded-2xl transition-all duration-200 active:scale-95 p-4 lg:p-5 relative overflow-hidden text-left">
+        {{-- Card 4: Menunggu Review --}}
+        <div class="bg-neutral-900 border border-neutral-800 rounded-2xl transition-all duration-200 active:scale-95 p-4 lg:p-5 relative overflow-hidden text-left flex flex-col justify-between h-full">
             <div class="absolute -right-4 -bottom-4 w-20 h-20 bg-amber-500/10 rounded-full blur-xl pointer-events-none"></div>
-            <div class="flex items-start justify-between mb-3 lg:mb-4 relative z-10">
-                <div class="w-9 h-9 lg:w-11 lg:h-11 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center">
-                    <span class="text-xl lg:text-2xl drop-shadow-[0_2px_4px_rgba(245,158,11,0.3)]">⏳</span>
+            
+            <div class="flex items-start justify-between mb-3 lg:mb-4 relative z-10 w-full">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 lg:w-11 lg:h-11 rounded-xl  flex items-center justify-center shrink-0">
+                        <span class="text-xl lg:text-2xl drop-shadow-[0_2px_4px_rgba(245,158,11,0.3)]">⏳</span>
+                    </div>
+                    <p class="text-[10px] lg:text-[11px] text-slate-400 font-semibold uppercase tracking-wider">Menunggu Review</p>
                 </div>
+                
                 @if($pendingReview > 0)
-                <span class="text-[9px] font-bold text-amber-400 bg-amber-500/10 border border-amber-500/30 px-1.5 py-0.5 rounded-full animate-pulse">
-                    Butuh Tindakan
+                <span class="text-[9px] font-bold text-amber-400 bg-amber-500/10 border border-amber-500/30 px-1.5 py-0.5 rounded-full animate-pulse whitespace-nowrap shrink-0 mt-1">
+                    Action Needed
                 </span>
                 @endif
             </div>
-            <p class="text-[10px] lg:text-xs text-amber-500/80 font-bold mb-1 relative z-10">Menunggu Review</p>
+            
             <h2 class="text-lg lg:text-2xl font-black text-white leading-none relative z-10">{{ $pendingReview }}</h2>
         </div>
 

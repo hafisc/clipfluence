@@ -40,7 +40,7 @@ $vals = [45,62,38,80,60,95,72,88,55,90,75,100];
 
         <div class="bg-neutral-900/60 border border-neutral-800/60 rounded-2xl p-6">
             <h3 class="text-sm font-semibold text-white mb-1">Top Kreator Bulan Ini</h3>
-            <p class="text-xs text-slate-500 mb-4">Berdasarkan total penonton konten UGC</p>
+            <p class="text-xs text-slate-500 mb-4">Berdasarkan total views konten UGC</p>
             <div class="space-y-3">
                 @foreach([['name'=>'Hana Creator','views'=>'3.1M','growth'=>'+22%'],['name'=>'Rafi Ananda','views'=>'1.2M','growth'=>'+14%'],['name'=>'Luna Aesthetic','views'=>'890K','growth'=>'+9%'],['name'=>'Rizky Clips','views'=>'640K','growth'=>'+5%'],['name'=>'Nadia UGC','views'=>'410K','growth'=>'+3%']] as $i => $k)
                 <div class="flex items-center gap-3">

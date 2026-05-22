@@ -130,7 +130,7 @@
             </div>
 
             <div class="mb-8">
-                <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">Atau Jumlah Lain</label>
+                <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">Atau Nominal Lainnya</label>
                 <div class="relative">
                     <span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 font-bold">Rp</span>
                     <input type="number" x-model="amount" class="w-full bg-black border border-zinc-800 rounded-xl py-3 pl-12 pr-4 text-white text-sm font-bold focus:outline-none focus:border-violet-500/50 transition-colors" placeholder="Minimum 10000" min="10000">
@@ -156,7 +156,7 @@ document.addEventListener('alpine:init', () => {
 
         processPayment() {
             if(this.amount < 10000) {
-                Swal.fire({ icon: 'error', title: 'Oops...', text: 'Minimal pengisian saldo adalah Rp 10.000', background: '#111', color: '#fff' });
+                Swal.fire({ icon: 'error', title: 'Oops...', text: 'Minimal topup adalah Rp 10.000', background: '#111', color: '#fff' });
                 return;
             }
 

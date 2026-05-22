@@ -3,7 +3,7 @@
 
     <!-- Logo -->
     <div class="h-20 flex items-center px-6 border-b border-neutral-800/50 flex-shrink-0">
-        <a href="{{ route('kreator.dashboard') }}" class="flex items-center gap-3 md:gap-3.5 group" title="Dashboard Kreator">
+        <a href="{{ route('kreator.dashboard') }}" class="flex items-center gap-3 md:gap-3.5 group">
             <div class="w-9 h-9 flex items-center justify-center flex-shrink-0">
                 <img src="{{ asset('images/brand/logo-icon.png') }}" alt="Clipfluence" class="w-9 h-9 object-contain drop-shadow-[0_0_12px_rgba(139,92,246,0.6)]">
             </div>
@@ -15,10 +15,10 @@
 
 
 
-    <!-- Navigasi -->
+    <!-- Navigation -->
     <nav class="flex-1 overflow-y-auto px-4 py-6 space-y-2">
 
-        <div class="text-[10px] font-bold text-slate-600 uppercase tracking-widest px-4 mb-2">Menu Utama</div>
+        <div class="text-[10px] font-bold text-slate-600 uppercase tracking-widest px-4 mb-2">Main Menu</div>
 
         <a href="{{ route('kreator.dashboard') }}" class="kreator-link {{ request()->routeIs('kreator.dashboard') ? 'active' : '' }}">
             <i data-lucide="layout-grid" class="w-4 h-4 flex-shrink-0"></i>
@@ -31,7 +31,7 @@
                 Cari Campaign
             </div>
             <span class="bg-violet-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
-                <div class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></div> {{ \App\Models\Campaign::where('status', 'active')->count() }} Pekerjaan
+                <div class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></div> {{ \App\Models\Campaign::where('status', 'active')->count() }} Job
             </span>
         </a>
 
@@ -42,9 +42,9 @@
         </a>
 
         <div class="h-4"></div>
-        <div class="text-[10px] font-bold text-slate-600 uppercase tracking-widest px-4 mb-2">Pekerjaan & Keuangan</div>
+        <div class="text-[10px] font-bold text-slate-600 uppercase tracking-widest px-4 mb-2">Pekerjaan & Finance</div>
 
-        <!-- Dropdown: Pekerjaan & Pengiriman -->
+        <!-- Dropdown: Tugas & Submit -->
         <div x-data="{ open: {{ request()->routeIs('kreator.submissions*') ? 'true' : 'false' }} }">
             <button @click="open = !open" class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium hover:text-white hover:bg-neutral-800/50 transition-all duration-200 {{ request()->routeIs('kreator.submissions*') ? 'text-white bg-neutral-900' : 'text-slate-400' }}">
                 <div class="flex items-center gap-3">
@@ -68,7 +68,7 @@
 
     </nav>
 
-    <!-- Footer Keluar -->
+    <!-- Logout Footer -->
     <div class="p-4 border-t border-neutral-800/50">
         <form method="POST" action="{{ route('logout') }}">
             @csrf

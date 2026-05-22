@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('title', 'Moderasi Konten UGC')
 @section('page_title', 'Moderasi Konten UGC')
-@section('page_subtitle', 'Periksa dan setujui/tolak video konten kreator')
+@section('page_subtitle', 'Review dan approve/reject video konten kreator')
 
 @section('content')
 @php

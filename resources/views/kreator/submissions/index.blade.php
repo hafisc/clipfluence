@@ -41,17 +41,10 @@
             <div class="col-span-1 text-right">Aksi</div>
         </div>
 
-        @php
-            $history = [
-                ['id' => 1, 'campaign' => 'Tokopedia 12.12 Mega Sale', 'platform' => 'TikTok', 'status' => 'Pending Review', 'color' => 'bg-amber-500/10 text-amber-400 shadow-[inset_0_0_0_1px_rgba(245,158,11,0.25)]', 'views' => '120.000', 'potensi' => 'Rp 2.400.000', 'date' => 'Hari ini, 14:30'],
-                ['id' => 2, 'campaign' => 'Skincare Routine Challenge - Wardah', 'platform' => 'IG Reels', 'status' => 'Pending Review', 'color' => 'bg-amber-500/10 text-amber-400 shadow-[inset_0_0_0_1px_rgba(245,158,11,0.25)]', 'views' => '45.000', 'potensi' => 'Rp 1.125.000', 'date' => 'Hari ini, 09:15'],
-                ['id' => 3, 'campaign' => 'Review Kopi Kenangan Edisi Gold', 'platform' => 'TikTok', 'status' => 'Dibayar', 'color' => 'bg-emerald-500/10 text-emerald-400 shadow-[inset_0_0_0_1px_rgba(16,185,129,0.25)]', 'views' => '2.100.000', 'potensi' => 'Rp 42.000.000', 'date' => 'Kemarin, 11:20'],
-                ['id' => 4, 'campaign' => 'Unboxing Raket Badminton Pro', 'platform' => 'YouTube Shorts', 'status' => 'Ditolak', 'color' => 'bg-red-500/10 text-red-300 shadow-[inset_0_0_0_1px_rgba(239,68,68,0.25)]', 'views' => '8.000', 'potensi' => 'Rp 160.000', 'date' => '24 Mar 2026', 'alasan' => 'Bukti screenshot terdeteksi buram/resolusi sangat rendah. Harap unggah screenshot asli dari aplikasi Creator Studio tanpa dikompresi.'],
-            ];
-        @endphp
+        {{-- $history data is now passed dynamically from the Controller --}}
 
         <div class="flex flex-col">
-            @foreach($history as $h)
+            @forelse($history as $h)
             <div class="p-5 transition-colors duration-200 flex flex-col md:flex-row md:grid md:grid-cols-12 md:gap-4 md:items-center border-b border-white/5 last:border-0 hover:bg-white/[0.02] relative group">
                 
                 {{-- Column 1: Campaign & Icon (Col: 5) --}}
@@ -70,7 +63,7 @@
                         <p class="text-[10px] font-semibold text-slate-500 uppercase tracking-widest">{{ $h['platform'] }} <span class="mx-1">•</span> {{ $h['date'] }}</p>
                     </div>
                 </div>
-
+                
                 {{-- Mobile divider --}}
                 <div class="md:hidden w-full h-px bg-white/5 my-2"></div>
 
@@ -91,30 +84,22 @@
                 </div>
 
                 {{-- Desktop Columns --}}
-                {{-- Column 2: Views (Col: 2) --}}
                 <div class="hidden md:block md:col-span-2 text-right">
                     <p class="text-sm font-black text-white">{{ $h['views'] }}</p>
                     <p class="text-[10px] font-semibold text-slate-500 mt-0.5 uppercase tracking-widest"><i data-lucide="eye" class="inline w-3 h-3 text-slate-600 mr-0.5"></i> Views</p>
                 </div>
-
-                {{-- Column 3: Estimasi (Col: 2) --}}
                 <div class="hidden md:block md:col-span-2 text-right">
                     <p class="text-[13px] font-black {{ $h['status'] === 'Ditolak' ? 'text-slate-500 line-through opacity-50' : ($h['status'] === 'Dibayar' ? 'text-emerald-400' : 'text-amber-400') }}">{{ $h['potensi'] }}</p>
                 </div>
-
-                {{-- Column 4: Status (Col: 2) --}}
                 <div class="hidden md:flex md:col-span-2 justify-center">
                     <span class="px-3 py-1.5 rounded-full text-[0.65rem] font-black tracking-widest uppercase inline-flex items-center justify-center whitespace-nowrap {{ $h['color'] }}">{{ $h['status'] }}</span>
                 </div>
-
-                {{-- Column 5: Action (Col: 1) --}}
                 <div class="hidden md:flex md:col-span-1 justify-end">
                     <a href="#" class="w-8 h-8 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center text-slate-400 hover:text-white transition-colors" title="Lihat Detail">
                         <i data-lucide="chevron-right" class="w-4 h-4"></i>
                     </a>
                 </div>
 
-                {{-- Warning Dropdown Area if Rejected --}}
                 @if(isset($h['alasan']))
                     <div class="md:col-span-12 mt-2 w-full">
                         <div class="p-3 rounded-xl bg-red-500/10 border border-red-500/20 flex gap-3 items-start">
@@ -129,7 +114,16 @@
                 @endif
                 
             </div>
-            @endforeach
+            @empty
+            <div class="p-12 text-center flex flex-col items-center justify-center">
+                <div class="w-16 h-16 bg-neutral-900 border border-white/5 rounded-full flex items-center justify-center mb-4">
+                    <i data-lucide="inbox" class="w-6 h-6 text-slate-500"></i>
+                </div>
+                <h3 class="text-white font-bold mb-1">Belum ada riwayat</h1>
+                <p class="text-xs text-slate-500 max-w-xs">Kamu belum mengumpulkan tugas campaign apa pun. Mulai cari campaign yang cocok!</p>
+                <a href="{{ route('kreator.campaigns') }}" class="mt-5 text-xs text-violet-400 hover:text-white font-bold bg-violet-500/10 px-4 py-2 rounded-lg transition-colors">Cari Campaign</a>
+            </div>
+            @endforelse
         </div>
         
     </div>
