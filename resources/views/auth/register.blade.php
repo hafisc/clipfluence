@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-<form action="#" method="POST" class="space-y-5" x-data="{ role: 'creator' }">
+<form action="{{ route('register') }}" method="POST" class="space-y-5" x-data="{ role: '{{ request()->query('role') === 'brand' ? 'brand' : 'creator' }}' }">
     @csrf
 
     <!-- Pilihan Role (Tabs/Radio) -->

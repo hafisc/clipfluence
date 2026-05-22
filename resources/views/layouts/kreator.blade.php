@@ -54,6 +54,9 @@
         </div>
     </div>
 
+    <!-- Tombol Kontak Floating (pojok kanan bawah) -->
+    @include('partials.floating-contact')
+
     <script>
         document.addEventListener('DOMContentLoaded', () => lucide.createIcons());
     </script>

@@ -31,8 +31,8 @@
             <div>
                 <h3 class="text-white font-semibold mb-4">Pengguna</h3>
                 <ul class="space-y-3">
-                    <li><a href="#" class="text-slate-400 hover:text-white text-sm transition-colors">Untuk Kreator & Clipper</a></li>
-                    <li><a href="#" class="text-slate-400 hover:text-white text-sm transition-colors">Untuk Brand & Agensi</a></li>
+                    <li><a href="/register?role=creator" class="text-slate-400 hover:text-white text-sm transition-colors">Untuk Kreator & Clipper</a></li>
+                    <li><a href="/register?role=brand" class="text-slate-400 hover:text-white text-sm transition-colors">Untuk Brand & Agensi</a></li>
                     <li><a href="#" class="text-slate-400 hover:text-white text-sm transition-colors">Sistem Pembayaran RPM</a></li>
                     <li><a href="#" class="text-slate-400 hover:text-white text-sm transition-colors">Cara Kerja AI Anti-Fraud</a></li>
                 </ul>
@@ -42,7 +42,7 @@
             <div>
                 <h3 class="text-white font-semibold mb-4">Perusahaan</h3>
                 <ul class="space-y-3">
-                    <li><a href="#" class="text-slate-400 hover:text-white text-sm transition-colors">Tentang Kami</a></li>
+                    <li><a href="/contact" class="text-slate-400 hover:text-white text-sm transition-colors">Hubungi Kami</a></li>
                     <!-- Link unik dengan badge -->
                     <li>
                         <a href="#" class="inline-flex items-center text-slate-400 hover:text-white text-sm transition-colors">
@@ -50,7 +50,7 @@
                         </a>
                     </li>
                     <li><a href="#" class="text-slate-400 hover:text-white text-sm transition-colors">Blog / Edukasi Kreator</a></li>
-                    <li><a href="#" class="text-slate-400 hover:text-white text-sm transition-colors">Kontak Support</a></li>
+                    <li><a href="/contact" class="text-slate-400 hover:text-white text-sm transition-colors">Kontak Support</a></li>
                 </ul>
             </div>
 

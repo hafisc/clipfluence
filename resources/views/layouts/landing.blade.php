@@ -44,6 +44,9 @@
     <!-- Memanggil komponen Footer Global -->
     @include('landing.partials.footer')
 
+    <!-- Tombol Kontak Floating (pojok kanan bawah) -->
+    @include('partials.floating-contact')
+
     <!-- Inisialisasi library animasi AOS dan Lucide Icons -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>

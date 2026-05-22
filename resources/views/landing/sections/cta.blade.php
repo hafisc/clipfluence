@@ -9,10 +9,10 @@
         
         <!-- Tombol CTA Besar -->
         <div class="flex flex-col sm:flex-row justify-center gap-4">
-            <a href="/register-creator" class="inline-flex justify-center items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-brand to-brand text-white font-bold hover:shadow-lg hover:shadow-brand/30 transition-all duration-300 hover:-translate-y-1">
+            <a href="/register?role=creator" class="inline-flex justify-center items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-brand to-brand text-white font-bold hover:shadow-lg hover:shadow-brand/30 transition-all duration-300 hover:-translate-y-1">
                 Gabung Jadi Kreator <i data-lucide="clapperboard" class="w-5 h-5"></i>
             </a>
-            <a href="/register-brand" class="inline-flex justify-center items-center gap-2 px-8 py-4 rounded-xl bg-white text-slate-900 font-bold hover:bg-slate-200 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-white/20">
+            <a href="/register?role=brand" class="inline-flex justify-center items-center gap-2 px-8 py-4 rounded-xl bg-white text-slate-900 font-bold hover:bg-slate-200 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-white/20">
                 Mulai Campaign Brand <i data-lucide="arrow-right" class="w-5 h-5"></i>
             </a>
         </div>
