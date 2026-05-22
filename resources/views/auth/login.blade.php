@@ -86,7 +86,7 @@
 
 <!-- Masuk dengan Media Sosial -->
 <div>
-    <button type="button" 
+    <a href="{{ route('google.login') }}" 
         class="w-full flex justify-center items-center gap-3 py-3 px-4 rounded-xl text-sm font-medium text-slate-300 bg-neutral-800 border border-neutral-700 hover:bg-neutral-700 hover:text-white focus:outline-none transition-colors">
         <svg class="w-5 h-5" aria-hidden="true" viewBox="0 0 24 24">
             <path d="M12.0003 4.75C13.7703 4.75 15.3553 5.36002 16.6053 6.54998L20.0303 3.125C17.9502 1.19 15.2353 0 12.0003 0C7.31028 0 3.25527 2.69 1.28027 6.60998L5.27028 9.70498C6.21525 6.86002 8.87028 4.75 12.0003 4.75Z" fill="#EA4335"></path>
@@ -95,7 +95,7 @@
             <path d="M12.0004 24.0001C15.2404 24.0001 17.9654 22.935 19.9454 21.095L16.0804 18.095C15.0054 18.82 13.6204 19.245 12.0004 19.245C8.8704 19.245 6.21537 17.135 5.26537 14.29L1.27539 17.385C3.25539 21.31 7.3104 24.0001 12.0004 24.0001Z" fill="#34A853"></path>
         </svg>
         Masuk dengan Google
-    </button>
+    </a>
 </div>
 
 <!-- Register Link -->

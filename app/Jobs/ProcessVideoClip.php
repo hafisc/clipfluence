@@ -494,6 +494,6 @@ class ProcessVideoClip implements ShouldQueue
         }
 
         // 3. Fallback sistem (Asumsi sudah ada di system PATH global di Linux / Hosting)
-        return escapeshellarg($name);
+        return $name;
     }
 }
