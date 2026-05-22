@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Clipfluence - Platform UGC & Clipper No. 1 di Indonesia</title>
     
     <!-- Memuat aset CSS & JS Laravel Vite -->
@@ -37,7 +38,7 @@
     @include('landing.partials.navbar')
 
     <!-- Konten Utama Halaman -->
-    <main>
+    <main class="pb-24">
         @yield('content')
     </main>
 

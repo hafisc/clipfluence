@@ -48,7 +48,7 @@
             @include('kreator.partials.navbar')
 
             <!-- ===== PAGE CONTENT ===== -->
-            <main class="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8">
+            <main class="flex-1 overflow-y-auto p-4 pb-24 sm:p-6 sm:pb-24 lg:p-8 lg:pb-28">
                 @yield('content')
             </main>
 

@@ -45,7 +45,7 @@
             @include('admin.partials.navbar')
 
             <!-- ===== PAGE CONTENT ===== -->
-            <main class="flex-1 overflow-y-auto p-6">
+            <main class="flex-1 overflow-y-auto p-6 pb-24">
                 @yield('content')
             </main>
 
