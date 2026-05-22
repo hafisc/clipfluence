@@ -40,9 +40,18 @@
             onclick="toggleToolbar()"
             class="flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-br from-violet-600 to-indigo-600 text-white shadow-lg shadow-violet-500/30 hover:shadow-violet-500/60 hover:scale-110 transition-all duration-300"
             title="Bantuan">
-        {{-- Icon default: headset --}}
-        <svg id="toolbar-icon-default" class="w-7 h-7 transition-all duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 5.636a9 9 0 010 12.728M15.536 8.464a5 5 0 010 7.072M6.343 17.657a9 9 0 010-12.728M9.172 15.536a5 5 0 010-7.072M12 12h.01"/>
+        {{-- Icon: headset (pusat bantuan) --}}
+        <svg id="toolbar-icon-default" class="w-7 h-7 transition-all duration-300" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <!-- Kepala headset -->
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 11a9 9 0 0118 0"/>
+            <!-- Telinga kiri -->
+            <rect x="2" y="11" width="3" height="5" rx="1.5" fill="currentColor" stroke="none"/>
+            <!-- Telinga kanan -->
+            <rect x="19" y="11" width="3" height="5" rx="1.5" fill="currentColor" stroke="none"/>
+            <!-- Kabel mic -->
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 16v1a4 4 0 01-4 4h-2"/>
+            <!-- Mic bulat -->
+            <circle cx="13" cy="21" r="1" fill="currentColor" stroke="none"/>
         </svg>
         {{-- Icon close (X) --}}
         <svg id="toolbar-icon-close" class="w-7 h-7 transition-all duration-300 hidden" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
