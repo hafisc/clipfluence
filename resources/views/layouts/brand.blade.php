@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title', 'Dashboard') - Brand Clipfluence</title>
+    <title>@yield('title', 'Dasbor') - Merek Clipfluence</title>
     <link rel="icon" type="image/png" href="{{ asset('images/brand/logo-icon.png') }}">
     <link rel="shortcut icon" type="image/png" href="{{ asset('images/brand/logo-icon.png') }}">
 
@@ -17,12 +17,43 @@
     <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
+    @php
+        $adminSettings = [];
+
+        if (\Illuminate\Support\Facades\Storage::disk('local')->exists('settings/admin.json')) {
+            $decoded = json_decode(\Illuminate\Support\Facades\Storage::disk('local')->get('settings/admin.json'), true);
+            $adminSettings = is_array($decoded) ? $decoded : [];
+        }
+
+        $appearance = $adminSettings['appearance'] ?? [];
+        $primaryColor = $appearance['primary_color'] ?? '#6D28D9';
+        $accentColor = $appearance['accent_color'] ?? '#A855F7';
+    @endphp
+
     <style>
+        :root {
+            --admin-primary: {{ $primaryColor }};
+            --admin-accent: {{ $accentColor }};
+            --admin-primary-rgb: {{ implode(',', sscanf(ltrim($primaryColor, '#'), "%02x%02x%02x")) }};
+        }
+
         body { font-family: 'Inter', sans-serif; }
         ::-webkit-scrollbar { width: 4px; height: 4px; }
         ::-webkit-scrollbar-track { background: #0a0a0a; }
         ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 99px; }
         ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+
+        .bg-brand { background-color: var(--admin-primary) !important; }
+        .text-brand { color: var(--admin-primary) !important; }
+        .text-brand-light { color: var(--admin-accent) !important; }
+        .border-brand { border-color: var(--admin-primary) !important; }
+        .bg-brand\/10 { background-color: rgba(var(--admin-primary-rgb), 0.10) !important; }
+        .bg-brand\/20 { background-color: rgba(var(--admin-primary-rgb), 0.20) !important; }
+        .border-brand\/20 { border-color: rgba(var(--admin-primary-rgb), 0.20) !important; }
+        .focus\:border-brand:focus { border-color: var(--admin-primary) !important; }
+        .focus\:ring-brand:focus { --tw-ring-color: var(--admin-primary) !important; }
+        .hover\:text-brand:hover { color: var(--admin-primary) !important; }
+        .hover\:text-brand-light:hover { color: var(--admin-accent) !important; }
     </style>
     @stack('styles')
 </head>

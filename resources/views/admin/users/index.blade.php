@@ -12,14 +12,14 @@ $users = [
     ['name'=>'Tokopedia Corp','email'=>'mkt@tokopedia.com','role'=>'brand','status'=>'Aktif','joined'=>'12 Mar 2026','views'=>'-'],
     ['name'=>'Dimas Viral','email'=>'dimas@gmail.com','role'=>'kreator','status'=>'Nonaktif','joined'=>'10 Mar 2026','views'=>'234K'],
     ['name'=>'Shopee Indonesia','email'=>'ads@shopee.com','role'=>'brand','status'=>'Aktif','joined'=>'8 Mar 2026','views'=>'-'],
-    ['name'=>'Hana Creator','email'=>'hana@gmail.com','role'=>'kreator','status'=>'Aktif','joined'=>'5 Mar 2026','views'=>'3.1M'],
+    ['name'=>'Hana Kreator','email'=>'hana@gmail.com','role'=>'kreator','status'=>'Aktif','joined'=>'5 Mar 2026','views'=>'3.1M'],
     ['name'=>'Indomie Official','email'=>'marketing@indomie.com','role'=>'brand','status'=>'Aktif','joined'=>'1 Mar 2026','views'=>'-'],
 ];
 @endphp
 <div class="space-y-5">
     <!-- Stats Row -->
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        @foreach([['label'=>'Total Pengguna','val'=>'1,248','icon'=>'users','color'=>'brand'],['label'=>'Kreator','val'=>'947','icon'=>'clapperboard','color'=>'violet'],['label'=>'Brand','val'=>'301','icon'=>'briefcase','color'=>'emerald'],['label'=>'Nonaktif','val'=>'24','icon'=>'user-x','color'=>'red']] as $s)
+        @foreach([['label'=>'Total Pengguna','val'=>'1,248','icon'=>'users','color'=>'brand'],['label'=>'Kreator','val'=>'947','icon'=>'clapperboard','color'=>'violet'],['label'=>'Merek','val'=>'301','icon'=>'briefcase','color'=>'emerald'],['label'=>'Nonaktif','val'=>'24','icon'=>'user-x','color'=>'red']] as $s)
         <div class="stat-card">
             <div class="flex items-center justify-between mb-3">
                 <div class="w-9 h-9 rounded-xl bg-{{ $s['color'] }}/10 border border-{{ $s['color'] }}/20 flex items-center justify-center">
@@ -44,7 +44,7 @@ $users = [
                 <select class="bg-neutral-800 border border-neutral-700 rounded-xl px-3 py-2 text-xs text-slate-300 outline-none">
                     <option>Semua Role</option>
                     <option>Kreator</option>
-                    <option>Brand</option>
+                    <option>Merek</option>
                 </select>
             </div>
         </div>
@@ -56,7 +56,7 @@ $users = [
                         <th class="text-left px-5 py-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Role</th>
                         <th class="text-left px-5 py-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Status</th>
                         <th class="text-left px-5 py-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Bergabung</th>
-                        <th class="text-left px-5 py-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Total Views</th>
+                        <th class="text-left px-5 py-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Total Tayangan</th>
                         <th class="px-5 py-3"></th>
                     </tr>
                 </thead>
@@ -105,7 +105,7 @@ $users = [
                 <button class="px-3 py-1.5 rounded-lg text-xs text-slate-500 hover:text-white hover:bg-white/5 transition-colors">← Prev</button>
                 <button class="px-3 py-1.5 rounded-lg text-xs bg-brand/10 text-brand border border-brand/20">1</button>
                 <button class="px-3 py-1.5 rounded-lg text-xs text-slate-500 hover:text-white hover:bg-white/5 transition-colors">2</button>
-                <button class="px-3 py-1.5 rounded-lg text-xs text-slate-500 hover:text-white hover:bg-white/5 transition-colors">Next →</button>
+                <button class="px-3 py-1.5 rounded-lg text-xs text-slate-500 hover:text-white hover:bg-white/5 transition-colors">Berikutnya →</button>
             </div>
         </div>
     </div>

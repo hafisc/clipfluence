@@ -23,18 +23,52 @@
     <!-- Lucide Icons (Ringan dan modern) -->
     <script src="https://unpkg.com/lucide@latest"></script>
     
+    @php
+        $adminSettings = [];
+
+        if (\Illuminate\Support\Facades\Storage::disk('local')->exists('settings/admin.json')) {
+            $decoded = json_decode(\Illuminate\Support\Facades\Storage::disk('local')->get('settings/admin.json'), true);
+            $adminSettings = is_array($decoded) ? $decoded : [];
+        }
+
+        $appearance = $adminSettings['appearance'] ?? [];
+        $primaryColor = $appearance['primary_color'] ?? '#6D28D9';
+        $accentColor = $appearance['accent_color'] ?? '#A855F7';
+    @endphp
+
     <style>
+        :root {
+            --admin-primary: {{ $primaryColor }};
+            --admin-accent: {{ $accentColor }};
+            --admin-primary-rgb: {{ implode(',', sscanf(ltrim($primaryColor, '#'), "%02x%02x%02x")) }};
+            --admin-accent-rgb: {{ implode(',', sscanf(ltrim($accentColor, '#'), "%02x%02x%02x")) }};
+        }
+
         /* Terapkan font Inter ke body */
         body { font-family: 'Inter', sans-serif; }
         
         /* Sembunyikan scrollbar untuk tampilan lebih clean */
         ::-webkit-scrollbar { display: none; } /* Chrome, Safari, dan Opera */
         * { -ms-overflow-style: none; scrollbar-width: none; } /* IE, Edge, dan Firefox */
+
+        .bg-brand { background-color: var(--admin-primary) !important; }
+        .text-brand { color: var(--admin-primary) !important; }
+        .text-brand-light { color: var(--admin-accent) !important; }
+        .border-brand { border-color: var(--admin-primary) !important; }
+        .bg-brand\/10 { background-color: rgba(var(--admin-primary-rgb), 0.10) !important; }
+        .bg-brand\/20 { background-color: rgba(var(--admin-primary-rgb), 0.20) !important; }
+        .bg-brand\/30 { background-color: rgba(var(--admin-primary-rgb), 0.30) !important; }
+        .bg-brand\/40 { background-color: rgba(var(--admin-primary-rgb), 0.40) !important; }
+        .border-brand\/20 { border-color: rgba(var(--admin-primary-rgb), 0.20) !important; }
+        .focus\:border-brand:focus { border-color: var(--admin-primary) !important; }
+        .focus\:ring-brand:focus { --tw-ring-color: var(--admin-primary) !important; }
+        .hover\:text-brand:hover { color: var(--admin-primary) !important; }
+        .hover\:text-brand-light:hover { color: var(--admin-accent) !important; }
     </style>
 </head>
 <body class="bg-black text-slate-50 antialiased selection:bg-brand/30 selection:text-brand-light">
 
-    <!-- Memanggil komponen Navbar Global -->
+    <!-- Memanggil komponen Bilah Navigasi Global -->
     @include('landing.partials.navbar')
 
     <!-- Konten Utama Halaman -->
@@ -42,7 +76,7 @@
         @yield('content')
     </main>
 
-    <!-- Memanggil komponen Footer Global -->
+    <!-- Memanggil komponen Catatan Kaki Global -->
     @include('landing.partials.footer')
 
     <!-- Tombol Kontak Floating (pojok kanan bawah) -->

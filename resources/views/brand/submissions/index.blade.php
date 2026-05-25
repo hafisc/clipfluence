@@ -100,7 +100,7 @@
                 </div>
             </div>
 
-            {{-- Custom Search (Inline with List) --}}
+            {{-- Custom Cari (Inline with List) --}}
             <div class="relative w-full mb-5">
                 <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500"></i>
                 <input type="text" 
@@ -118,7 +118,7 @@
                      x-transition:enter-start="opacity-0 scale-95"
                      x-transition:enter-end="opacity-100 scale-100">
                     
-                    {{-- Section 1: Avatar & Creator Details --}}
+                    {{-- Section 1: Avatar & Kreator Rincian --}}
                     <div class="flex items-center gap-3 sm:gap-4 min-w-0 flex-1">
                         {{-- Icon Indicator (Status) --}}
                         <div class="w-10 h-10 lg:w-11 lg:h-11 rounded-xl bg-white/[0.03] border border-white/[0.05] flex items-center justify-center flex-shrink-0 relative shadow-inner">
@@ -142,7 +142,7 @@
                             </div>
                         </div>
 
-                        {{-- Main Text Details --}}
+                        {{-- Main Text Rincian --}}
                         <div class="min-w-0">
                             <div class="flex items-center gap-2 mb-0.5 lg:mb-1">
                                 <p class="text-[13px] lg:text-sm font-black text-white truncate">
@@ -157,10 +157,10 @@
 
                     {{-- Section 2: Metrics --}}
                     <div class="flex items-center justify-between sm:justify-start gap-4 lg:gap-6 px-1 sm:px-0">
-                        {{-- Views --}}
+                        {{-- Tayangan --}}
                         <div class="text-left">
                             <p class="text-[9px] font-bold text-slate-500 uppercase tracking-widest mb-1 flex items-center gap-1.5 focus:outline-none">
-                                <i data-lucide="eye" class="w-3 h-3 text-slate-600"></i> Views
+                                <i data-lucide="eye" class="w-3 h-3 text-slate-600"></i> Tayangan
                             </p>
                             <p class="text-xs lg:text-sm font-black text-white bg-white/[0.03] px-2 py-0.5 rounded border border-white/5 w-fit">
                                 {{ number_format($s->views_claimed, 0, ',', '.') }}
@@ -169,7 +169,7 @@
 
                         {{-- Fee/Cost --}}
                         <div class="text-right sm:text-left">
-                            <p class="text-[9px] font-bold text-slate-500 uppercase tracking-widest mb-1.5">Fee Creator</p>
+                            <p class="text-[9px] font-bold text-slate-500 uppercase tracking-widest mb-1.5">Fee Kreator</p>
                             <p class="text-xs lg:text-sm font-black text-emerald-400">Rp {{ number_format($s->estimated_reward, 0, ',', '.') }}</p>
                         </div>
                     </div>
@@ -298,14 +298,14 @@
                         <p class="text-sm font-black text-white" x-text="currentProof ? currentProof.platform : '-'"></p>
                     </div>
                     <div class="bg-white/[0.02] border border-white/5 rounded-xl p-4">
-                        <p class="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-2">Total Views</p>
+                        <p class="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-2">Total Tayangan</p>
                         <p class="text-sm font-black text-emerald-400" x-text="currentProof ? currentProof.views.toLocaleString('id-ID') : '-'"></p>
                     </div>
                 </div>
 
                 {{-- Screenshot Image --}}
                 <div class="bg-white/[0.02] border border-white/5 rounded-xl p-4">
-                    <p class="text-xs font-bold text-slate-400 mb-3">Screenshot Bukti Views:</p>
+                    <p class="text-xs font-bold text-slate-400 mb-3">Screenshot Bukti Tayangan:</p>
                     <div class="bg-neutral-900 rounded-lg overflow-hidden border border-white/10">
                         <img :src="currentProof ? currentProof.proofUrl : ''" 
                              :alt="currentProof ? currentProof.campaign : 'Bukti Screenshot'"

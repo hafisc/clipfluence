@@ -63,7 +63,7 @@
                                     <i data-lucide="phone" class="w-5 h-5"></i>
                                 </div>
                                 <div>
-                                    <h3 class="text-sm font-semibold text-slate-300">Customer Success (WA)</h3>
+                                    <h3 class="text-sm font-semibold text-slate-300">Customer Berhasil (WA)</h3>
                                     <p class="text-white font-medium mt-0.5">+62 821-2345-6789</p>
                                     <p class="text-xs text-slate-500 mt-1">Senin - Jumat | 09:00 - 18:00 WIB</p>
                                 </div>
@@ -119,12 +119,12 @@
                             loading: false,
                             get roleLabel() {
                                 if (this.role === 'creator') return 'Kreator / Clipper';
-                                if (this.role === 'brand') return 'Brand / Perusahaan';
+                                if (this.role === 'brand') return 'Merek / Perusahaan';
                                 return 'Umum / Lainnya';
                             },
                             get categoryLabel() {
                                 if (this.category === 'general') return 'Pertanyaan Umum';
-                                if (this.category === 'partnership') return 'Kampanye / Kemitraan Brand';
+                                if (this.category === 'partnership') return 'Kampanye / Kemitraan Merek';
                                 if (this.category === 'technical') return 'Kendala Teknis Platform';
                                 if (this.category === 'payment') return 'Keuangan / Pembayaran RPM';
                                 return 'Pertanyaan Umum';
@@ -214,7 +214,7 @@
                                         :class="role === 'brand' ? 'bg-neutral-900 text-white' : 'text-slate-400'">
                                         <i data-lucide="building-2" class="w-4 h-4 text-emerald-400"></i>
                                         <div class="flex-1">
-                                            <div class="font-semibold text-white">Brand / Perusahaan</div>
+                                            <div class="font-semibold text-white">Merek / Perusahaan</div>
                                             <div class="text-xs text-slate-500">Mempromosikan produk atau kampanye</div>
                                         </div>
                                         <i data-lucide="check" class="w-4 h-4 text-emerald-400" x-show="role === 'brand'"></i>
@@ -277,7 +277,7 @@
                                         :class="category === 'partnership' ? 'bg-neutral-900 text-white' : 'text-slate-400'">
                                         <i data-lucide="briefcase" class="w-4 h-4 text-emerald-400"></i>
                                         <div class="flex-1">
-                                            <div class="font-semibold text-white">Kampanye / Kemitraan Brand</div>
+                                            <div class="font-semibold text-white">Kampanye / Kemitraan Merek</div>
                                             <div class="text-xs text-slate-500">Tanya seputar peluncuran campaign baru</div>
                                         </div>
                                         <i data-lucide="check" class="w-4 h-4 text-emerald-400" x-show="category === 'partnership'"></i>

@@ -1,6 +1,6 @@
 @extends('layouts.brand')
 
-@section('title', 'Buat Campaign Baru')
+@section('title', 'Buat Kampanye Baru')
 
 @section('content')
 <div class="w-full space-y-6 pb-20 pt-2">
@@ -37,13 +37,13 @@
 
                 <div class="flex flex-col gap-6">
                     <div class="w-full">
-                        <label class="block text-xs font-extrabold text-[#a1a1aa] mb-2 tracking-wide">Nama Campaign <span class="text-violet-500">*</span></label>
+                        <label class="block text-xs font-extrabold text-[#a1a1aa] mb-2 tracking-wide">Nama Kampanye <span class="text-violet-500">*</span></label>
                         <input type="text" name="title" class="w-full bg-[#000] border border-[#27272a] rounded-2xl px-5 py-3.5 text-sm text-white font-medium transition-all duration-200 focus:outline-none focus:border-violet-400 focus:ring-4 focus:ring-violet-500/15 placeholder:text-[#52525b] placeholder:font-medium" placeholder="Contoh: Promo Flash Sale Spesial Lebaran" required>
                     </div>
                     
                     <div class="flex flex-col sm:flex-row gap-6 w-full">
                         <div class="flex-1">
-                            <label class="block text-xs font-extrabold text-[#a1a1aa] mb-2 tracking-wide">Jenis Campaign <span class="text-violet-500">*</span></label>
+                            <label class="block text-xs font-extrabold text-[#a1a1aa] mb-2 tracking-wide">Jenis Kampanye <span class="text-violet-500">*</span></label>
                             <select name="type" class="w-full bg-[#000] border border-[#27272a] rounded-2xl px-5 py-3.5 text-sm text-white font-medium transition-all duration-200 focus:outline-none focus:border-violet-400 focus:ring-4 focus:ring-violet-500/15 cursor-pointer appearance-none">
                                 <option value="video">UGC Video Biasa (Kreator mereview sendiri)</option>
                                 <option value="clip">Clip Video (Reupload materi mentah + voiceover)</option>
@@ -87,7 +87,7 @@
                     <div class="w-full">
                         <label class="block text-xs font-extrabold text-[#a1a1aa] mb-2 tracking-wide">Tujuan Singkat & Cara Kerja <span class="text-violet-500">*</span></label>
                         <p class="text-[9px] text-slate-500 mb-2 leading-relaxed">Penjelasan awal agar kreator paham garis besarnya secara cepat.</p>
-                        <textarea name="desc" rows="3" class="w-full bg-[#000] border border-[#27272a] rounded-2xl px-5 py-3.5 text-sm text-white font-medium transition-all duration-200 focus:outline-none focus:border-violet-400 focus:ring-4 focus:ring-violet-500/15 placeholder:text-[#52525b] placeholder:font-medium resize-y" placeholder="Campaign ini bertujuan mempromosikan produk Skincare X varian terbaru lewat honest review..." required></textarea>
+                        <textarea name="desc" rows="3" class="w-full bg-[#000] border border-[#27272a] rounded-2xl px-5 py-3.5 text-sm text-white font-medium transition-all duration-200 focus:outline-none focus:border-violet-400 focus:ring-4 focus:ring-violet-500/15 placeholder:text-[#52525b] placeholder:font-medium resize-y" placeholder="Kampanye ini bertujuan mempromosikan produk Skincare X varian terbaru lewat honest review..." required></textarea>
                     </div>
 
                     <div class="w-full">
@@ -108,7 +108,7 @@
                             <input type="url" name="assets_url" class="w-full bg-[#000] border border-[#27272a] rounded-2xl px-5 py-3.5 text-sm text-white font-medium transition-all duration-200 focus:outline-none focus:border-violet-400 focus:ring-4 focus:ring-violet-500/15 placeholder:text-[#52525b] placeholder:font-medium" placeholder="Google Drive URL untuk foto/video mentahan...">
                         </div>
                         <div class="flex-1">
-                            <label class="block text-xs font-extrabold text-[#a1a1aa] mb-2 tracking-wide">Batas Waktu Target Upload (Deadline) <span class="text-violet-500">*</span></label>
+                            <label class="block text-xs font-extrabold text-[#a1a1aa] mb-2 tracking-wide">Batas Waktu Target Unggah (Deadline) <span class="text-violet-500">*</span></label>
                             <input type="date" name="deadline" class="w-full bg-[#000] border border-[#27272a] rounded-2xl px-5 py-3.5 text-sm text-white font-medium transition-all duration-200 focus:outline-none focus:border-violet-400 focus:ring-4 focus:ring-violet-500/15 placeholder:text-[#52525b] placeholder:font-medium" required>
                         </div>
                     </div>
@@ -144,7 +144,7 @@
                     <div class="w-10 h-10 rounded-xl bg-violet-500/10 flex items-center justify-center border border-violet-500/20 text-violet-400 font-black text-lg shrink-0">3</div>
                     <div>
                         <h2 class="text-base font-black text-white">Alokasi Budget & Escrow</h2>
-                        <p class="text-[10px] font-medium text-slate-400">Atur pendanaan sistem Pay-per-View untuk kampanye ini.</p>
+                        <p class="text-[10px] font-medium text-slate-400">Atur pendanaan sistem Pay-per-Tayangan untuk kampanye ini.</p>
                     </div>
                 </div>
 
@@ -165,7 +165,7 @@
 
                 <div class="flex flex-col md:flex-row gap-6 w-full relative">
                     <div class="flex-1">
-                        <label class="block text-xs font-extrabold text-[#a1a1aa] mb-2 tracking-wide">Deposit Total Campaign<span class="text-violet-500">*</span></label>
+                        <label class="block text-xs font-extrabold text-[#a1a1aa] mb-2 tracking-wide">Setoran Total Kampanye<span class="text-violet-500">*</span></label>
                         <div class="relative">
                             <span class="absolute left-4 top-1/2 -translate-y-1/2 text-violet-500 font-bold text-sm">Rp</span>
                             <input type="number" name="budget" class="w-full bg-[#000] border border-[#27272a] rounded-2xl px-5 py-3.5 text-sm text-white font-medium transition-all duration-200 focus:outline-none focus:border-violet-400 focus:ring-4 focus:ring-violet-500/15 placeholder:text-[#52525b] placeholder:font-medium font-black text-lg tracking-wide pl-12" placeholder="0" min="0" required>
@@ -173,7 +173,7 @@
                     </div>
 
                     <div class="flex-1">
-                        <label class="block text-xs font-extrabold text-[#a1a1aa] mb-2 tracking-wide">Rate Bidding per 1000 Views<span class="text-violet-500">*</span></label>
+                        <label class="block text-xs font-extrabold text-[#a1a1aa] mb-2 tracking-wide">Rate Bidding per 1000 Tayangan<span class="text-violet-500">*</span></label>
                         <div class="relative">
                             <span class="absolute left-4 top-1/2 -translate-y-1/2 text-violet-500 font-bold text-sm">Rp</span>
                             <input type="number" name="price_per_1k" class="w-full bg-[#000] border border-[#27272a] rounded-2xl px-5 py-3.5 text-sm text-white font-medium transition-all duration-200 focus:outline-none focus:border-violet-400 focus:ring-4 focus:ring-violet-500/15 placeholder:text-[#52525b] placeholder:font-medium font-black text-lg tracking-wide pl-12" placeholder="0" min="0" required>
@@ -183,14 +183,14 @@
 
             </div>
 
-            {{-- Submit Action --}}
+            {{-- Kirim Action --}}
             <div class="p-6 bg-[#050505] border-t border-white/5 flex flex-col sm:flex-row items-center justify-end gap-3 sticky bottom-0 z-20 shadow-[0_-15px_40px_rgba(0,0,0,0.8)]">
                 <a href="{{ route('brand.campaigns') }}" class="bg-transparent text-[#a1a1aa] px-8 py-3.5 rounded-2xl text-sm font-extrabold transition-all duration-200 cursor-pointer border-none hover:text-white hover:bg-white/5 text-center w-full sm:w-auto">Batal</a>
                 <button type="submit" name="action" value="draft" class="px-6 py-3.5 rounded-2xl font-bold text-sm bg-neutral-900 border border-neutral-700 text-slate-300 hover:bg-neutral-800 hover:text-white transition w-full sm:w-auto">
                     Simpan Draft
                 </button>
                 <button type="submit" name="action" value="active" class="bg-gradient-to-br from-violet-600 to-fuchsia-600 text-white px-10 py-3.5 rounded-2xl text-sm font-extrabold inline-flex items-center justify-center gap-2 transition-all duration-200 shadow-[0_8px_20px_rgba(124,58,237,0.25)] hover:shadow-[0_8px_30px_rgba(124,58,237,0.4)] hover:-translate-y-0.5 cursor-pointer border-none outline-none w-full sm:w-auto shadow-[0_0_20px_rgba(139,92,246,0.2)]">
-                    <i data-lucide="rocket" class="w-5 h-5"></i> Luncurkan Campaign
+                    <i data-lucide="rocket" class="w-5 h-5"></i> Luncurkan Kampanye
                 </button>
             </div>
 

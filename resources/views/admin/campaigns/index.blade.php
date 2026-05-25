@@ -1,22 +1,22 @@
 @extends('layouts.admin')
-@section('title', 'Semua Campaign')
-@section('page_title', 'Manajemen Campaign')
+@section('title', 'Semua Kampanye')
+@section('page_title', 'Manajemen Kampanye')
 @section('page_subtitle', 'Monitor seluruh campaign aktif di platform')
 
 @section('content')
 @php
 $campaigns = [
-    ['brand'=>'Wardah Beauty','title'=>'Summer Glow 2026','kreators'=>48,'target'=>'500K Views','progress'=>72,'budget'=>'Rp 24 Jt','status'=>'Aktif','deadline'=>'30 Apr 2026'],
-    ['brand'=>'Tokopedia Sale','title'=>'Harbolnas 5.5','kreators'=>102,'target'=>'1M Views','progress'=>38,'budget'=>'Rp 75 Jt','status'=>'Aktif','deadline'=>'5 Mei 2026'],
-    ['brand'=>'Indomie Goreng','title'=>'Kreasiku Kreasimu','kreators'=>23,'target'=>'200K Views','progress'=>91,'budget'=>'Rp 12 Jt','status'=>'Selesai','deadline'=>'20 Mar 2026'],
-    ['brand'=>'Shopee 12.12','title'=>'Double Day Deals','kreators'=>77,'target'=>'750K Views','progress'=>55,'budget'=>'Rp 48 Jt','status'=>'Aktif','deadline'=>'12 Mei 2026'],
-    ['brand'=>'Samsung ID','title'=>'Galaxy S25 Launch','kreators'=>34,'target'=>'300K Views','progress'=>22,'budget'=>'Rp 30 Jt','status'=>'Draft','deadline'=>'15 Apr 2026'],
-    ['brand'=>'Kopi Kenangan','title'=>'Pagi Bareng Kenangan','kreators'=>19,'target'=>'150K Views','progress'=>65,'budget'=>'Rp 8 Jt','status'=>'Aktif','deadline'=>'10 Apr 2026'],
+    ['brand'=>'Wardah Beauty','title'=>'Summer Glow 2026','kreators'=>48,'target'=>'500K Tayangan','progress'=>72,'budget'=>'Rp 24 Jt','status'=>'Aktif','deadline'=>'30 Apr 2026'],
+    ['brand'=>'Tokopedia Sale','title'=>'Harbolnas 5.5','kreators'=>102,'target'=>'1M Tayangan','progress'=>38,'budget'=>'Rp 75 Jt','status'=>'Aktif','deadline'=>'5 Mei 2026'],
+    ['brand'=>'Indomie Goreng','title'=>'Kreasiku Kreasimu','kreators'=>23,'target'=>'200K Tayangan','progress'=>91,'budget'=>'Rp 12 Jt','status'=>'Selesai','deadline'=>'20 Mar 2026'],
+    ['brand'=>'Shopee 12.12','title'=>'Double Day Deals','kreators'=>77,'target'=>'750K Tayangan','progress'=>55,'budget'=>'Rp 48 Jt','status'=>'Aktif','deadline'=>'12 Mei 2026'],
+    ['brand'=>'Samsung ID','title'=>'Galaxy S25 Launch','kreators'=>34,'target'=>'300K Tayangan','progress'=>22,'budget'=>'Rp 30 Jt','status'=>'Draft','deadline'=>'15 Apr 2026'],
+    ['brand'=>'Kopi Kenangan','title'=>'Pagi Bareng Kenangan','kreators'=>19,'target'=>'150K Tayangan','progress'=>65,'budget'=>'Rp 8 Jt','status'=>'Aktif','deadline'=>'10 Apr 2026'],
 ];
 @endphp
 <div class="space-y-5">
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        @foreach([['label'=>'Total Campaign','val'=>'86','icon'=>'megaphone','color'=>'brand'],['label'=>'Aktif','val'=>'71','icon'=>'play-circle','color'=>'emerald'],['label'=>'Draft','val'=>'9','icon'=>'file-pen-line','color'=>'slate'],['label'=>'Selesai','val'=>'6','icon'=>'check-circle','color'=>'blue']] as $s)
+        @foreach([['label'=>'Total Kampanye','val'=>'86','icon'=>'megaphone','color'=>'brand'],['label'=>'Aktif','val'=>'71','icon'=>'play-circle','color'=>'emerald'],['label'=>'Draft','val'=>'9','icon'=>'file-pen-line','color'=>'slate'],['label'=>'Selesai','val'=>'6','icon'=>'check-circle','color'=>'blue']] as $s)
         <div class="stat-card">
             <div class="flex items-center justify-between mb-3">
                 <div class="w-9 h-9 rounded-xl bg-{{ $s['color'] }}/10 border border-{{ $s['color'] }}/20 flex items-center justify-center">
@@ -31,7 +31,7 @@ $campaigns = [
 
     <div class="bg-neutral-900/60 border border-neutral-800/60 rounded-2xl overflow-hidden">
         <div class="flex items-center justify-between p-5 border-b border-neutral-800/60">
-            <h3 class="text-sm font-semibold text-white">Semua Campaign</h3>
+            <h3 class="text-sm font-semibold text-white">Semua Kampanye</h3>
             <select class="bg-neutral-800 border border-neutral-700 rounded-xl px-3 py-2 text-xs text-slate-300 outline-none">
                 <option>Semua Status</option><option>Aktif</option><option>Draft</option><option>Selesai</option>
             </select>
@@ -40,8 +40,8 @@ $campaigns = [
             <table class="w-full">
                 <thead>
                     <tr class="border-b border-neutral-800/60">
-                        <th class="text-left px-5 py-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Campaign</th>
-                        <th class="text-left px-5 py-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Brand</th>
+                        <th class="text-left px-5 py-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Kampanye</th>
+                        <th class="text-left px-5 py-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Merek</th>
                         <th class="text-left px-5 py-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Kreator</th>
                         <th class="text-left px-5 py-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Progress</th>
                         <th class="text-left px-5 py-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Budget</th>

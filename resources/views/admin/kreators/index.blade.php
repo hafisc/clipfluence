@@ -7,11 +7,11 @@
 @php
 $kreators = [
     ['name'=>'Rafi Ananda','handle'=>'@rafiananda_','level'=>'Pro','niche'=>'Tech, Gadget','rating'=>'4.9/5.0','jobs'=>45,'status'=>'Aktif'],
-    ['name'=>'Hana Creator','handle'=>'@hanacreates','level'=>'Star','niche'=>'Beauty, Fashion','rating'=>'5.0/5.0','jobs'=>112,'status'=>'Aktif'],
+    ['name'=>'Hana Kreator','handle'=>'@hanacreates','level'=>'Star','niche'=>'Beauty, Fashion','rating'=>'5.0/5.0','jobs'=>112,'status'=>'Aktif'],
     ['name'=>'Luna Aesthetic','handle'=>'@luna_vibes','level'=>'Pro','niche'=>'Lifestyle, Food','rating'=>'4.8/5.0','jobs'=>34,'status'=>'Aktif'],
     ['name'=>'Dimas Viral','handle'=>'@dimas.tv_','level'=>'Beginner','niche'=>'Gaming, Tech','rating'=>'4.2/5.0','jobs'=>5,'status'=>'Aktif'],
     ['name'=>'Rizky Clips','handle'=>'@rizclips','level'=>'Star','niche'=>'Automotive','rating'=>'4.9/5.0','jobs'=>88,'status'=>'Aktif'],
-    ['name'=>'Nadia UGC','handle'=>'@nadiacontent','level'=>'Beginner','niche'=>'Home, Decor','rating'=>'4.5/5.0','jobs'=>12,'status'=>'Aktif'],
+    ['name'=>'Nadia UGC','handle'=>'@nadiacontent','level'=>'Beginner','niche'=>'Beranda, Decor','rating'=>'4.5/5.0','jobs'=>12,'status'=>'Aktif'],
 ];
 @endphp
 <div class="space-y-5">

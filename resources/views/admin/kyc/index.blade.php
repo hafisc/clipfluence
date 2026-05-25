@@ -7,12 +7,12 @@
 @php
 $kycs = [
     ['name'=>'Andika Pratama','role'=>'Kreator','id_type'=>'KTP','submitted'=>'2 jam lalu','status'=>'Menunggu'],
-    ['name'=>'Sari Dewi Shop','role'=>'Brand','id_type'=>'NPWP','submitted'=>'4 jam lalu','status'=>'Menunggu'],
+    ['name'=>'Sari Dewi Shop','role'=>'Merek','id_type'=>'NPWP','submitted'=>'4 jam lalu','status'=>'Menunggu'],
     ['name'=>'Bagas Content','role'=>'Kreator','id_type'=>'KTP','submitted'=>'6 jam lalu','status'=>'Menunggu'],
     ['name'=>'Elsa Viral ID','role'=>'Kreator','id_type'=>'KTP','submitted'=>'1 hari lalu','status'=>'Menunggu'],
-    ['name'=>'PT Maju Jaya','role'=>'Brand','id_type'=>'SIUP','submitted'=>'1 hari lalu','status'=>'Menunggu'],
-    ['name'=>'Kevin Creator','role'=>'Kreator','id_type'=>'KTP','submitted'=>'2 hari lalu','status'=>'Diverifikasi'],
-    ['name'=>'Beauty Corp ID','role'=>'Brand','id_type'=>'NPWP','submitted'=>'3 hari lalu','status'=>'Ditolak'],
+    ['name'=>'PT Maju Jaya','role'=>'Merek','id_type'=>'SIUP','submitted'=>'1 hari lalu','status'=>'Menunggu'],
+    ['name'=>'Kevin Kreator','role'=>'Kreator','id_type'=>'KTP','submitted'=>'2 hari lalu','status'=>'Diverifikasi'],
+    ['name'=>'Beauty Corp ID','role'=>'Merek','id_type'=>'NPWP','submitted'=>'3 hari lalu','status'=>'Ditolak'],
 ];
 @endphp
 <div class="space-y-5">

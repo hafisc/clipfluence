@@ -22,16 +22,16 @@
 
         <a href="{{ route('kreator.dashboard') }}" class="kreator-link {{ request()->routeIs('kreator.dashboard') ? 'active' : '' }}">
             <i data-lucide="layout-grid" class="w-4 h-4 flex-shrink-0"></i>
-            Dashboard
+            Dasbor
         </a>
 
         <a href="{{ route('kreator.campaigns') }}" class="kreator-link flex items-center justify-between {{ request()->routeIs('kreator.campaigns*') ? 'active' : '' }}">
             <div class="flex items-center gap-3">
                 <i data-lucide="shopping-bag" class="w-4 h-4 flex-shrink-0"></i>
-                Cari Campaign
+                Cari Kampanye
             </div>
             <span class="bg-violet-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
-                <div class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></div> {{ \App\Models\Campaign::where('status', 'active')->count() }} Job
+                <div class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></div> {{ \App\Models\Kampanye::where('status', 'active')->count() }} Job
             </span>
         </a>
 
@@ -44,18 +44,18 @@
         <div class="h-4"></div>
         <div class="text-[10px] font-bold text-slate-600 uppercase tracking-widest px-4 mb-2">Pekerjaan & Finance</div>
 
-        <!-- Dropdown: Tugas & Submit -->
+        <!-- Dropdown: Tugas & Kirim -->
         <div x-data="{ open: {{ request()->routeIs('kreator.submissions*') ? 'true' : 'false' }} }">
             <button @click="open = !open" class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium hover:text-white hover:bg-neutral-800/50 transition-all duration-200 {{ request()->routeIs('kreator.submissions*') ? 'text-white bg-neutral-900' : 'text-slate-400' }}">
                 <div class="flex items-center gap-3">
                     <i data-lucide="upload-cloud" class="w-4 h-4 flex-shrink-0 {{ request()->routeIs('kreator.submissions*') ? 'text-violet-400' : '' }}"></i>
-                    Tugas & Submit
+                    Tugas & Kirim
                 </div>
                 <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform duration-300" :class="open ? 'rotate-180' : ''"></i>
             </button>
             <div x-show="open" x-collapse style="display: {{ request()->routeIs('kreator.submissions*') ? 'block' : 'none' }};">
                 <div class="ml-6 pl-5 border-l-2 border-neutral-800/80 space-y-1.5 mt-2">
-                    <a href="{{ route('kreator.submissions.create') }}" class="block py-2 text-xs font-semibold hover:text-violet-300 transition-colors {{ request()->routeIs('kreator.submissions.create') ? 'text-violet-400' : 'text-slate-500' }}">Klaim Views (Submit Baru)</a>
+                    <a href="{{ route('kreator.submissions.create') }}" class="block py-2 text-xs font-semibold hover:text-violet-300 transition-colors {{ request()->routeIs('kreator.submissions.create') ? 'text-violet-400' : 'text-slate-500' }}">Klaim Tayangan (Kirim Baru)</a>
                     <a href="{{ route('kreator.submissions') }}" class="block py-2 text-xs font-semibold hover:text-white transition-colors {{ request()->routeIs('kreator.submissions.index') ? 'text-white' : 'text-slate-500' }}">Riwayat Submissions</a>
                 </div>
             </div>
@@ -68,7 +68,7 @@
 
     </nav>
 
-    <!-- Logout Footer -->
+    <!-- Logout Catatan Kaki -->
     <div class="p-4 border-t border-neutral-800/50">
         <form method="POST" action="{{ route('logout') }}">
             @csrf

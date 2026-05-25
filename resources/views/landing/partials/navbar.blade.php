@@ -1,4 +1,4 @@
-<!-- Navbar dengan fitur Alpine.js untuk handle scroll effect (glassmorphism) dan toggle mobile menu -->
+<!-- Bilah Navigasi dengan fitur Alpine.js untuk handle scroll effect (glassmorphism) dan toggle mobile menu -->
 <nav x-data="{ scrolled: false, mobileMenuOpen: false }"
     @scroll.window="scrolled = (window.pageYOffset > 20)"
     :class="{ 'bg-black/80 backdrop-blur-md shadow-lg': scrolled, 'bg-transparent': !scrolled }"
@@ -19,13 +19,13 @@
             <div class="hidden md:flex items-center space-x-8">
                 <a href="{{ request()->is('/') ? '#fitur' : '/#fitur' }}" class="text-slate-300 hover:text-white transition-colors text-sm font-medium">Cara Kerja</a>
                 <a href="/register?role=creator" class="text-slate-300 hover:text-white transition-colors text-sm font-medium">Untuk Kreator</a>
-                <a href="/register?role=brand" class="text-slate-300 hover:text-white transition-colors text-sm font-medium">Untuk Brand</a>
+                <a href="/register?role=brand" class="text-slate-300 hover:text-white transition-colors text-sm font-medium">Untuk Merek</a>
             </div>
 
             <!-- Tombol Aksi Kanan (Desktop) -->
             <div class="hidden md:flex items-center space-x-4">
 
-                <!-- Tombol CTA Login dengan brand color premium -->
+                <!-- Tombol <em>CTA</em> Masuk dengan warna merek premium -->
                 <a href="/login" class="px-6 py-2 rounded-full bg-gradient-to-r from-brand to-brand text-white text-sm font-bold shadow-lg shadow-brand/25 hover:shadow-brand/40 transition-all duration-300 transform hover:-translate-y-0.5 flex items-center gap-2">
                     Masuk <i data-lucide="arrow-right" class="w-4 h-4"></i>
                 </a>
@@ -54,7 +54,7 @@
         <div class="px-4 py-6 space-y-4 flex flex-col">
             <a href="{{ request()->is('/') ? '#fitur' : '/#fitur' }}" class="text-slate-300 hover:text-white text-base font-medium transition-colors">Cara Kerja</a>
             <a href="/register?role=creator" class="text-slate-300 hover:text-white text-base font-medium transition-colors">Untuk Kreator</a>
-            <a href="/register?role=brand" class="text-slate-300 hover:text-white text-base font-medium transition-colors">Untuk Brand</a>
+            <a href="/register?role=brand" class="text-slate-300 hover:text-white text-base font-medium transition-colors">Untuk Merek</a>
             <!-- Garis Pemisah -->
             <div class="h-px w-full bg-neutral-900 my-4"></div>
             <a href="/login" class="w-full text-center px-5 py-3 rounded-xl bg-gradient-to-r from-brand to-brand text-white text-base font-bold shadow-lg shadow-brand/25">

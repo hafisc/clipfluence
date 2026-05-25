@@ -23,14 +23,14 @@
         <form action="{{ route('onboarding.store') }}" method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-6 relative">
             @csrf
             
-            <!-- Card Brand -->
+            <!-- Card Merek -->
             <label class="group relative cursor-pointer" onclick="selectRole('brand')">
                 <input type="radio" name="role" id="radio-brand" value="brand" class="hidden" required>
                 <div id="card-brand" class="role-card h-full rounded-3xl border-2 border-neutral-800 bg-neutral-900/80 backdrop-blur p-8 transition-all duration-300 hover:border-neutral-600">
                     <div class="w-16 h-16 rounded-2xl bg-orange-500/20 flex items-center justify-center mb-6 text-orange-500 transition-transform group-hover:scale-110">
                         <i data-lucide="building-2" class="w-8 h-8"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-white mb-3">Saya Brand</h3>
+                    <h3 class="text-2xl font-bold text-white mb-3">Saya Merek</h3>
                     <p class="text-neutral-400 leading-relaxed transition-colors">
                         Saya punya bisnis/produk dan ingin membayar konten kreator untuk mempromosikannya.
                     </p>
@@ -63,7 +63,7 @@
 
             <div class="col-span-1 md:col-span-2 text-center mt-8">
                 <button type="submit" class="bg-white text-black hover:bg-neutral-200 px-8 py-4 rounded-xl font-bold text-lg inline-flex items-center gap-2 transition-transform hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)]">
-                    Lanjutkan ke Dashboard <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                    Lanjutkan ke Dasbor <i data-lucide="arrow-right" class="w-5 h-5"></i>
                 </button>
             </div>
         </form>

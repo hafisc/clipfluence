@@ -1,6 +1,6 @@
 @extends('layouts.brand')
 
-@section('title', 'Pengaturan Brand')
+@section('title', 'Pengaturan Merek')
 
 @section('content')
 <div class="max-w-6xl mx-auto pb-12 pt-2" x-data="{ 
@@ -21,13 +21,13 @@
             const data = await response.json();
             
             if (!response.ok) {
-                throw new Error(data.message || 'Terjadi kesalahan');
+                throw new Galat(data.message || 'Terjadi kesalahan');
             }
             
             alert(data.message);
             if (data.success) location.reload();
         } catch (error) {
-            console.error('Error:', error);
+            console.error('Galat:', error);
             alert(error.message || 'Terjadi kesalahan');
         } finally {
             this.saving = false;
@@ -37,7 +37,7 @@
 
     {{-- HEADER --}}
     <div class="mb-8">
-        <h1 class="text-2xl lg:text-3xl font-black text-white tracking-tight mb-2">Pengaturan Brand</h1>
+        <h1 class="text-2xl lg:text-3xl font-black text-white tracking-tight mb-2">Pengaturan Merek</h1>
         <p class="text-xs text-slate-400">Atur profil perusahaan, integrasi media sosial, dan preferensi akun Anda.</p>
     </div>
 
@@ -49,7 +49,7 @@
                 <button @click="activeTab = 'profile'" 
                         :class="activeTab === 'profile' ? 'bg-violet-500/10 text-violet-400 border-violet-500/20' : 'text-zinc-400 hover:bg-white/[0.03] hover:text-white border-transparent'"
                         class="flex items-center gap-3 px-5 py-3.5 font-bold text-sm rounded-2xl transition-all duration-200 cursor-pointer shrink-0 border">
-                    <i data-lucide="user" class="w-4 h-4"></i> Profil Brand
+                    <i data-lucide="user" class="w-4 h-4"></i> Profil Merek
                 </button>
                 <button @click="activeTab = 'business'" 
                         :class="activeTab === 'business' ? 'bg-violet-500/10 text-violet-400 border-violet-500/20' : 'text-zinc-400 hover:bg-white/[0.03] hover:text-white border-transparent'"
@@ -77,7 +77,7 @@
             <form @submit.prevent="submitForm($event, '{{ route('brand.settings.profile') }}')">
             <div class="bg-[#111111] border border-[#1f1f1f] rounded-2xl relative overflow-hidden p-6 lg:p-8">
                 <div class="border-b border-white/10 pb-5 mb-6">
-                    <h2 class="text-lg font-bold text-white mb-1">Profil Brand</h2>
+                    <h2 class="text-lg font-bold text-white mb-1">Profil Merek</h2>
                     <p class="text-xs text-slate-400">Pembaruan foto profil dan detail identitas yang dilihat kreator.</p>
                 </div>
 
@@ -91,7 +91,7 @@
                         @endphp
                         <div class="w-24 h-24 lg:w-28 lg:h-28 rounded-2xl border-2 border-dashed border-violet-500/30 flex items-center justify-center p-1 relative group cursor-pointer overflow-hidden transition-all hover:border-violet-500/60">
                             <img src="{{ $avatarUrl }}" alt="{{ $user->name }}" class="w-full h-full rounded-xl object-cover">
-                            <!-- Overlay Upload -->
+                            <!-- Overlay Unggah -->
                             <label for="avatar-upload" class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer">
                                 <i data-lucide="camera" class="w-6 h-6 text-white"></i>
                             </label>
@@ -122,7 +122,7 @@
                     {{-- Identity Form --}}
                     <div class="flex-1 w-full flex flex-col gap-5">
                         <div class="w-full">
-                            <label class="block text-xs font-bold text-zinc-400 mb-2">Nama Brand</label>
+                            <label class="block text-xs font-bold text-zinc-400 mb-2">Nama Merek</label>
                             <input type="text" name="name" value="{{ $user->name }}" required class="bg-[#09090b] border border-zinc-800 rounded-2xl px-4 py-3.5 text-white w-full transition-all duration-200 outline-none text-sm font-medium focus:border-violet-400 focus:shadow-[0_0_0_3px_rgba(139,92,246,0.15)]">
                         </div>
                         
@@ -158,13 +158,13 @@
             <div class="bg-[#111111] border border-[#1f1f1f] rounded-2xl relative overflow-hidden p-6 lg:p-8">
                 <div class="border-b border-white/10 pb-5 mb-6">
                     <h2 class="text-lg font-bold text-white mb-1">Informasi Bisnis</h2>
-                    <p class="text-xs text-slate-400">Detail perusahaan dan industri untuk profil brand Anda.</p>
+                    <p class="text-xs text-slate-400">Rincian perusahaan dan industri untuk profil brand Anda.</p>
                 </div>
 
                 <div class="space-y-5">
                     <div class="w-full">
                         <label class="block text-xs font-bold text-zinc-400 mb-2">Nama Perusahaan</label>
-                        <input type="text" name="company_name" value="{{ $user->company_name }}" placeholder="PT. Brand Indonesia" class="bg-[#09090b] border border-zinc-800 rounded-2xl px-4 py-3.5 text-white w-full transition-all duration-200 outline-none text-sm font-medium focus:border-violet-400 focus:shadow-[0_0_0_3px_rgba(139,92,246,0.15)]">
+                        <input type="text" name="company_name" value="{{ $user->company_name }}" placeholder="PT. Merek Indonesia" class="bg-[#09090b] border border-zinc-800 rounded-2xl px-4 py-3.5 text-white w-full transition-all duration-200 outline-none text-sm font-medium focus:border-violet-400 focus:shadow-[0_0_0_3px_rgba(139,92,246,0.15)]">
                     </div>
 
                     <div class="flex flex-col sm:flex-row gap-5 w-full">

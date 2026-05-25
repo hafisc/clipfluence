@@ -20,7 +20,7 @@
 
         <a href="{{ route('admin.dashboard') }}" class="sidebar-link {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
             <i data-lucide="layout-dashboard" class="w-4 h-4 flex-shrink-0"></i>
-            Dashboard
+            Dasbor
         </a>
 
         <!-- Dropdown: Pengguna -->
@@ -36,7 +36,7 @@
                 <div class="ml-5 pl-4 border-l border-neutral-800 space-y-1 mt-1">
                     <a href="{{ route('admin.users') }}" class="block py-2 text-xs font-medium hover:text-white transition-colors {{ request()->routeIs('admin.users*') ? 'text-brand' : 'text-slate-500' }}">Staf Internal</a>
                     <a href="{{ route('admin.kreators') }}" class="block py-2 text-xs font-medium hover:text-white transition-colors {{ request()->routeIs('admin.kreators*') ? 'text-brand' : 'text-slate-500' }}">Daftar Kreator</a>
-                    <a href="{{ route('admin.brands') }}" class="block py-2 text-xs font-medium hover:text-white transition-colors {{ request()->routeIs('admin.brands*') ? 'text-brand' : 'text-slate-500' }}">Daftar Brand</a>
+                    <a href="{{ route('admin.brands') }}" class="block py-2 text-xs font-medium hover:text-white transition-colors {{ request()->routeIs('admin.brands*') ? 'text-brand' : 'text-slate-500' }}">Daftar Merek</a>
                     <a href="{{ route('admin.kyc') }}" class="flex items-center justify-between py-2 text-xs font-medium hover:text-white transition-colors {{ request()->routeIs('admin.kyc*') ? 'text-brand' : 'text-slate-500' }}">
                         Verifikasi KYC <span class="text-[9px] bg-amber-500/10 text-amber-400 border border-amber-500/20 px-1.5 py-0.5 rounded-full font-bold">5</span>
                     </a>
@@ -44,18 +44,18 @@
             </div>
         </div>
 
-        <!-- Dropdown: Campaign & Konten -->
+        <!-- Dropdown: Kampanye & Konten -->
         <div x-data="{ open: {{ request()->routeIs('admin.campaigns*', 'admin.ugc*') ? 'true' : 'false' }} }">
             <button @click="open = !open" class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-sm font-medium hover:text-white hover:bg-white/5 transition-all duration-150 {{ request()->routeIs('admin.campaigns*', 'admin.ugc*') ? 'text-white' : 'text-slate-400' }}">
                 <div class="flex items-center gap-3">
                     <i data-lucide="megaphone" class="w-4 h-4 flex-shrink-0 {{ request()->routeIs('admin.campaigns*', 'admin.ugc*') ? 'text-brand' : '' }}"></i>
-                    Campaign & Konten
+                    Kampanye & Konten
                 </div>
                 <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-200" :class="open ? 'rotate-180' : ''"></i>
             </button>
             <div x-show="open" x-collapse style="display: {{ request()->routeIs('admin.campaigns*', 'admin.ugc*') ? 'block' : 'none' }};">
                 <div class="ml-5 pl-4 border-l border-neutral-800 space-y-1 mt-1">
-                    <a href="{{ route('admin.campaigns') }}" class="block py-2 text-xs font-medium hover:text-white transition-colors {{ request()->routeIs('admin.campaigns*') ? 'text-brand' : 'text-slate-500' }}">Semua Campaign</a>
+                    <a href="{{ route('admin.campaigns') }}" class="block py-2 text-xs font-medium hover:text-white transition-colors {{ request()->routeIs('admin.campaigns*') ? 'text-brand' : 'text-slate-500' }}">Semua Kampanye</a>
                     <a href="{{ route('admin.ugc') }}" class="flex items-center justify-between py-2 text-xs font-medium hover:text-white transition-colors {{ request()->routeIs('admin.ugc*') ? 'text-brand' : 'text-slate-500' }}">
                         Moderasi UGC <span class="text-[9px] bg-red-500/10 text-red-400 border border-red-500/20 px-1.5 py-0.5 rounded-full font-bold">12</span>
                     </a>
@@ -105,7 +105,7 @@
 
     </nav>
 
-    <!-- User Profile Footer -->
+    <!-- User Profile Catatan Kaki -->
     <div class="px-3 py-4 border-t border-neutral-800/50 flex-shrink-0">
         <div class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-white/5 transition-colors cursor-pointer">
             <div class="w-8 h-8 rounded-full bg-brand flex items-center justify-center text-white text-xs font-bold flex-shrink-0">

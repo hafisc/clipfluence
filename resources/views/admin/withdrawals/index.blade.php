@@ -7,10 +7,10 @@
 @php
 $withdrawals = [
     ['kreator'=>'Rafi Ananda','bank'=>'BCA','account'=>'1234-5678-9012','amount'=>'Rp 2.400.000','requested'=>'2 jam lalu','status'=>'Menunggu'],
-    ['kreator'=>'Hana Creator','bank'=>'Mandiri','account'=>'0987-6543-2109','amount'=>'Rp 5.100.000','requested'=>'5 jam lalu','status'=>'Menunggu'],
+    ['kreator'=>'Hana Kreator','bank'=>'Mandiri','account'=>'0987-6543-2109','amount'=>'Rp 5.100.000','requested'=>'5 jam lalu','status'=>'Menunggu'],
     ['kreator'=>'Luna Aesthetic','bank'=>'BNI','account'=>'8765-4321-0987','amount'=>'Rp 1.750.000','requested'=>'1 hari lalu','status'=>'Menunggu'],
     ['kreator'=>'Dimas Viral','bank'=>'BCA','account'=>'3456-7890-1234','amount'=>'Rp 980.000','requested'=>'2 hari lalu','status'=>'Diproses'],
-    ['kreator'=>'Kevin Creator','bank'=>'BSI','account'=>'6789-0123-4567','amount'=>'Rp 3.200.000','requested'=>'3 hari lalu','status'=>'Berhasil'],
+    ['kreator'=>'Kevin Kreator','bank'=>'BSI','account'=>'6789-0123-4567','amount'=>'Rp 3.200.000','requested'=>'3 hari lalu','status'=>'Berhasil'],
 ];
 @endphp
 <div class="space-y-5">

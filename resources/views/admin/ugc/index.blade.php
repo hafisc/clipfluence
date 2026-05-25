@@ -8,7 +8,7 @@
 $contents = [
     ['kreator'=>'Rafi Ananda','campaign'=>'Summer Glow 2026','brand'=>'Wardah','thumb'=>'🎬','duration'=>'0:58','submitted'=>'2 jam lalu','status'=>'Menunggu'],
     ['kreator'=>'Luna Aesthetic','campaign'=>'Summer Glow 2026','brand'=>'Wardah','thumb'=>'🎥','duration'=>'1:12','submitted'=>'5 jam lalu','status'=>'Menunggu'],
-    ['kreator'=>'Hana Creator','campaign'=>'Harbolnas 5.5','brand'=>'Tokopedia','thumb'=>'📹','duration'=>'0:45','submitted'=>'8 jam lalu','status'=>'Menunggu'],
+    ['kreator'=>'Hana Kreator','campaign'=>'Harbolnas 5.5','brand'=>'Tokopedia','thumb'=>'📹','duration'=>'0:45','submitted'=>'8 jam lalu','status'=>'Menunggu'],
     ['kreator'=>'Dimas Viral','campaign'=>'Pagi Bareng Kenangan','brand'=>'Kopi Kenangan','thumb'=>'🎦','duration'=>'1:02','submitted'=>'1 hari lalu','status'=>'Disetujui'],
     ['kreator'=>'Rizky Clips','campaign'=>'Harbolnas 5.5','brand'=>'Tokopedia','thumb'=>'🎬','duration'=>'0:33','submitted'=>'1 hari lalu','status'=>'Ditolak'],
     ['kreator'=>'Nadia UGC','campaign'=>'Double Day Deals','brand'=>'Shopee','thumb'=>'🎥','duration'=>'0:55','submitted'=>'2 hari lalu','status'=>'Disetujui'],

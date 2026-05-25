@@ -13,7 +13,7 @@
     <!-- Right: Actions -->
     <div class="flex items-center gap-3">
 
-        <!-- Search -->
+        <!-- Cari -->
         <div class="hidden md:block relative" x-data="{ open: false, query: '', results: [], loading: false }" @click.away="open = false">
             <div class="flex items-center gap-2 bg-neutral-900 border border-neutral-800 rounded-xl px-3 py-2 text-sm hover:border-neutral-700 transition-colors w-56"
                  :class="open ? 'border-violet-500/50 ring-2 ring-violet-500/20' : ''">
@@ -39,11 +39,11 @@
                            }
                        "
                        @focus="if (query.length >= 1) open = true"
-                       placeholder="Cari Campaign..."
+                       placeholder="Cari Kampanye..."
                        class="bg-transparent border-0 outline-none text-xs text-white placeholder-slate-500 w-full">
             </div>
 
-            <!-- Search Results Dropdown -->
+            <!-- Cari Results Dropdown -->
             <div x-show="open && (results.length > 0 || loading)" 
                  x-transition
                  class="absolute top-full mt-2 w-80 bg-[#0f0f0f] border border-white/[0.08] rounded-xl shadow-2xl overflow-hidden z-50 right-0">
@@ -97,7 +97,7 @@
             </div>
         </div>
 
-        <!-- Notifications -->
+        <!-- Notifikasi -->
         <div class="relative" x-data="{ open: false, notifications: [], unreadCount: 0, loading: false }" 
              x-init="
                  // Load notifications on init
@@ -121,7 +121,7 @@
                       class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-violet-500 shadow-[0_0_10px_rgba(139,92,246,0.8)] border border-[#0d0d0d]"></span>
             </button>
 
-            <!-- Notifications Dropdown -->
+            <!-- Notifikasi Dropdown -->
             <div x-show="open" 
                  x-transition
                  class="absolute right-0 top-full mt-2 w-96 bg-[#0f0f0f] border border-white/[0.08] rounded-xl shadow-2xl overflow-hidden z-50">
@@ -156,7 +156,7 @@
                     <p class="text-xs text-slate-500 mt-2">Memuat notifikasi...</p>
                 </div>
 
-                <!-- Notifications List -->
+                <!-- Notifikasi List -->
                 <div x-show="!loading && notifications.length > 0" class="max-h-96 overflow-y-auto">
                     <template x-for="notif in notifications" :key="notif.id">
                         <div @click="
@@ -201,7 +201,7 @@
                     <p class="text-xs text-slate-600 mt-1">Notifikasi akan muncul di sini</p>
                 </div>
 
-                <!-- Footer -->
+                <!-- Catatan Kaki -->
                 <div class="px-4 py-3 border-t border-white/[0.06] bg-black/20">
                     <a href="#" class="text-xs font-medium text-slate-400 hover:text-white transition-colors flex items-center justify-center gap-1">
                         Lihat semua notifikasi

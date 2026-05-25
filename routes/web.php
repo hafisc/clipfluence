@@ -71,7 +71,8 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
         Route::get('/fraud', fn() => view('admin.fraud.index'))->name('fraud');
         Route::get('/notifications', fn() => view('admin.notifications.index'))->name('notifications');
         Route::get('/logs', fn() => view('admin.logs.index'))->name('logs');
-        Route::get('/settings', fn() => view('admin.settings.index'))->name('settings');
+        Route::get('/settings', [\App\Http\Controllers\Admin\SettingsController::class, 'index'])->name('settings');
+        Route::post('/settings', [\App\Http\Controllers\Admin\SettingsController::class, 'update'])->name('settings.update');
     });
 });
 

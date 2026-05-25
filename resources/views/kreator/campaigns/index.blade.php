@@ -1,6 +1,6 @@
 @extends('layouts.kreator')
 
-@section('title', 'Cari Campaign (Marketplace)')
+@section('title', 'Cari Kampanye (Marketplace)')
 
 @section('content')
 <div class="space-y-6 pb-12 pt-2" x-data="{ currentType: 'all', searchQuery: '' }">
@@ -9,7 +9,7 @@
 
     {{-- CONTROLS --}}
     <div class="flex gap-3 items-center flex-wrap">
-        {{-- Search --}}
+        {{-- Cari --}}
         <div class="relative flex-1 min-w-[200px] max-w-md">
             <i data-lucide="search" class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-500"></i>
             <input type="text" 
@@ -18,7 +18,7 @@
                    class="w-full bg-[#0f0f0f] border border-white/[0.08] text-sm text-white rounded-lg py-2.5 pr-4 pl-10 outline-none transition-all focus:border-white/[0.16] placeholder-slate-500">
         </div>
 
-        {{-- Type Filter --}}
+        {{-- Type Saring --}}
         <div class="flex items-center gap-2 bg-[#0f0f0f] border border-white/[0.08] rounded-lg p-1">
             <button @click="currentType = 'all'" 
                     :class="currentType === 'all' ? 'bg-white text-black' : 'text-slate-400 hover:text-white'"
@@ -69,7 +69,7 @@
                 </span>
                 @endif
 
-                {{-- Brand --}}
+                {{-- Merek --}}
                 <div class="absolute bottom-2 left-2 flex items-center gap-1.5 bg-black/60 backdrop-blur-sm rounded-md py-1 px-2 border border-white/10">
                     <span class="w-2 h-2 rounded-full" style="background: {{ $c['dotColor'] }}"></span>
                     <span class="text-[10px] font-medium text-white">{{ $c['brand'] }}</span>

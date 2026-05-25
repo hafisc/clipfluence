@@ -20,8 +20,38 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     
+    @php
+        $adminSettings = [];
+
+        if (\Illuminate\Support\Facades\Storage::disk('local')->exists('settings/admin.json')) {
+            $decoded = json_decode(\Illuminate\Support\Facades\Storage::disk('local')->get('settings/admin.json'), true);
+            $adminSettings = is_array($decoded) ? $decoded : [];
+        }
+
+        $appearance = $adminSettings['appearance'] ?? [];
+        $primaryColor = $appearance['primary_color'] ?? '#6D28D9';
+        $accentColor = $appearance['accent_color'] ?? '#A855F7';
+    @endphp
+
     <style>
+        :root {
+            --admin-primary: {{ $primaryColor }};
+            --admin-accent: {{ $accentColor }};
+            --admin-primary-rgb: {{ implode(',', sscanf(ltrim($primaryColor, '#'), "%02x%02x%02x")) }};
+        }
+
         body { font-family: 'Inter', sans-serif; }
+
+        .bg-brand { background-color: var(--admin-primary) !important; }
+        .text-brand { color: var(--admin-primary) !important; }
+        .text-brand-light { color: var(--admin-accent) !important; }
+        .border-brand { border-color: var(--admin-primary) !important; }
+        .bg-brand\/10 { background-color: rgba(var(--admin-primary-rgb), 0.10) !important; }
+        .bg-brand\/30 { background-color: rgba(var(--admin-primary-rgb), 0.30) !important; }
+        .focus\:border-brand:focus { border-color: var(--admin-primary) !important; }
+        .focus\:ring-brand:focus { --tw-ring-color: var(--admin-primary) !important; }
+        .hover\:text-brand:hover { color: var(--admin-primary) !important; }
+        .hover\:text-brand-light:hover { color: var(--admin-accent) !important; }
     </style>
 </head>
 <body class="bg-black text-slate-50 antialiased min-h-screen relative flex items-center justify-center selection:bg-brand/30 selection:text-brand-light">
@@ -66,7 +96,7 @@
             @yield('content')
         </div>
         
-        <!-- Footer Auth -->
+        <!-- Catatan Kaki Auth -->
         <div class="mt-8 text-center text-xs text-slate-500">
             &copy; {{ date('Y') }} Clipfluence Inc. Melanjutkan berarti menyetujui <a href="#" class="text-slate-400 hover:text-white underline decoration-neutral-700">Persyaratan Layanan</a> kami.
         </div>

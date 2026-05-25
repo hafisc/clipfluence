@@ -1,6 +1,6 @@
 @extends('layouts.admin')
-@section('title', 'Daftar Brand')
-@section('page_title', 'Daftar Brand / Klien')
+@section('title', 'Daftar Merek')
+@section('page_title', 'Daftar Merek / Klien')
 @section('page_subtitle', 'Direktori perusahaan dan brand yang menggunakan platform')
 
 @section('content')
@@ -16,7 +16,7 @@ $brands = [
 @endphp
 <div class="space-y-5">
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        @foreach([['label'=>'Total Brand','val'=>'301','icon'=>'briefcase','color'=>'brand'],['label'=>'Brand Aktif Bulan Ini','val'=>'86','icon'=>'activity','color'=>'emerald'],['label'=>'Total Ad Spend','val'=>'Rp 4.2 M','icon'=>'trending-up','color'=>'amber'],['label'=>'Rata-rata Budget','val'=>'Rp 14 Jt','icon'=>'wallet','color'=>'violet']] as $s)
+        @foreach([['label'=>'Total Merek','val'=>'301','icon'=>'briefcase','color'=>'brand'],['label'=>'Merek Aktif Bulan Ini','val'=>'86','icon'=>'activity','color'=>'emerald'],['label'=>'Total Ad Spend','val'=>'Rp 4.2 M','icon'=>'trending-up','color'=>'amber'],['label'=>'Rata-rata Budget','val'=>'Rp 14 Jt','icon'=>'wallet','color'=>'violet']] as $s)
         <div class="stat-card">
             <div class="flex items-center mb-3 w-9 h-9 rounded-xl bg-{{ $s['color'] }}/10 border border-{{ $s['color'] }}/20 items-center justify-center">
                 <i data-lucide="{{ $s['icon'] }}" class="w-4 h-4 text-{{ $s['color']==='brand'?'brand':$s['color'].'-400' }}"></i>
@@ -29,7 +29,7 @@ $brands = [
 
     <div class="bg-neutral-900/60 border border-neutral-800/60 rounded-2xl overflow-hidden">
         <div class="flex items-center justify-between p-5 border-b border-neutral-800/60">
-            <h3 class="text-sm font-semibold text-white">Daftar Brand</h3>
+            <h3 class="text-sm font-semibold text-white">Daftar Merek</h3>
             <div class="flex items-center gap-2">
                 <select class="bg-neutral-800 border border-neutral-700 rounded-xl px-3 py-1.5 text-xs text-slate-300 outline-none">
                     <option>Semua Industri</option><option>E-Commerce</option><option>F&B</option><option>Tech</option>
@@ -43,7 +43,7 @@ $brands = [
         <div class="overflow-x-auto">
             <table class="w-full">
                 <thead><tr class="border-b border-neutral-800/60">
-                    @foreach(['Brand','Industri','Total Ad Spend','Total Campaign','Status',''] as $h)
+                    @foreach(['Merek','Industri','Total Ad Spend','Total Kampanye','Status',''] as $h)
                     <th class="text-left px-5 py-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">{{ $h }}</th>
                     @endforeach
                 </tr></thead>

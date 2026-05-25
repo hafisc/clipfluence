@@ -11,7 +11,7 @@
 
         <!-- Page title / Breadcrumb -->
         {{-- <div>
-            <h1 class="text-sm font-semibold text-white">@yield('page_title', 'Dashboard')</h1>
+            <h1 class="text-sm font-semibold text-white">@yield('page_title', 'Dasbor')</h1>
             <p class="text-xs text-slate-500">@yield('page_subtitle', 'Selamat datang di panel admin Clipfluence')</p>
         </div> --}}
     </div>
@@ -19,13 +19,13 @@
     <!-- Right: Actions -->
     <div class="flex items-center gap-3">
 
-        <!-- Search -->
+        <!-- Cari -->
         <div class="hidden md:flex items-center gap-2 bg-neutral-900 border border-neutral-800 rounded-xl px-3 py-2 text-sm text-slate-500 hover:border-neutral-700 transition-colors cursor-text w-48">
             <i data-lucide="search" class="w-4 h-4 flex-shrink-0"></i>
             <span class="text-xs">Cari sesuatu...</span>
         </div>
 
-        <!-- Notifications -->
+        <!-- Notifikasi -->
         <button class="relative w-9 h-9 flex items-center justify-center rounded-xl bg-neutral-900 border border-neutral-800 text-slate-400 hover:text-white hover:border-neutral-700 transition-all">
             <i data-lucide="bell" class="w-4 h-4"></i>
             <!-- Badge -->

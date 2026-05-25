@@ -337,7 +337,7 @@
                     </div>
                 </div>
 
-                {{-- Status Details --}}
+                {{-- Status Rincian --}}
                 <div class="flex items-center gap-4 text-xs text-slate-600">
                     <div class="flex items-center gap-1.5">
                         <i data-lucide="brain-circuit" class="w-3.5 h-3.5" :class="clip.status === 'analyzing' ? 'text-violet-400' : 'text-slate-600'"></i>
@@ -345,7 +345,7 @@
                     </div>
                     <div class="flex items-center gap-1.5">
                         <i data-lucide="download" class="w-3.5 h-3.5" :class="clip.status === 'downloading' ? 'text-blue-400' : 'text-slate-600'"></i>
-                        <span :class="clip.status === 'downloading' ? 'text-blue-400 font-semibold' : ''">Download</span>
+                        <span :class="clip.status === 'downloading' ? 'text-blue-400 font-semibold' : ''">Unduh</span>
                     </div>
                     <div class="flex items-center gap-1.5">
                         <i data-lucide="scissors" class="w-3.5 h-3.5" :class="clip.status === 'processing' ? 'text-orange-400' : 'text-slate-600'"></i>
@@ -353,7 +353,7 @@
                     </div>
                     <div class="flex items-center gap-1.5">
                         <i data-lucide="upload" class="w-3.5 h-3.5" :class="clip.status === 'uploading' ? 'text-green-400' : 'text-slate-600'"></i>
-                        <span :class="clip.status === 'uploading' ? 'text-green-400 font-semibold' : ''">Upload</span>
+                        <span :class="clip.status === 'uploading' ? 'text-green-400 font-semibold' : ''">Unggah</span>
                     </div>
                 </div>
             </div>
@@ -422,7 +422,7 @@
     <div x-show="errorMessage" x-transition class="bg-red-500/10 border border-red-500/30 rounded-xl p-4 flex items-start gap-3" style="display:none">
         <i data-lucide="alert-circle" class="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5"></i>
         <div class="flex-1">
-            <p class="text-sm font-semibold text-red-400">Error</p>
+            <p class="text-sm font-semibold text-red-400">Galat</p>
             <p class="text-xs text-red-300/80" x-text="errorMessage"></p>
         </div>
         <button @click="errorMessage = ''" class="text-red-400 hover:text-red-300">
@@ -562,7 +562,7 @@ function aiClipper() {
         currentStep: 1,
         activeTab: 'generate', // 'generate' atau 'history'
         
-        // Settings
+        // Pengaturan
         settings: {
             orientation: 'vertical',
             clipDuration: 60,
@@ -648,7 +648,7 @@ function aiClipper() {
                     this.videoInfo = null;
                 }
             } catch (error) {
-                console.error('Error loading video:', error);
+                console.error('Galat loading video:', error);
                 this.errorMessage = 'Terjadi kesalahan saat memuat video: ' + error.message;
                 this.videoInfo = null;
             } finally {
@@ -698,7 +698,7 @@ function aiClipper() {
                     this.isProcessing = false;
                 }
             } catch (error) {
-                console.error('Error generating clips:', error);
+                console.error('Galat generating clips:', error);
                 this.errorMessage = 'Terjadi kesalahan saat generate clips: ' + error.message;
                 this.isProcessing = false;
             }
@@ -756,7 +756,7 @@ function aiClipper() {
                         });
                     }
                 } catch (error) {
-                    console.error('Error polling clips:', error);
+                    console.error('Galat polling clips:', error);
                 }
             }, 2000); // Poll setiap 2 detik
         },
@@ -772,9 +772,9 @@ function aiClipper() {
             const statusMap = {
                 'queued': 'Antrian',
                 'analyzing': 'Analisis AI',
-                'downloading': 'Download',
+                'downloading': 'Unduh',
                 'processing': 'Memotong',
-                'uploading': 'Upload',
+                'uploading': 'Unggah',
                 'completed': 'Selesai',
                 'failed': 'Gagal'
             };
@@ -861,7 +861,7 @@ function aiClipper() {
                     this.errorMessage = data.message || 'Gagal memuat riwayat';
                 }
             } catch (error) {
-                console.error('Error loading history:', error);
+                console.error('Galat loading history:', error);
                 this.errorMessage = 'Terjadi kesalahan saat memuat riwayat';
             } finally {
                 this.isLoadingHistory = false;
@@ -888,7 +888,7 @@ function aiClipper() {
                     this.errorMessage = data.message || 'Gagal menghapus clip';
                 }
             } catch (error) {
-                console.error('Error deleting clip:', error);
+                console.error('Galat deleting clip:', error);
                 this.errorMessage = 'Terjadi kesalahan saat menghapus clip';
             }
         },

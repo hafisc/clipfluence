@@ -53,7 +53,7 @@
             </div>
         </div>
 
-        {{-- Card 2: Escrow / Pending --}}
+        {{-- Card 2: Escrow / Menunggu --}}
         <div class="bg-[#0a0a0a] rounded-[1.5rem] p-6 relative overflow-hidden flex flex-col min-h-[160px] transition-all duration-200 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)] hover:-translate-y-0.5 hover:shadow-[inset_0_0_0_1px_rgba(139,92,246,0.2),_0_8px_30px_rgba(0,0,0,0.5)] group before:absolute before:inset-x-0 before:top-0 before:h-[1.5px] before:bg-gradient-to-r before:from-transparent before:via-violet-500/50 before:to-transparent before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-300">
             <div class="flex items-start justify-between">
                 <div class="w-[44px] h-[44px] rounded-[1.25rem] flex items-center justify-center mb-5 bg-amber-500/10 text-amber-400 shadow-[inset_0_0_0_1px_rgba(245,158,11,0.2)]">
@@ -61,7 +61,7 @@
                 </div>
             </div>
             <div class="mt-auto">
-                <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1.5">Dana Tertahan (Pending)</p>
+                <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1.5">Dana Tertahan (Menunggu)</p>
                 <div class="flex items-baseline gap-2">
                     <h2 class="text-2xl font-black text-white leading-none tracking-tight">
                         <span class="text-lg text-slate-400 font-bold mr-0.5">Rp</span>{{ number_format($pending_withdrawal, 0, ',', '.') }}
@@ -102,7 +102,7 @@
         <div class="p-6 shadow-[0_1px_0_rgba(255,255,255,0.04)] flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 sm:gap-0">
             <h3 class="text-base font-black text-white">Riwayat Transaksi</h3>
             
-            {{-- Filter Pills --}}
+            {{-- Saring Pills --}}
             <div class="flex items-center gap-1.5 p-1 rounded-xl bg-white/[0.03] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05)] w-fit">
                 <button class="px-3 py-1.5 rounded-lg text-xs font-bold bg-white/10 text-white shadow-sm transition-colors">Semua</button>
                 <button class="px-3 py-1.5 rounded-lg text-xs font-bold text-slate-400 hover:text-white transition-colors">Masuk</button>
@@ -212,7 +212,7 @@
     <div class="bg-[#0f0f0f] rounded-[1.5rem] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08),_0_25px_50px_-12px_rgba(0,0,0,0.8)] w-full max-w-sm overflow-hidden">
         <div class="px-6 py-5 shadow-[0_1px_0_rgba(255,255,255,0.06)] flex justify-between items-center">
             <div>
-                <h3 class="font-black text-white text-base">Ubah Rekening / E-Wallet</h3>
+                <h3 class="font-black text-white text-base">Ubah Rekening / <em>e-wallet</em></h3>
                 <p class="text-[11px] text-slate-400">Pastikan rekening atas nama Anda</p>
             </div>
             <button type="button" onclick="document.getElementById('edit_bank_modal').classList.add('hidden')" class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 transition-colors focus:outline-none">
@@ -224,15 +224,15 @@
             @csrf
             <div class="space-y-4 mb-6">
                 <div>
-                    <label class="block text-[11px] font-bold text-slate-400 mb-1.5">Pilih Bank / E-Wallet</label>
+                    <label class="block text-[11px] font-bold text-slate-400 mb-1.5">Pilih Bank / <em>e-wallet</em></label>
                     <select name="bank_name" id="inp_bank_name" required class="w-full bg-black border-none text-sm font-semibold shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)] text-white rounded-xl px-4 py-3 outline-none focus:shadow-[inset_0_0_0_1.5px_rgba(139,92,246,0.6)] appearance-none cursor-pointer">
                         <option value="BCA" {{ auth()->user()->bank_name == 'BCA' ? 'selected' : '' }}>Bank BCA</option>
                         <option value="BRI" {{ auth()->user()->bank_name == 'BRI' ? 'selected' : '' }}>Bank BRI</option>
                         <option value="BNI" {{ auth()->user()->bank_name == 'BNI' ? 'selected' : '' }}>Bank BNI</option>
                         <option value="Mandiri" {{ auth()->user()->bank_name == 'Mandiri' ? 'selected' : '' }}>Bank Mandiri</option>
-                        <option value="DANA" {{ auth()->user()->bank_name == 'DANA' ? 'selected' : '' }}>DANA (E-Wallet)</option>
-                        <option value="GoPay" {{ auth()->user()->bank_name == 'GoPay' ? 'selected' : '' }}>GoPay (E-Wallet)</option>
-                        <option value="OVO" {{ auth()->user()->bank_name == 'OVO' ? 'selected' : '' }}>OVO (E-Wallet)</option>
+                        <option value="DANA" {{ auth()->user()->bank_name == 'DANA' ? 'selected' : '' }}>DANA (<em>e-wallet</em>)</option>
+                        <option value="GoPay" {{ auth()->user()->bank_name == 'GoPay' ? 'selected' : '' }}>GoPay (<em>e-wallet</em>)</option>
+                        <option value="OVO" {{ auth()->user()->bank_name == 'OVO' ? 'selected' : '' }}>OVO (<em>e-wallet</em>)</option>
                         <option value="ShopeePay" {{ auth()->user()->bank_name == 'ShopeePay' ? 'selected' : '' }}>ShopeePay</option>
                     </select>
                 </div>

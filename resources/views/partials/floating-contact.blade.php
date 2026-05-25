@@ -269,7 +269,7 @@
 
             removeTypingIndicator();
 
-            if (!response.ok) throw new Error('Gagal menghubungi AI');
+            if (!response.ok) throw new Galat('Gagal menghubungi AI');
 
             const data = await response.json();
             const reply = data.reply || 'Maaf, saya tidak bisa merespons saat ini.';

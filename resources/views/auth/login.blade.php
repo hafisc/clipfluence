@@ -63,11 +63,11 @@
         </div>
     </div>
 
-    <!-- Submit Button -->
+    <!-- Kirim Button -->
     <div>
         <button type="submit" 
             class="w-full flex justify-center items-center gap-2 py-3 px-4 border border-transparent rounded-xl shadow-lg shadow-brand/20 text-sm font-bold text-white bg-gradient-to-r from-brand to-brand hover:from-brand-hover hover:to-brand-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-neutral-900 focus:ring-brand transform transition-all active:scale-[0.98]">
-            Masuk ke Dashboard <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            Masuk ke Dasbor <i data-lucide="arrow-right" class="w-4 h-4"></i>
         </button>
     </div>
 </form>
@@ -98,7 +98,7 @@
     </a>
 </div>
 
-<!-- Register Link -->
+<!-- Tautan Daftar -->
 <div class="mt-8 text-center text-sm text-slate-400">
     Belum punya akun? 
     <a href="/register" class="font-bold text-white hover:text-brand transition-colors">Buat Akun Sekarang</a>

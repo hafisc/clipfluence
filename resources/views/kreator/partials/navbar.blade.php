@@ -13,7 +13,7 @@
     <!-- Right: Actions -->
     <div class="flex items-center gap-4">
 
-        <!-- Notifications -->
+        <!-- Notifikasi -->
         <div class="relative" x-data="{ open: false, notifications: [], unreadCount: 0, loading: false }" 
              x-init="
                  // Load notifications on init
@@ -37,7 +37,7 @@
                       class="absolute top-2 right-2.5 w-2 h-2 rounded-full bg-violet-500 shadow-[0_0_10px_rgba(139,92,246,0.8)] border border-[#0d0d0d]"></span>
             </button>
 
-            <!-- Notifications Dropdown -->
+            <!-- Notifikasi Dropdown -->
             <div x-show="open" 
                  x-transition
                  class="absolute right-0 top-full mt-2 w-96 bg-[#0f0f0f] border border-white/[0.08] rounded-xl shadow-2xl overflow-hidden z-50">
@@ -72,7 +72,7 @@
                     <p class="text-xs text-slate-500 mt-2">Memuat notifikasi...</p>
                 </div>
 
-                <!-- Notifications List -->
+                <!-- Notifikasi List -->
                 <div x-show="!loading && notifications.length > 0" class="max-h-96 overflow-y-auto">
                     <template x-for="notif in notifications" :key="notif.id">
                         <div @click="
@@ -117,7 +117,7 @@
                     <p class="text-xs text-slate-600 mt-1">Notifikasi akan muncul di sini</p>
                 </div>
 
-                <!-- Footer -->
+                <!-- Catatan Kaki -->
                 <div class="px-4 py-3 border-t border-white/[0.06] bg-black/20">
                     <a href="#" class="text-xs font-medium text-slate-400 hover:text-white transition-colors flex items-center justify-center gap-1">
                         Lihat semua notifikasi

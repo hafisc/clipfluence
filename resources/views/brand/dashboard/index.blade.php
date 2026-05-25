@@ -1,6 +1,6 @@
 @extends('layouts.brand')
 
-@section('title', 'Brand Dashboard')
+@section('title', 'Merek Dasbor')
 
 @section('content')
 
@@ -27,7 +27,7 @@
             {{-- Right: Action Buttons (Mobile friendly stack) --}}
             <div class="flex flex-col gap-2.5 sm:w-auto shrink-0 w-full">
                 <a href="{{ route('brand.campaigns.create') ?? '#' }}" class="bg-white text-black font-extrabold rounded-xl transition-all duration-200 active:scale-95 flex items-center justify-center gap-2 px-6 py-3 lg:py-2.5 text-xs sm:w-48 whitespace-nowrap">
-                    <i data-lucide="plus-circle" class="w-4 h-4"></i> Buat Campaign
+                    <i data-lucide="plus-circle" class="w-4 h-4"></i> Buat Kampanye
                 </a>
                 <a href="{{ route('brand.finance') ?? '#' }}" class="bg-white/15 text-white border border-white/10 backdrop-blur-md font-extrabold rounded-xl transition-all duration-200 active:scale-95 active:bg-white/25 flex items-center justify-center gap-2 px-6 py-3 lg:py-2.5 text-xs sm:w-48 whitespace-nowrap">
                     <i data-lucide="wallet" class="w-4 h-4"></i> Top-up Saldo
@@ -40,26 +40,26 @@
     {{-- ===== STAT CARDS: 2-col mobile → 4-col desktop ===== --}}
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4">
         
-        {{-- Card 1: Saldo Deposit --}}
+        {{-- Card 1: Saldo Setoran --}}
         <div class="bg-neutral-900 border border-neutral-800 rounded-2xl transition-all duration-200 active:scale-95 p-4 lg:p-5 text-left flex flex-col justify-between h-full">
             <div class="flex items-center gap-3 mb-3 lg:mb-4">
                 <div class="w-9 h-9 lg:w-11 lg:h-11 rounded-xl  flex items-center justify-center">
                     <img src="{{ asset('assets/images/money.png') }}" alt="Coin" class="w-5 h-5 lg:w-6 lg:h-6 drop-shadow-lg"> 
                 </div>
-                <p class="text-[10px] lg:text-[11px] text-slate-400 font-semibold uppercase tracking-wider">Saldo Deposit</p>
+                <p class="text-[10px] lg:text-[11px] text-slate-400 font-semibold uppercase tracking-wider">Saldo Setoran</p>
             </div>
             <h2 class="text-lg lg:text-2xl font-black text-white leading-none">
                 <span class="text-xs lg:text-lg text-slate-400 font-bold mr-0.5">Rp</span>{{ number_format($balance, 0, ',', '.') }}
             </h2>
         </div>
 
-        {{-- Card 2: Total Views --}}
+        {{-- Card 2: Total Tayangan --}}
         <div class="bg-neutral-900 border border-neutral-800 rounded-2xl transition-all duration-200 active:scale-95 p-4 lg:p-5 text-left flex flex-col justify-between h-full">
             <div class="flex items-center gap-3 mb-3 lg:mb-4">
                 <div class="w-9 h-9 lg:w-11 lg:h-11 rounded-xl flex items-center justify-center">
-                    <img src="{{ asset('assets/images/fire.png') }}" alt="View" class="w-5 h-5 lg:w-6 lg:h-6 drop-shadow-lg">
+                    <img src="{{ asset('assets/images/fire.png') }}" alt="Tayangan" class="w-5 h-5 lg:w-6 lg:h-6 drop-shadow-lg">
                 </div>
-                 <p class="text-[10px] lg:text-[11px] text-slate-400 font-semibold uppercase tracking-wider">Total Views</p>
+                 <p class="text-[10px] lg:text-[11px] text-slate-400 font-semibold uppercase tracking-wider">Total Tayangan</p>
             </div>
             <h2 class="text-lg lg:text-2xl font-black text-white leading-none">
                 {{ number_format($totalViews, 0, ',', '.') }}
@@ -129,12 +129,12 @@
     {{-- ===== MAIN LAYOUT (2 Columns) ===== --}}
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-6 mt-2">
 
-        {{-- LEFT COLUMN: Active Campaigns --}}
+        {{-- LEFT COLUMN: Active Kampanye --}}
         <div class="bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden lg:col-span-2 flex flex-col">
             <div class="p-5 lg:p-6 pb-4 border-b border-white/5 flex items-center justify-between">
                 <div>
-                    <h3 class="text-sm lg:text-base font-black text-white mb-0.5">Campaign Aktif</h3>
-                    <p class="text-[10px] lg:text-xs text-slate-400">Serapan budget & views real-time.</p>
+                    <h3 class="text-sm lg:text-base font-black text-white mb-0.5">Kampanye Aktif</h3>
+                    <p class="text-[10px] lg:text-xs text-slate-400">Serapan budget & tayangan <em>real-time</em>.</p>
                 </div>
                 <a href="#" class="text-[10px] lg:text-xs font-bold text-violet-400 hover:text-violet-300 transition-colors flex items-center gap-1">
                     Lihat <span class="hidden sm:inline">Semua</span> <i data-lucide="arrow-right" class="w-3 h-3"></i>

@@ -9,7 +9,7 @@ $disputes = [
     ['id'=>'DSP-001','kreator'=>'Rafi Ananda','brand'=>'Wardah Beauty','issue'=>'Pembayaran tidak diterima setelah konten disetujui','date'=>'26 Mar 2026','priority'=>'Tinggi','status'=>'Terbuka'],
     ['id'=>'DSP-002','kreator'=>'Dimas Viral','brand'=>'Samsung ID','issue'=>'Brief campaign berubah mendadak tanpa pemberitahuan','date'=>'25 Mar 2026','priority'=>'Sedang','status'=>'Terbuka'],
     ['id'=>'DSP-003','kreator'=>'Luna Aesthetic','brand'=>'Tokopedia','issue'=>'Konten ditolak tanpa alasan yang jelas','date'=>'23 Mar 2026','priority'=>'Rendah','status'=>'Diselidiki'],
-    ['id'=>'DSP-004','kreator'=>'Hana Creator','brand'=>'Shopee ID','issue'=>'Deadline diperpanjang sepihak oleh brand','date'=>'20 Mar 2026','priority'=>'Sedang','status'=>'Selesai'],
+    ['id'=>'DSP-004','kreator'=>'Hana Kreator','brand'=>'Shopee ID','issue'=>'Deadline diperpanjang sepihak oleh brand','date'=>'20 Mar 2026','priority'=>'Sedang','status'=>'Selesai'],
 ];
 @endphp
 <div class="space-y-5">

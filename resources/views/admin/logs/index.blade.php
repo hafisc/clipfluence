@@ -7,12 +7,12 @@
 @php
 $logs = [
     ['action'=>'User Diblokir','actor'=>'Super Admin','target'=>'dimas@gmail.com','ip'=>'103.12.45.1','time'=>'5 menit lalu','type'=>'admin'],
-    ['action'=>'KYC Diverifikasi','actor'=>'Super Admin','target'=>'Kevin Creator','ip'=>'103.12.45.1','time'=>'22 menit lalu','type'=>'admin'],
-    ['action'=>'Login Berhasil','actor'=>'brand@clipfluence.com','target'=>'–','ip'=>'180.252.3.77','time'=>'1 jam lalu','type'=>'auth'],
-    ['action'=>'Campaign Dibuat','actor'=>'wardah@brand.com','target'=>'Summer Glow 2026','ip'=>'36.75.12.99','time'=>'2 jam lalu','type'=>'campaign'],
+    ['action'=>'KYC Diverifikasi','actor'=>'Super Admin','target'=>'Kevin Kreator','ip'=>'103.12.45.1','time'=>'22 menit lalu','type'=>'admin'],
+    ['action'=>'Masuk Berhasil','actor'=>'brand@clipfluence.com','target'=>'–','ip'=>'180.252.3.77','time'=>'1 jam lalu','type'=>'auth'],
+    ['action'=>'Kampanye Dibuat','actor'=>'wardah@brand.com','target'=>'Summer Glow 2026','ip'=>'36.75.12.99','time'=>'2 jam lalu','type'=>'campaign'],
     ['action'=>'Konten UGC Ditolak','actor'=>'Super Admin','target'=>'Rafi Ananda – Video #003','ip'=>'103.12.45.1','time'=>'3 jam lalu','type'=>'admin'],
-    ['action'=>'Penarikan Dicairkan','actor'=>'Super Admin','target'=>'Hana Creator – Rp 5.1 Jt','ip'=>'103.12.45.1','time'=>'5 jam lalu','type'=>'finance'],
-    ['action'=>'Login Gagal (3x)','actor'=>'unknown@mail.com','target'=>'–','ip'=>'201.33.88.12','time'=>'8 jam lalu','type'=>'warning'],
+    ['action'=>'Penarikan Dicairkan','actor'=>'Super Admin','target'=>'Hana Kreator – Rp 5.1 Jt','ip'=>'103.12.45.1','time'=>'5 jam lalu','type'=>'finance'],
+    ['action'=>'Masuk Gagal (3x)','actor'=>'unknown@mail.com','target'=>'–','ip'=>'201.33.88.12','time'=>'8 jam lalu','type'=>'warning'],
     ['action'=>'Notifikasi Dikirim','actor'=>'Super Admin','target'=>'1,248 pengguna','ip'=>'103.12.45.1','time'=>'1 hari lalu','type'=>'admin'],
 ];
 $typeClass = ['admin'=>'bg-brand/10 text-brand border-brand/20','auth'=>'bg-emerald-500/10 text-emerald-400 border-emerald-500/20','campaign'=>'bg-violet-500/10 text-violet-400 border-violet-500/20','finance'=>'bg-amber-500/10 text-amber-400 border-amber-500/20','warning'=>'bg-red-500/10 text-red-400 border-red-500/20'];

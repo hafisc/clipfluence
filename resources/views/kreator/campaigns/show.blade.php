@@ -65,7 +65,7 @@
                 <div class="text-left lg:text-right bg-neutral-900/50 p-4 rounded-xl border border-white/5 shrink-0 w-full lg:w-auto">
                     <p class="text-[0.7rem] font-bold text-slate-400 uppercase tracking-widest mb-1.5">Rate Komisi</p>
                     <p class="text-2xl font-black text-violet-400 flex items-baseline gap-1 lg:justify-end">
-                        {{ $campaign['rate'] }} <span class="text-sm text-slate-500 font-bold">/ 1K Views</span>
+                        {{ $campaign['rate'] }} <span class="text-sm text-slate-500 font-bold">/ 1K Tayangan</span>
                     </p>
                 </div>
             </div>
@@ -93,7 +93,7 @@
                                 <i data-lucide="youtube" class="w-5 h-5 text-slate-300"></i>
                             </div>
                             <div>
-                                <p class="text-[0.65rem] font-bold text-slate-500 uppercase tracking-wide mb-0.5">Upload Ke</p>
+                                <p class="text-[0.65rem] font-bold text-slate-500 uppercase tracking-wide mb-0.5">Unggah Ke</p>
                                 <p class="font-bold text-sm text-white">Tiktok & Web</p>
                             </div>
                         </div>
@@ -167,7 +167,7 @@
             {{-- RIGHT COLUMN: SIDEBAR (STICKY) --}}
             <div class="lg:col-span-1 border border-white/5 bg-[#121212] p-6 lg:p-8 rounded-[1.5rem] lg:sticky lg:top-8 space-y-8 shadow-lg">
                 
-                {{-- Info Detail --}}
+                {{-- Info Rincian --}}
                 <div>
                     <h3 class="text-md font-black text-white flex items-center gap-2 mb-6">
                         <i data-lucide="info" class="w-4 h-4 text-violet-500"></i> Info & Status
@@ -175,7 +175,7 @@
                     <div class="space-y-6">
                         <div class="flex flex-col gap-1.5">
                             <p class="text-[0.65rem] font-bold text-slate-500 uppercase tracking-widest">Sistem Pembayaran</p>
-                            <p class="text-sm font-semibold text-slate-200">Views otomatis berhenti jika batas waktu tiba.</p>
+                            <p class="text-sm font-semibold text-slate-200">Tayangan otomatis berhenti jika batas waktu tiba.</p>
                         </div>
                         <div class="flex flex-col gap-1.5">
                             <p class="text-[0.65rem] font-bold text-slate-500 uppercase tracking-widest">Batas Waktu</p>
@@ -199,7 +199,7 @@
 
                 <hr class="border-neutral-800">
 
-                {{-- ACTION PERTAMA (Ambil Campaign) --}}
+                {{-- ACTION PERTAMA (Ambil Kampanye) --}}
                 <div class="space-y-4">
                     <div class="text-center md:text-left lg:text-center">
                         <p class="text-sm text-slate-200 font-bold mb-1">Siap untuk mulai?</p>
@@ -211,7 +211,7 @@
                             <form action="{{ route('kreator.campaigns.join', $campaign['id']) }}" method="POST">
                                 @csrf
                                 <button type="submit" class="w-full bg-violet-600 hover:bg-violet-500 text-white font-black py-4 px-6 rounded-[1rem] transition-all shadow-[0_0_20px_rgba(139,92,246,0.3)] hover:shadow-[0_0_30px_rgba(139,92,246,0.5)] hover:-translate-y-0.5 flex justify-center items-center gap-2 group">
-                                    Gabung Campaign 
+                                    Gabung Kampanye 
                                     <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
                                 </button>
                             </form>
@@ -225,7 +225,7 @@
                             <i data-lucide="check-circle" class="w-5 h-5"></i> Sudah Bergabung
                         </button>
                         <a href="{{ route('kreator.submissions.create') }}" class="w-full bg-neutral-800 hover:bg-neutral-700 border border-neutral-700 text-white font-bold py-3 px-6 rounded-[1rem] flex justify-center items-center gap-2 transition-colors">
-                            <i data-lucide="upload" class="w-4 h-4"></i> Submit Pekerjaan
+                            <i data-lucide="upload" class="w-4 h-4"></i> Kirim Pekerjaan
                         </a>
                     @endif
                 </div>

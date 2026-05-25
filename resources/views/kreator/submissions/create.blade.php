@@ -1,6 +1,6 @@
 @extends('layouts.kreator')
 
-@section('title', 'Klaim Views')
+@section('title', 'Klaim Tayangan')
 
 @section('content')
 <div class="max-w-2xl mx-auto pb-12 space-y-5">
@@ -13,8 +13,8 @@
             <i data-lucide="arrow-left" class="w-4.5 h-4.5"></i>
         </a>
         <div>
-            <h1 class="text-xl font-black text-white leading-tight">Klaim Views</h1>
-            <p class="text-xs text-slate-500 mt-0.5">Upload bukti analitik & link postingan kamu</p>
+            <h1 class="text-xl font-black text-white leading-tight">Klaim Tayangan</h1>
+            <p class="text-xs text-slate-500 mt-0.5">Unggah bukti analitik & link postingan kamu</p>
         </div>
     </div>
 
@@ -22,34 +22,34 @@
     <form id="submissionForm" method="POST" enctype="multipart/form-data" class="space-y-4" x-data="{ submitting: false }">
         @csrf
 
-        {{-- STEP 1 — Campaign --}}
+        {{-- STEP 1 — Kampanye --}}
         <div class="bg-[#0f0f0f] shadow-[0_0_0_1px_rgba(255,255,255,0.05)] border-none rounded-3xl overflow-hidden">
             <div class="flex items-center gap-3 py-5 px-6 bg-white/[0.02] shadow-[0_1px_0_rgba(255,255,255,0.04)]">
                 <div class="w-[26px] h-[26px] rounded-full shrink-0 bg-violet-500/12 shadow-[0_0_0_1px_rgba(139,92,246,0.25)] text-violet-400 text-[0.7rem] font-black flex items-center justify-center">1</div>
                 <div>
-                    <p class="text-sm font-black text-white">Pilih Campaign Terkait</p>
-                    <p class="text-[10px] text-slate-500 mt-0.5">Campaign mana yang kamu kerjakan?</p>
+                    <p class="text-sm font-black text-white">Pilih Kampanye Terkait</p>
+                    <p class="text-[10px] text-slate-500 mt-0.5">Kampanye mana yang kamu kerjakan?</p>
                 </div>
             </div>
             <div class="p-6">
-                <label class="text-[0.7rem] font-bold text-slate-500 uppercase tracking-widest block mb-2">Campaign <span class="text-red-500 normal-case font-black">*</span></label>
+                <label class="text-[0.7rem] font-bold text-slate-500 uppercase tracking-widest block mb-2">Kampanye <span class="text-red-500 normal-case font-black">*</span></label>
                 <div class="relative">
                     <select name="campaign_id" required class="w-full bg-[#080808] border-none shadow-[0_0_0_1px_rgba(255,255,255,0.07)] rounded-xl py-3 px-4 text-[0.875rem] text-slate-200 outline-none transition-shadow duration-200 focus:shadow-[0_0_0_1.5px_rgba(139,92,246,0.5),_0_0_0_4px_rgba(139,92,246,0.07)] appearance-none cursor-pointer bg-no-repeat pr-10 [&>option]:bg-[#111] [&>option]:text-slate-200" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'12\' height=\'12\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23475569\' stroke-width=\'2.5\'%3E%3Cpath d=\'m6 9 6 6 6-6\'/%3E%3C/svg%3E'); background-position: right 1rem center;">
                         <option value="" disabled selected>Pilih campaign yang sedang kamu kerjakan…</option>
-                        @foreach(\App\Models\Campaign::where('status', 'active')->get() as $campaign)
-                            <option value="{{ $campaign->id }}">{{ $campaign->title }} — Rp {{ number_format($campaign->price_per_1k, 0, ',', '.') }} / 1K Views</option>
+                        @foreach(\App\Models\Kampanye::where('status', 'active')->get() as $campaign)
+                            <option value="{{ $campaign->id }}">{{ $campaign->title }} — Rp {{ number_format($campaign->price_per_1k, 0, ',', '.') }} / 1K Tayangan</option>
                         @endforeach
                     </select>
                 </div>
             </div>
         </div>
 
-        {{-- STEP 2 — Detail Konten --}}
+        {{-- STEP 2 — Rincian Konten --}}
         <div class="bg-[#0f0f0f] shadow-[0_0_0_1px_rgba(255,255,255,0.05)] border-none rounded-3xl overflow-hidden">
             <div class="flex items-center gap-3 py-5 px-6 bg-white/[0.02] shadow-[0_1px_0_rgba(255,255,255,0.04)]">
                 <div class="w-[26px] h-[26px] rounded-full shrink-0 bg-violet-500/12 shadow-[0_0_0_1px_rgba(139,92,246,0.25)] text-violet-400 text-[0.7rem] font-black flex items-center justify-center">2</div>
                 <div>
-                    <p class="text-sm font-black text-white">Detail Konten</p>
+                    <p class="text-sm font-black text-white">Rincian Konten</p>
                     <p class="text-[10px] text-slate-500 mt-0.5">Platform, jumlah views, dan link postingan</p>
                 </div>
             </div>
@@ -66,7 +66,7 @@
                         </div>
                     </div>
                     <div>
-                        <label class="text-[0.7rem] font-bold text-slate-500 uppercase tracking-widest block mb-2">Total Views Diklaim <span class="text-red-500 normal-case font-black">*</span></label>
+                        <label class="text-[0.7rem] font-bold text-slate-500 uppercase tracking-widest block mb-2">Total Tayangan Diklaim <span class="text-red-500 normal-case font-black">*</span></label>
                         <div class="relative">
                             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                 <i data-lucide="eye" class="w-3.5 h-3.5 text-slate-600"></i>
@@ -96,13 +96,13 @@
             </div>
         </div>
 
-        {{-- STEP 3 — Upload Screenshot --}}
+        {{-- STEP 3 — Unggah Screenshot --}}
         <div class="bg-[#0f0f0f] shadow-[0_0_0_1px_rgba(255,255,255,0.05)] border-none rounded-3xl overflow-hidden">
             <div class="flex items-center gap-3 py-5 px-6 bg-white/[0.02] shadow-[0_1px_0_rgba(255,255,255,0.04)]">
                 <div class="w-[26px] h-[26px] rounded-full shrink-0 bg-violet-500/12 shadow-[0_0_0_1px_rgba(139,92,246,0.25)] text-violet-400 text-[0.7rem] font-black flex items-center justify-center">3</div>
                 <div>
-                    <p class="text-sm font-black text-white">Upload Bukti Analytics</p>
-                    <p class="text-[10px] text-slate-500 mt-0.5">Screenshot halaman "Creator Analytics" yang menampilkan profil & jumlah views</p>
+                    <p class="text-sm font-black text-white">Unggah Bukti Analytics</p>
+                    <p class="text-[10px] text-slate-500 mt-0.5">Screenshot halaman "Kreator Analytics" yang menampilkan profil & jumlah views</p>
                 </div>
             </div>
             <div class="p-6">
@@ -173,14 +173,14 @@ document.getElementById('submissionForm').addEventListener('submit', async funct
         const data = await response.json();
         
         if (!response.ok) {
-            throw new Error(data.message || 'Terjadi kesalahan');
+            throw new Galat(data.message || 'Terjadi kesalahan');
         }
         
         alert(data.message);
         window.location.href = '{{ route('kreator.submissions') }}';
         
     } catch (error) {
-        console.error('Error:', error);
+        console.error('Galat:', error);
         alert(error.message || 'Terjadi kesalahan saat mengirim submission');
         submitButton.disabled = false;
         buttonText.textContent = originalText;

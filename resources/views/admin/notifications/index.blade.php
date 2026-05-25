@@ -17,7 +17,7 @@
         <div>
             <label class="block text-xs font-medium text-slate-400 mb-2">Target Penerima</label>
             <select class="w-full bg-neutral-800 border border-neutral-700 rounded-xl px-4 py-2.5 text-sm text-slate-300 outline-none focus:border-brand transition-colors">
-                <option>Semua Pengguna</option><option>Hanya Kreator</option><option>Hanya Brand</option>
+                <option>Semua Pengguna</option><option>Hanya Kreator</option><option>Hanya Merek</option>
             </select>
         </div>
         <div>
@@ -42,7 +42,7 @@
     <div x-show="tab==='history'" class="bg-neutral-900/60 border border-neutral-800/60 rounded-2xl overflow-hidden">
         <div class="p-5 border-b border-neutral-800/60"><h3 class="text-sm font-semibold text-white">Riwayat Notifikasi</h3></div>
         <div class="divide-y divide-neutral-800/40">
-            @foreach([['title'=>'Maintenance Dijadwalkan 30 Mar','target'=>'Semua Pengguna','sent'=>'25 Mar 2026','reach'=>'1,248'],['title'=>'Fitur Analitik Kreator Baru!','target'=>'Hanya Kreator','sent'=>'20 Mar 2026','reach'=>'947'],['title'=>'Flash Campaign Harbolnas!','target'=>'Hanya Brand','sent'=>'15 Mar 2026','reach'=>'301']] as $n)
+            @foreach([['title'=>'Maintenance Dijadwalkan 30 Mar','target'=>'Semua Pengguna','sent'=>'25 Mar 2026','reach'=>'1,248'],['title'=>'Fitur Analitik Kreator Baru!','target'=>'Hanya Kreator','sent'=>'20 Mar 2026','reach'=>'947'],['title'=>'Flash Kampanye Harbolnas!','target'=>'Hanya Merek','sent'=>'15 Mar 2026','reach'=>'301']] as $n)
             <div class="flex items-center gap-4 px-5 py-4 hover:bg-white/[2%] transition-colors">
                 <div class="w-8 h-8 rounded-xl bg-brand/10 border border-brand/20 flex items-center justify-center flex-shrink-0">
                     <i data-lucide="bell" class="w-4 h-4 text-brand"></i>

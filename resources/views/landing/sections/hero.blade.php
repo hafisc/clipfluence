@@ -24,7 +24,7 @@
 
         <!-- Sub-headline -->
         <p data-aos="fade-up" data-aos-delay="200" class="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-slate-400 mb-12">
-            Platform berbasis performa pertama yang menghubungkan Brand dengan ribuan Kreator & Clipper yang akan memproduksi dan mempublikasikan konten di akun mereka sendiri, murni berbasis bayar per 1k views.
+            Platform berbasis performa pertama yang menghubungkan Merek dengan ribuan Kreator & Clipper yang akan memproduksi dan mempublikasikan konten di akun mereka sendiri, murni berbasis bayar per 1k views.
         </p>
 
         <!-- Tombol Aksi (Call to Actions) -->
@@ -33,7 +33,7 @@
                 <i data-lucide="clapperboard" class="w-5 h-5"></i> Saya Kreator / Clipper
             </a>
             <a href="/register?role=brand" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-neutral-900 border border-neutral-800 hover:bg-slate-700 hover:border-slate-500 text-white font-semibold transition-all flex items-center justify-center gap-2">
-                <i data-lucide="building-2" class="w-5 h-5 text-slate-300"></i> Saya Brand
+                <i data-lucide="building-2" class="w-5 h-5 text-slate-300"></i> Saya Merek
             </a>
         </div>
 

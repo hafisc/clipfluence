@@ -10,7 +10,7 @@ $vals = [45,62,38,80,60,95,72,88,55,90,75,100];
 @endphp
 <div class="space-y-5">
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        @foreach([['label'=>'Total Views Konten UGC','val'=>'48.2 Jt','delta'=>'+18% MoM','icon'=>'eye','color'=>'brand'],['label'=>'Campaign Selesai','val'=>'6','delta'=>'+2 bulan ini','icon'=>'check-circle','color'=>'emerald'],['label'=>'Total Pembayaran','val'=>'Rp 1.2 M','delta'=>'+31% MoM','icon'=>'trending-up','color'=>'amber'],['label'=>'Rata-rata CTR Konten','val'=>'4.7%','delta'=>'+0.4% MoM','icon'=>'mouse-pointer','color'=>'violet']] as $s)
+        @foreach([['label'=>'Total Tayangan Konten UGC','val'=>'48.2 Jt','delta'=>'+18% MoM','icon'=>'eye','color'=>'brand'],['label'=>'Kampanye Selesai','val'=>'6','delta'=>'+2 bulan ini','icon'=>'check-circle','color'=>'emerald'],['label'=>'Total Pembayaran','val'=>'Rp 1.2 M','delta'=>'+31% MoM','icon'=>'trending-up','color'=>'amber'],['label'=>'Rata-rata CTR Konten','val'=>'4.7%','delta'=>'+0.4% MoM','icon'=>'mouse-pointer','color'=>'violet']] as $s)
         <div class="stat-card">
             <div class="flex items-start justify-between mb-3">
                 <div class="w-9 h-9 rounded-xl bg-{{ $s['color'] }}/10 border border-{{ $s['color'] }}/20 flex items-center justify-center">
@@ -26,7 +26,7 @@ $vals = [45,62,38,80,60,95,72,88,55,90,75,100];
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
         <div class="bg-neutral-900/60 border border-neutral-800/60 rounded-2xl p-6">
-            <h3 class="text-sm font-semibold text-white mb-1">Views Konten UGC per Bulan</h3>
+            <h3 class="text-sm font-semibold text-white mb-1">Tayangan Konten UGC per Bulan</h3>
             <p class="text-xs text-slate-500 mb-5">Dalam jutaan views (2026)</p>
             <div class="flex items-end justify-between gap-1.5 h-36">
                 @foreach($vals as $i => $v)
@@ -42,7 +42,7 @@ $vals = [45,62,38,80,60,95,72,88,55,90,75,100];
             <h3 class="text-sm font-semibold text-white mb-1">Top Kreator Bulan Ini</h3>
             <p class="text-xs text-slate-500 mb-4">Berdasarkan total views konten UGC</p>
             <div class="space-y-3">
-                @foreach([['name'=>'Hana Creator','views'=>'3.1M','growth'=>'+22%'],['name'=>'Rafi Ananda','views'=>'1.2M','growth'=>'+14%'],['name'=>'Luna Aesthetic','views'=>'890K','growth'=>'+9%'],['name'=>'Rizky Clips','views'=>'640K','growth'=>'+5%'],['name'=>'Nadia UGC','views'=>'410K','growth'=>'+3%']] as $i => $k)
+                @foreach([['name'=>'Hana Kreator','views'=>'3.1M','growth'=>'+22%'],['name'=>'Rafi Ananda','views'=>'1.2M','growth'=>'+14%'],['name'=>'Luna Aesthetic','views'=>'890K','growth'=>'+9%'],['name'=>'Rizky Clips','views'=>'640K','growth'=>'+5%'],['name'=>'Nadia UGC','views'=>'410K','growth'=>'+3%']] as $i => $k)
                 <div class="flex items-center gap-3">
                     <span class="text-xs font-bold text-slate-600 w-4">{{ $i+1 }}</span>
                     <div class="w-7 h-7 rounded-full bg-brand/20 flex items-center justify-center text-xs font-bold text-brand flex-shrink-0">

@@ -1,6 +1,6 @@
 @extends('layouts.brand')
 
-@section('title', 'Campaign Saya')
+@section('title', 'Kampanye Saya')
 
 @section('content')
 <div class="max-w-7xl mx-auto pb-12 pt-2" x-data="{ currentStatus: 'all', searchQuery: '' }">
@@ -52,10 +52,10 @@
                 <div class="absolute inset-0 rounded-full bg-violet-500/20 blur-xl pointer-events-none"></div>
                 <i data-lucide="megaphone" class="w-8 h-8 text-violet-400 relative z-10"></i>
             </div>
-            <h3 class="text-xl font-black text-white mb-2">Belum Ada Campaign</h3>
+            <h3 class="text-xl font-black text-white mb-2">Belum Ada Kampanye</h3>
             <p class="text-sm text-slate-500 mb-8 max-w-sm text-center leading-relaxed">Anda belum memiliki campaign aktif. Mulai buat campaign pertama Anda untuk menjangkau kreator terbaik.</p>
             <a href="{{ route('brand.campaigns.create') }}" class="bg-gradient-to-br from-violet-600 to-fuchsia-600 text-white px-6 py-3 rounded-2xl text-sm font-extrabold inline-flex items-center gap-2 transition-all duration-200 shadow-[0_8px_20px_rgba(124,58,237,0.25)] active:scale-95">
-                <i data-lucide="plus" class="w-4 h-4"></i> Buat Campaign Sekarang
+                <i data-lucide="plus" class="w-4 h-4"></i> Buat Kampanye Sekarang
             </a>
         </div>
     @else
@@ -148,7 +148,7 @@
                 </div>
             </div>
 
-            {{-- Footer Actions --}}
+            {{-- Catatan Kaki Actions --}}
             <div class="px-5 py-4 border-t border-white/5 bg-white/[0.01] flex justify-between items-center relative z-10">
                 <button class="text-[11px] font-bold text-slate-400 hover:text-white transition-colors flex items-center gap-1.5">
                     <i data-lucide="settings" class="w-3.5 h-3.5"></i> Setelan
@@ -167,7 +167,7 @@
         <div class="w-16 h-16 bg-neutral-900 border border-neutral-800 rounded-full flex items-center justify-center mb-4">
             <i data-lucide="filter-x" class="w-6 h-6 text-slate-500"></i>
         </div>
-        <h3 class="text-lg font-bold text-white mb-1">Tidak Ada Campaign</h3>
+        <h3 class="text-lg font-bold text-white mb-1">Tidak Ada Kampanye</h3>
         <p class="text-sm text-slate-500 text-center" x-text="'Tidak ada campaign dengan status ' + (currentStatus === 'active' ? 'Aktif' : currentStatus === 'completed' ? 'Selesai' : 'Draft')"></p>
     </div>
     @endif

@@ -16,7 +16,7 @@
         </div>
         
         <a href="{{ route('kreator.submissions.create') }}" class="self-start sm:self-auto bg-gradient-to-br from-violet-600 to-fuchsia-500 text-white px-6 py-3 rounded-2xl text-[0.8rem] font-extrabold tracking-wide inline-flex items-center gap-2 transition-all duration-200 shadow-[0_8px_20px_rgba(139,92,246,0.3)] hover:shadow-[0_8px_25px_rgba(139,92,246,0.45)] hover:-translate-y-[1px]">
-            <i data-lucide="plus" class="w-4 h-4"></i> Buat Submit Baru
+            <i data-lucide="plus" class="w-4 h-4"></i> Buat Kirim Baru
         </a>
     </div>
 
@@ -24,7 +24,7 @@
     <div class="flex gap-2 overflow-x-auto pb-2 [&::-webkit-scrollbar]:hidden">
         <a href="#" class="px-4 py-2.5 rounded-xl text-[0.75rem] font-bold whitespace-nowrap transition-all duration-200 bg-violet-500/10 text-violet-300 shadow-[inset_0_0_0_1px_rgba(139,92,246,0.25)]">Semua Riwayat</a>
         <a href="#" class="px-4 py-2.5 rounded-xl text-[0.75rem] font-bold whitespace-nowrap bg-transparent text-slate-400 transition-all duration-200 shadow-[inset_0_0_0_1px_transparent] hover:text-slate-50 hover:bg-white/[0.03] hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05)]">
-            ⏳ Pending <span class="ml-1 px-1.5 py-0.5 rounded-md bg-white/10 text-[9px]">2</span>
+            ⏳ Menunggu <span class="ml-1 px-1.5 py-0.5 rounded-md bg-white/10 text-[9px]">2</span>
         </a>
         <a href="#" class="px-4 py-2.5 rounded-xl text-[0.75rem] font-bold whitespace-nowrap bg-transparent transition-all duration-200 shadow-[inset_0_0_0_1px_transparent] text-emerald-400/80 hover:text-emerald-300 hover:bg-emerald-500/10 hover:shadow-[inset_0_0_0_1px_rgba(16,185,129,0.2)]">💰 Disetujui (Dibayar)</a>
         <a href="#" class="px-4 py-2.5 rounded-xl text-[0.75rem] font-bold whitespace-nowrap bg-transparent transition-all duration-200 shadow-[inset_0_0_0_1px_transparent] text-red-400/80 hover:text-red-300 hover:bg-red-500/10 hover:shadow-[inset_0_0_0_1px_rgba(239,68,68,0.2)]">🛑 Ditolak / Dispute</a>
@@ -34,8 +34,8 @@
     <div class="bg-[#0a0a0a] rounded-3xl overflow-hidden shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)]">
         
         <div class="hidden md:grid grid-cols-12 gap-4 px-6 py-4 text-[10px] font-black text-slate-500 uppercase tracking-widest" style="box-shadow: 0 1px 0 rgba(255,255,255,0.04); background: rgba(255,255,255,0.01)">
-            <div class="col-span-5">Campaign & Platform</div>
-            <div class="col-span-2 text-right">Views Klaim</div>
+            <div class="col-span-5">Kampanye & Platform</div>
+            <div class="col-span-2 text-right">Tayangan Klaim</div>
             <div class="col-span-2 text-right">Estimasi / Hasil</div>
             <div class="col-span-2 text-center">Status</div>
             <div class="col-span-1 text-right">Aksi</div>
@@ -47,7 +47,7 @@
             @forelse($history as $h)
             <div class="p-5 transition-colors duration-200 flex flex-col md:flex-row md:grid md:grid-cols-12 md:gap-4 md:items-center border-b border-white/5 last:border-0 hover:bg-white/[0.02] relative group">
                 
-                {{-- Column 1: Campaign & Icon (Col: 5) --}}
+                {{-- Column 1: Kampanye & Icon (Col: 5) --}}
                 <div class="md:col-span-5 flex items-center gap-4 min-w-0">
                     <div class="w-11 h-11 rounded-2xl shrink-0 flex items-center justify-center {{ $h['platform'] == 'TikTok' ? 'bg-black text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]' : ($h['platform'] == 'IG Reels' ? 'bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white' : 'bg-[#ff0000] text-white') }}">
                         @if($h['platform'] == 'TikTok')
@@ -70,7 +70,7 @@
                 {{-- Mobile specific label grid --}}
                 <div class="md:hidden grid grid-cols-2 gap-4 w-full">
                     <div>
-                        <p class="text-[10px] text-slate-500 uppercase tracking-widest font-bold mb-1">Views</p>
+                        <p class="text-[10px] text-slate-500 uppercase tracking-widest font-bold mb-1">Tayangan</p>
                         <p class="text-xs font-black text-white">{{ $h['views'] }} <i data-lucide="eye" class="inline w-3 h-3 text-slate-600"></i></p>
                     </div>
                     <div class="text-right">
@@ -79,14 +79,14 @@
                     </div>
                     <div class="col-span-2 flex items-center justify-between mt-2">
                         <span class="px-3 py-1.5 rounded-full text-[0.65rem] font-black tracking-widest uppercase inline-flex items-center justify-center whitespace-nowrap {{ $h['color'] }}">{{ $h['status'] }}</span>
-                        <a href="#" class="text-[10px] font-bold text-violet-400 flex items-center gap-1 bg-violet-500/10 px-3 py-1.5 rounded-lg">Detail <i data-lucide="chevron-right" class="w-3 h-3"></i></a>
+                        <a href="#" class="text-[10px] font-bold text-violet-400 flex items-center gap-1 bg-violet-500/10 px-3 py-1.5 rounded-lg">Rincian <i data-lucide="chevron-right" class="w-3 h-3"></i></a>
                     </div>
                 </div>
 
                 {{-- Desktop Columns --}}
                 <div class="hidden md:block md:col-span-2 text-right">
                     <p class="text-sm font-black text-white">{{ $h['views'] }}</p>
-                    <p class="text-[10px] font-semibold text-slate-500 mt-0.5 uppercase tracking-widest"><i data-lucide="eye" class="inline w-3 h-3 text-slate-600 mr-0.5"></i> Views</p>
+                    <p class="text-[10px] font-semibold text-slate-500 mt-0.5 uppercase tracking-widest"><i data-lucide="eye" class="inline w-3 h-3 text-slate-600 mr-0.5"></i> Tayangan</p>
                 </div>
                 <div class="hidden md:block md:col-span-2 text-right">
                     <p class="text-[13px] font-black {{ $h['status'] === 'Ditolak' ? 'text-slate-500 line-through opacity-50' : ($h['status'] === 'Dibayar' ? 'text-emerald-400' : 'text-amber-400') }}">{{ $h['potensi'] }}</p>
@@ -95,7 +95,7 @@
                     <span class="px-3 py-1.5 rounded-full text-[0.65rem] font-black tracking-widest uppercase inline-flex items-center justify-center whitespace-nowrap {{ $h['color'] }}">{{ $h['status'] }}</span>
                 </div>
                 <div class="hidden md:flex md:col-span-1 justify-end">
-                    <a href="#" class="w-8 h-8 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center text-slate-400 hover:text-white transition-colors" title="Lihat Detail">
+                    <a href="#" class="w-8 h-8 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center text-slate-400 hover:text-white transition-colors" title="Lihat Rincian">
                         <i data-lucide="chevron-right" class="w-4 h-4"></i>
                     </a>
                 </div>
@@ -121,7 +121,7 @@
                 </div>
                 <h3 class="text-white font-bold mb-1">Belum ada riwayat</h1>
                 <p class="text-xs text-slate-500 max-w-xs">Kamu belum mengumpulkan tugas campaign apa pun. Mulai cari campaign yang cocok!</p>
-                <a href="{{ route('kreator.campaigns') }}" class="mt-5 text-xs text-violet-400 hover:text-white font-bold bg-violet-500/10 px-4 py-2 rounded-lg transition-colors">Cari Campaign</a>
+                <a href="{{ route('kreator.campaigns') }}" class="mt-5 text-xs text-violet-400 hover:text-white font-bold bg-violet-500/10 px-4 py-2 rounded-lg transition-colors">Cari Kampanye</a>
             </div>
             @endforelse
         </div>

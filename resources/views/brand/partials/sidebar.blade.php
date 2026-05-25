@@ -22,22 +22,22 @@
 
         <a href="{{ route('brand.dashboard') }}" class="sidebar-link {{ request()->routeIs('brand.dashboard') ? 'active' : '' }}">
             <i data-lucide="layout-dashboard" class="w-4 h-4 flex-shrink-0"></i>
-            Dashboard
+            Dasbor
         </a>
 
-        <!-- Dropdown: Campaign Saya -->
+        <!-- Dropdown: Kampanye Saya -->
         <div x-data="{ open: {{ request()->routeIs('brand.campaigns*', 'brand.submissions*') ? 'true' : 'false' }} }">
             <button @click="open = !open" class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-sm font-medium hover:text-white hover:bg-white/5 transition-all duration-150 {{ request()->routeIs('brand.campaigns*', 'brand.submissions*') ? 'text-white' : 'text-slate-400' }}">
                 <div class="flex items-center gap-3">
                     <i data-lucide="megaphone" class="w-4 h-4 flex-shrink-0 {{ request()->routeIs('brand.campaigns*', 'brand.submissions*') ? 'text-violet-400' : '' }}"></i>
-                    Campaign Saya
+                    Kampanye Saya
                 </div>
                 <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-200" :class="open ? 'rotate-180' : ''"></i>
             </button>
             <div x-show="open" x-collapse style="display: {{ request()->routeIs('brand.campaigns*', 'brand.submissions*') ? 'block' : 'none' }};">
                 <div class="ml-5 pl-4 border-l border-neutral-800 space-y-1 mt-1">
-                    <a href="{{ route('brand.campaigns') }}" class="block py-2 text-xs font-medium hover:text-white transition-colors {{ request()->routeIs('brand.campaigns') ? 'text-violet-400' : 'text-slate-500' }}">Daftar Campaign</a>
-                    <a href="{{ route('brand.campaigns.create') }}" class="block py-2 text-xs font-medium hover:text-white transition-colors {{ request()->routeIs('brand.campaigns.create') ? 'text-violet-400' : 'text-slate-500' }}">Buat Campaign Baru</a>
+                    <a href="{{ route('brand.campaigns') }}" class="block py-2 text-xs font-medium hover:text-white transition-colors {{ request()->routeIs('brand.campaigns') ? 'text-violet-400' : 'text-slate-500' }}">Daftar Kampanye</a>
+                    <a href="{{ route('brand.campaigns.create') }}" class="block py-2 text-xs font-medium hover:text-white transition-colors {{ request()->routeIs('brand.campaigns.create') ? 'text-violet-400' : 'text-slate-500' }}">Buat Kampanye Baru</a>
                     <a href="{{ route('brand.submissions') }}" class="flex items-center justify-between py-2 text-xs font-medium hover:text-white transition-colors {{ request()->routeIs('brand.submissions*') ? 'text-violet-400' : 'text-slate-500' }}">
                         Review UGC <span class="text-[9px] bg-red-500/10 text-red-400 border border-red-500/20 px-1.5 py-0.5 rounded-full font-bold">0</span>
                     </a>
@@ -47,7 +47,7 @@
 
         <a href="{{ route('brand.finance') }}" class="sidebar-link {{ request()->routeIs('brand.finance*') ? 'active' : '' }}">
             <i data-lucide="wallet" class="w-4 h-4 flex-shrink-0"></i>
-            Keuangan & Deposit
+            Keuangan & Setoran
         </a>
 
         <a href="{{ route('brand.settings') }}" class="sidebar-link {{ request()->routeIs('brand.settings*') ? 'active' : '' }}">
@@ -57,7 +57,7 @@
 
     </nav>
 
-    <!-- Footer / User Actions -->
+    <!-- Catatan Kaki / User Actions -->
     <div class="p-4 border-t border-neutral-800/50">
         <form method="POST" action="/logout">
             @csrf

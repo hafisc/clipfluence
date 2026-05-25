@@ -1,4 +1,4 @@
-<!-- Login Modal -->
+<!-- Modal Masuk -->
 <div x-show="showLoginModal" style="display: none;" class="fixed inset-0 z-[100] flex items-center justify-center overflow-y-auto overflow-x-hidden p-4 sm:p-0">
     <!-- Backdrop -->
     <div x-show="showLoginModal" 
@@ -32,7 +32,7 @@
             
             <p class="text-neutral-400 text-sm mb-6">Masuk untuk mengelola project dan mengeksplorasi kesempatan baru di Clipfluence.</p>
 
-            <!-- Google Login Button -->
+            <!-- Tombol Masuk Google -->
             <!-- Note: Gunakan route yang valid jika socialite sudah siap -->
             <a href="/auth/google" class="w-full flex items-center justify-center gap-3 bg-white hover:bg-neutral-100 text-neutral-900 px-4 py-3 rounded-xl font-bold shadow-sm transition-colors duration-200">
                 <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" class="w-5 h-5">

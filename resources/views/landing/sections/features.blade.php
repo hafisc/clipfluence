@@ -8,11 +8,11 @@
                 <i data-lucide="sparkles" class="w-4 h-4"></i> Cara Kerja Platform
             </div>
             <h2 data-aos="fade-up" data-aos-delay="100" class="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight">
-                Satu Campaign, <br class="hidden sm:block" />
+                Satu Kampanye, <br class="hidden sm:block" />
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-300 to-slate-500">Ribuan Potensi Viral.</span>
             </h2>
             <p data-aos="fade-up" data-aos-delay="200" class="text-slate-400 text-lg md:text-xl leading-relaxed">
-                Clipfluence menghubungkan kampanye dari Brand dengan kekuatan distribusi massal oleh pasukan Kreator & Clipper andal.
+                Clipfluence menghubungkan kampanye dari Merek dengan kekuatan distribusi massal oleh pasukan Kreator & Clipper andal.
             </p>
         </div>
 
@@ -24,7 +24,7 @@
                     <i data-lucide="megaphone" class="w-7 h-7 text-brand-light"></i>
                 </div>
                 <h3 class="text-xl font-bold text-white mb-3 relative z-10">Sebaran UGC Masif</h3>
-                <p class="text-slate-400 leading-relaxed relative z-10">Brand tidak perlu menyewa agensi mahal. Ratusan kreator siap mengekstrak video Anda menjadi klip menarik dan mem-postingnya di jutaan audiens mereka.</p>
+                <p class="text-slate-400 leading-relaxed relative z-10">Merek tidak perlu menyewa agensi mahal. Ratusan kreator siap mengekstrak video Anda menjadi klip menarik dan mem-postingnya di jutaan audiens mereka.</p>
             </div>
 
             <!-- Kartu Fitur 2: Pay-Per-Performance -->
@@ -34,8 +34,8 @@
                 <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-emerald-500/5 border border-emerald-500/20 flex items-center justify-center mb-6 shadow-inner relative z-10 group-hover:scale-110 group-hover:shadow-emerald-500/20 transition-all duration-300">
                     <i data-lucide="coins" class="w-7 h-7 text-emerald-400"></i>
                 </div>
-                <h3 class="text-xl font-bold text-white mb-3 relative z-10">Bayar Sesuai View (RPM)</h3>
-                <p class="text-slate-400 leading-relaxed relative z-10">Sistem pembayaran yang adil. Brand hanya membayar setiap Rp X per 1.000 Views valid. Dana tersimpan aman dalam escrow sebelum target tercapai.</p>
+                <h3 class="text-xl font-bold text-white mb-3 relative z-10">Bayar Sesuai Tayangan (<em>RPM</em>)</h3>
+                <p class="text-slate-400 leading-relaxed relative z-10">Sistem pembayaran yang adil. Merek hanya membayar setiap Rp X per 1.000 Tayangan valid. Dana tersimpan aman dalam escrow sebelum target tercapai.</p>
             </div>
 
             <!-- Kartu Fitur 3: Smart Anti-Fraud -->
@@ -54,8 +54,8 @@
                 <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-rose-500/20 to-rose-500/5 border border-rose-500/20 flex items-center justify-center mb-6 shadow-inner relative z-10 group-hover:scale-110 group-hover:shadow-rose-500/20 transition-all duration-300">
                     <i data-lucide="activity" class="w-7 h-7 text-rose-400"></i>
                 </div>
-                <h3 class="text-xl font-bold text-white mb-3 relative z-10">Tracking Campaign Live</h3>
-                <p class="text-slate-400 leading-relaxed relative z-10">Dashboard analitik intuitif. Pantau kreator mana yang menghasilkan tayangan tertinggi dan retensi penonton secara real-time.</p>
+                <h3 class="text-xl font-bold text-white mb-3 relative z-10">Pelacakan Kampanye <em>live</em></h3>
+                <p class="text-slate-400 leading-relaxed relative z-10">Dasbor analitik intuitif. Pantau kreator mana yang menghasilkan tayangan tertinggi dan retensi penonton secara <em>real-time</em>.</p>
             </div>
 
             <!-- Kartu Fitur 5: Dompet Otomatis & Amplifikasi Penuh (Lebar 2 Kolom) -->
@@ -69,7 +69,7 @@
                             <i data-lucide="zap" class="w-4 h-4"></i> Otomasi Penuh
                         </div>
                         <h3 class="text-2xl md:text-3xl font-extrabold text-white mb-4 leading-tight">Cairkan Penghasilan Kapan Saja</h3>
-                        <p class="text-slate-400 leading-relaxed text-lg">Bagi para Kreator, tidak perlu repot menagih Brand. Kumpulkan saldo dari views yang terverifikasi dan cairkan (Withdraw) langsung ke E-Wallet atau Rekening Bank Anda detik itu juga ketika limit telah tercapai.</p>
+                        <p class="text-slate-400 leading-relaxed text-lg">Bagi para Kreator, tidak perlu repot menagih Merek. Kumpulkan saldo dari views yang terverifikasi dan cairkan (Tarik Dana) langsung ke <em>e-wallet</em> atau Rekening Bank Anda detik itu juga ketika limit telah tercapai.</p>
                     </div>
                     
                     <!-- Ilustrasi mini platform sosial -->

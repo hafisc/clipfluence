@@ -1,6 +1,6 @@
 @extends('layouts.brand')
 
-@section('title', 'Keuangan & Deposit')
+@section('title', 'Keuangan & Setoran')
 
 @push('styles')
 <!-- SweetAlert2 -->
@@ -12,7 +12,7 @@
 @section('content')
 <div class="w-full pb-12 pt-2" x-data="topUpManager()">
 
-    {{-- MAIN GRID: Left (Balance + Escrow) | Right (Transaction History) --}}
+    {{-- MAIN GRID: Left (Saldo + Escrow) | Right (Transaction History) --}}
     <div class="grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-6 items-start">
 
         {{-- ========================
@@ -27,7 +27,7 @@
 
                 <div class="relative z-10">
                     <div class="flex items-center justify-between mb-8">
-                        <span class="text-xs font-bold text-violet-300 uppercase tracking-widest bg-violet-500/10 border border-violet-500/20 px-2.5 py-1 rounded shadow-sm">Saldo Deposit</span>
+                        <span class="text-xs font-bold text-violet-300 uppercase tracking-widest bg-violet-500/10 border border-violet-500/20 px-2.5 py-1 rounded shadow-sm">Saldo Setoran</span>
                         <div class="w-11 h-11 rounded-xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center">
                             <span class="text-2xl drop-shadow-[0_2px_4px_rgba(139,92,246,0.5)]">💰</span>
                         </div>
@@ -88,7 +88,7 @@
                             </div>
                             <div class="min-w-0">
                                 <p class="text-xs lg:text-sm font-bold text-white truncate">
-                                    Top-Up Deposit
+                                    Top-Up Setoran
                                 </p>
                                 <p class="text-[10px] lg:text-xs {{ $t->status === 'success' ? 'text-emerald-400' : ($t->status === 'pending' ? 'text-amber-400' : 'text-rose-400') }} font-bold mt-0.5 truncate">
                                     {{ strtoupper($t->status) }} • {{ $t->order_id }}
@@ -119,7 +119,7 @@
                 <i data-lucide="x" class="w-5 h-5"></i>
             </button>
             
-            <h3 class="text-xl font-black text-white mb-1 mt-2">Top-up Deposit</h3>
+            <h3 class="text-xl font-black text-white mb-1 mt-2">Top-up Setoran</h3>
             <p class="text-[11px] text-slate-400 mb-6 font-medium">Pilih atau masukkan nominal uang yang ingin diisi ke saldo Anda.</p>
             
             <div class="grid grid-cols-2 gap-2 mb-6">

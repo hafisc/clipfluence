@@ -1,10 +1,10 @@
 @extends('layouts.admin')
 
-@section('title', 'Dashboard')
-@section('page_title', 'Dashboard Overview')
+@section('title', 'Dasbor')
+@section('page_title', 'Dasbor Overview')
 @section('page_subtitle', 'Ringkasan performa platform Clipfluence hari ini')
 
-@section('title', 'Dashboard')
+@section('title', 'Dasbor')
 
 @section('content')
 <div class="space-y-6">
@@ -42,7 +42,7 @@
             <p class="text-xs text-slate-500">Total Escrow Ditahan</p>
         </div>
 
-        {{-- Card 3: Campaigns --}}
+        {{-- Card 3: Kampanye --}}
         <div class="bg-neutral-900/60 border border-neutral-800/60 rounded-2xl p-5 hover:bg-neutral-800/40 transition-colors">
             <div class="flex items-start justify-between mb-4">
                 <div class="w-10 h-10 rounded-xl bg-brand/10 border border-brand/20 flex items-center justify-center">
@@ -53,7 +53,7 @@
                 </span>
             </div>
             <p class="text-2xl font-bold text-white mb-0.5">86</p>
-            <p class="text-xs text-slate-500">Campaign Berjalan</p>
+            <p class="text-xs text-slate-500">Kampanye Berjalan</p>
         </div>
 
         {{-- Card 4: Action Needed --}}
@@ -95,7 +95,7 @@
                         </div>
                         <span class="text-xs font-bold text-white bg-red-500 rounded-full px-2 py-0.5">12</span>
                     </div>
-                    <p class="text-xs text-slate-500 mb-3">Video di-submit & menunggu ditinjau sebelum masuk ke Brand.</p>
+                    <p class="text-xs text-slate-500 mb-3">Video di-submit & menunggu ditinjau sebelum masuk ke Merek.</p>
                     <a href="{{ route('admin.ugc') }}" class="text-xs font-medium text-brand hover:text-brand-light flex items-center gap-1 w-max">
                         Tinjau Sekarang <i data-lucide="arrow-right" class="w-3 h-3"></i>
                     </a>
@@ -175,7 +175,7 @@
         </div>
     </div>
 
-    {{-- ===== BOTTOM GRID: Activity & Top Campaigns ===== --}}
+    {{-- ===== BOTTOM GRID: Activity & Top Kampanye ===== --}}
     <div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
 
         {{-- Log Aktivitas Terbaru --}}
@@ -191,8 +191,8 @@
             <div class="space-y-4">
                 @php
                     $logs = [
-                        ['type' => 'finance', 'icon' => 'banknote', 'color' => 'emerald', 'title' => 'Pembayaran Escrow Selesai', 'desc' => 'Campaign Tokopedia 12.12 telah dirilis ke 15 kreator.', 'time' => '10 menit yang lalu'],
-                        ['type' => 'user', 'icon' => 'user-plus', 'color' => 'brand', 'title' => 'Brand Baru Terdaftar', 'desc' => 'Wardah Beauty ID (wardah@brand.com) baru mendaftar.', 'time' => '1 jam yang lalu'],
+                        ['type' => 'finance', 'icon' => 'banknote', 'color' => 'emerald', 'title' => 'Pembayaran Escrow Selesai', 'desc' => 'Kampanye Tokopedia 12.12 telah dirilis ke 15 kreator.', 'time' => '10 menit yang lalu'],
+                        ['type' => 'user', 'icon' => 'user-plus', 'color' => 'brand', 'title' => 'Merek Baru Terdaftar', 'desc' => 'Wardah Beauty ID (wardah@brand.com) baru mendaftar.', 'time' => '1 jam yang lalu'],
                         ['type' => 'alert', 'icon' => 'alert-triangle', 'color' => 'red', 'title' => 'Dispute Dibuka', 'desc' => 'Kreator @dimasviral membuka komplain untuk campaign Indomie.', 'time' => '2 jam yang lalu'],
                         ['type' => 'system', 'icon' => 'cpu', 'color' => 'slate', 'title' => 'Backup Database Selesai', 'desc' => 'Backup harian otomatis berhasil pada 03:00 WIB.', 'time' => 'Hari ini, 03:00'],
                     ];
@@ -212,11 +212,11 @@
             </div>
         </div>
 
-        {{-- Top Campaign --}}
+        {{-- Top Kampanye --}}
         <div class="bg-neutral-900/60 border border-neutral-800/60 rounded-2xl p-6">
             <div class="flex items-center justify-between mb-6">
                 <div>
-                    <h3 class="text-lg font-bold text-white">Campaign Paling Aktif</h3>
+                    <h3 class="text-lg font-bold text-white">Kampanye Paling Aktif</h3>
                     <p class="text-xs text-slate-400 mt-1">Berdasarkan volume submission UGC</p>
                 </div>
                 <a href="{{ route('admin.campaigns') }}" class="text-xs text-brand hover:text-brand-light font-medium transition-colors">Kelola →</a>
@@ -246,7 +246,7 @@
                     </div>
                     
                     <div class="flex items-center justify-between text-xs mb-1.5">
-                        <span class="text-slate-400">Penyelesaian Campaign</span>
+                        <span class="text-slate-400">Penyelesaian Kampanye</span>
                         <span class="font-semibold text-slate-300">{{ $c['progress'] }}%</span>
                     </div>
                     <div class="h-1.5 rounded-full bg-neutral-800 overflow-hidden">

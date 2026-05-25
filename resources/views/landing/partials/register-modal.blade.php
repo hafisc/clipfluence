@@ -1,4 +1,4 @@
-<!-- Register Modal -->
+<!-- Modal Daftar -->
 <div x-show="showRegisterModal" style="display: none;" class="fixed inset-0 z-[100] flex items-center justify-center overflow-y-auto overflow-x-hidden p-4 sm:p-0">
     <!-- Backdrop -->
     <div x-show="showRegisterModal" 
@@ -35,12 +35,12 @@
             
             <!-- Cards Container -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8">
-                <!-- Card Brand -->
+                <!-- Card Merek -->
                 <a href="/register?role=brand" class="group block relative rounded-2xl border border-neutral-800 bg-neutral-950 p-6 hover:border-brand hover:bg-brand/5 focus:outline-none focus:ring-2 focus:ring-brand transition-all duration-300">
                     <div class="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                         <i data-lucide="building-2" class="w-6 h-6 text-orange-500"></i>
                     </div>
-                    <h4 class="text-lg font-bold text-white mb-2 group-hover:text-brand transition-colors">Saya Brand</h4>
+                    <h4 class="text-lg font-bold text-white mb-2 group-hover:text-brand transition-colors">Saya Merek</h4>
                     <p class="text-sm text-neutral-400 leading-relaxed">Saya ingin mempromosikan produk, mencari konten UGC, dan membayar jasa Kreator/Clipper.</p>
                     <div class="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transform translate-x-2 group-hover:translate-x-0 transition-all">
                         <i data-lucide="arrow-right" class="w-5 h-5 text-brand"></i>
@@ -66,7 +66,7 @@
                     <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" class="w-5 h-5">
                     Lanjutkan dengan Google
                 </a>
-                <p class="text-xs text-neutral-500 mt-4 max-w-sm mx-auto">Kami akan menanyakan kamu Brand atau Kreator pada langkah selanjutnya.</p>
+                <p class="text-xs text-neutral-500 mt-4 max-w-sm mx-auto">Kami akan menanyakan kamu Merek atau Kreator pada langkah selanjutnya.</p>
             </div>
 
             <p class="text-center text-sm text-neutral-400 mt-8 font-medium">

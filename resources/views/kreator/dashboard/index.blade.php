@@ -1,6 +1,6 @@
 @extends('layouts.kreator')
 
-@section('title', 'Dashboard')
+@section('title', 'Dasbor')
 
 @push('styles')
 @endpush
@@ -117,14 +117,14 @@
             </div>
         </div>
 
-        {{-- Total Views --}}
+        {{-- Total Tayangan --}}
         <div class="bg-[#111111] border border-[#1f1f1f] rounded-[1.25rem] transition-all duration-200 active:scale-[0.97] p-4 lg:p-5 flex flex-col justify-between h-full cursor-pointer">
             <div class="flex items-start justify-between mb-3 lg:mb-4 w-full">
                 <div class="flex items-center gap-3">
                     <div class="w-9 h-9 lg:w-11 lg:h-11 rounded-xl  flex items-center justify-center shrink-0">
                         <span class="text-xl lg:text-2xl drop-shadow-[0_2px_4px_rgba(16,185,129,0.3)]">🔥</span>
                     </div>
-                    <p class="text-[10px] lg:text-[11px] text-slate-400 font-semibold uppercase tracking-wider leading-tight">Total Views</p>
+                    <p class="text-[10px] lg:text-[11px] text-slate-400 font-semibold uppercase tracking-wider leading-tight">Total Tayangan</p>
                 </div>
                 <span class="text-[9px] font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-1.5 py-0.5 rounded-full shrink-0">
                     Top 10%
@@ -139,13 +139,13 @@
             </div>
         </div>
 
-        {{-- Success Rate --}}
+        {{-- Berhasil Rate --}}
         <div class="bg-[#111111] border border-[#1f1f1f] rounded-[1.25rem] transition-all duration-200 active:scale-[0.97] p-4 lg:p-5 flex flex-col justify-between h-full cursor-pointer">
             <div class="flex items-center gap-3 mb-3 lg:mb-4">
                 <div class="w-9 h-9 lg:w-11 lg:h-11 rounded-xl  flex items-center justify-center shrink-0">
                     <span class="text-xl lg:text-2xl drop-shadow-[0_2px_4px_rgba(59,130,246,0.3)]">🎯</span>
                 </div>
-                <p class="text-[10px] lg:text-[11px] text-slate-400 font-semibold uppercase tracking-wider">Success Rate</p>
+                <p class="text-[10px] lg:text-[11px] text-slate-400 font-semibold uppercase tracking-wider">Berhasil Rate</p>
             </div>
             
             <div class="mt-auto">
@@ -166,13 +166,13 @@
                 <div class="w-10 h-10 rounded-xl bg-violet-500/15 flex items-center justify-center">
                     <i data-lucide="upload" class="w-5 h-5 text-violet-400"></i>
                 </div>
-                <span class="text-[10px] font-bold text-slate-300 leading-tight">Submit<br>Views</span>
+                <span class="text-[10px] font-bold text-slate-300 leading-tight">Kirim<br>Tayangan</span>
             </a>
             <a href="{{ route('kreator.campaigns') }}" class="bg-[#111111] border border-[#1f1f1f] rounded-2xl transition-all duration-150 hover:bg-[#161616] active:scale-[0.94] active:bg-[#1a1a1a] flex flex-col items-center justify-center gap-2 p-3.5 text-center">
                 <div class="w-10 h-10 rounded-xl bg-fuchsia-500/15 flex items-center justify-center">
                     <i data-lucide="shopping-bag" class="w-5 h-5 text-fuchsia-400"></i>
                 </div>
-                <span class="text-[10px] font-bold text-slate-300 leading-tight">Cari<br>Campaign</span>
+                <span class="text-[10px] font-bold text-slate-300 leading-tight">Cari<br>Kampanye</span>
             </a>
             <a href="{{ route('kreator.ai_tools') }}" class="bg-[#111111] border border-[#1f1f1f] rounded-2xl transition-all duration-150 hover:bg-[#161616] active:scale-[0.94] active:bg-[#1a1a1a] flex flex-col items-center justify-center gap-2 p-3.5 text-center">
                 <div class="w-10 h-10 rounded-xl bg-pink-500/15 flex items-center justify-center">
@@ -222,7 +222,7 @@
                         </p>
                     </div>
                     <span class="flex-shrink-0 text-[10px] font-medium px-2.5 py-1 rounded-md {{ $c['bg'] }} {{ $c['text'] }} border {{ $c['border'] }} uppercase tracking-wide">
-                        {{ $j['status'] === 'Approved' ? 'Approved' : ($j['status'] === 'Empty' ? 'Kosong' : 'Review') }}
+                        {{ $j['status'] === 'Disetujui' ? 'Disetujui' : ($j['status'] === 'Empty' ? 'Kosong' : 'Review') }}
                     </span>
                 </div>
                 @empty
@@ -231,7 +231,7 @@
                         <i data-lucide="inbox" class="w-6 h-6 text-slate-600"></i>
                     </div>
                     <p class="text-sm font-medium text-slate-500">Belum ada pekerjaan</p>
-                    <p class="text-xs text-slate-600 mt-1">Submit screenshot views untuk mulai</p>
+                    <p class="text-xs text-slate-600 mt-1">Kirim screenshot views untuk mulai</p>
                 </div>
                 @endforelse
             </div>
@@ -241,7 +241,7 @@
                 <a href="{{ route('kreator.submissions.create') }}"
                     class="w-full py-3 flex items-center justify-center gap-2 bg-white text-black text-sm font-medium rounded-lg hover:bg-white/90 transition-colors">
                     <i data-lucide="upload" class="w-4 h-4"></i>
-                    Submit Screenshot Views
+                    Kirim Screenshot Tayangan
                 </a>
             </div>
         </div>
@@ -252,7 +252,7 @@
             {{-- Header --}}
             <div class="flex items-center justify-between px-5 py-4 border-b border-white/[0.06]">
                 <div>
-                    <h3 class="text-sm font-semibold text-white">Campaign Rekomendasi</h3>
+                    <h3 class="text-sm font-semibold text-white">Kampanye Rekomendasi</h3>
                     <p class="text-xs text-slate-500 mt-0.5">Berdasarkan performa kamu</p>
                 </div>
                 <a href="{{ route('kreator.campaigns') }}"
@@ -261,12 +261,12 @@
                 </a>
             </div>
 
-            {{-- Campaign List --}}
+            {{-- Kampanye List --}}
             <div class="px-5 py-4 space-y-2.5 flex-1">
                 @forelse($recs as $r)
                 <a href="{{ route('kreator.campaigns') }}" class="block p-3.5 bg-black/20 border border-white/[0.06] rounded-lg hover:border-white/[0.12] transition-all">
                     <div class="flex items-center gap-3.5">
-                        {{-- Campaign Image --}}
+                        {{-- Kampanye Image --}}
                         <div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 bg-white/[0.03]">
                             @if(isset($r['thumbnail']) && $r['thumbnail'])
                                 <img src="{{ asset($r['thumbnail']) }}" 
@@ -314,7 +314,7 @@
                 <a href="{{ route('kreator.campaigns') }}"
                     class="w-full py-3 flex items-center justify-center gap-2 bg-white/[0.05] hover:bg-white/[0.08] text-white text-sm font-medium rounded-lg transition-colors border border-white/[0.08]">
                     <i data-lucide="shopping-bag" class="w-4 h-4"></i>
-                    Jelajahi Campaign
+                    Jelajahi Kampanye
                 </a>
             </div>
         </div>
