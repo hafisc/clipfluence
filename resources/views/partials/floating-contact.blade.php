@@ -269,7 +269,7 @@
 
             removeTypingIndicator();
 
-            if (!response.ok) throw new Galat('Gagal menghubungi AI');
+            if (!response.ok) throw new Error('Gagal menghubungi AI');
 
             const data = await response.json();
             const reply = data.reply || 'Maaf, saya tidak bisa merespons saat ini.';
@@ -279,7 +279,8 @@
 
         } catch (err) {
             removeTypingIndicator();
-            appendMessage('assistant', 'Maaf, terjadi kesalahan. Silakan coba lagi.');
+            console.error('Chat error:', err);
+            appendMessage('assistant', 'Maaf, terjadi kesalahan. Silakan coba lagi atau hubungi kami via WhatsApp.');
         } finally {
             sendBtn.disabled = false;
             input.focus();

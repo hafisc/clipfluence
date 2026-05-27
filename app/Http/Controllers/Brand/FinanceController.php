@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Deposit;
 use App\Models\User;
 use Illuminate\Support\Facades\Log;
+use Midtrans\Config;
+use Midtrans\Snap;
 
 class FinanceController extends Controller
 {
