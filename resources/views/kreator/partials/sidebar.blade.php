@@ -31,7 +31,7 @@
                 Cari Kampanye
             </div>
             <span class="bg-violet-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
-                <div class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></div> {{ \App\Models\Kampanye::where('status', 'active')->count() }} Job
+                <div class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></div> {{ \App\Models\Campaign::where('status', 'active')->count() }} Job
             </span>
         </a>
 
