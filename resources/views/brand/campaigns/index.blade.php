@@ -24,17 +24,17 @@
             <button @click="currentStatus = 'active'" 
                     :class="currentStatus === 'active' ? 'bg-white text-black' : 'bg-transparent text-zinc-500 hover:text-zinc-100 hover:bg-white/5'" 
                     class="px-4 py-2 rounded-xl text-xs font-bold transition-all duration-200 whitespace-nowrap flex items-center gap-1.5">
-                <span class="text-sm">🚀</span> Aktif
+                <span class="text-sm"></span> Aktif
             </button>
             <button @click="currentStatus = 'completed'" 
                     :class="currentStatus === 'completed' ? 'bg-white text-black' : 'bg-transparent text-zinc-500 hover:text-zinc-100 hover:bg-white/5'" 
                     class="px-4 py-2 rounded-xl text-xs font-bold transition-all duration-200 whitespace-nowrap flex items-center gap-1.5">
-                <span class="text-sm">✅</span> Selesai
+                <span class="text-sm"></span> Selesai
             </button>
             <button @click="currentStatus = 'draft'" 
                     :class="currentStatus === 'draft' ? 'bg-white text-black' : 'bg-transparent text-zinc-500 hover:text-zinc-100 hover:bg-white/5'" 
                     class="px-4 py-2 rounded-xl text-xs font-bold transition-all duration-200 whitespace-nowrap flex items-center gap-1.5">
-                <span class="text-sm">📝</span> Draft
+                <span class="text-sm"></span> Draft
             </button>
         </div>
         <div class="relative w-full sm:w-auto">
@@ -87,11 +87,27 @@
                 $glowEffect = '';
             }
 
-            // Thumbnail fallback
-            $thumbUrl = $c->thumbnail ? asset('storage/' . $c->thumbnail) : asset('images/brand/campaign-placeholder.png');
+            // Thumbnail fallback + normalisasi path thumbnail
+            if (!empty($c->thumbnail)) {
+                if (\Illuminate\Support\Str::startsWith($c->thumbnail, ['http://', 'https://'])) {
+                    $thumbUrl = $c->thumbnail;
+                } elseif (\Illuminate\Support\Str::startsWith($c->thumbnail, 'storage/')) {
+                    $thumbUrl = asset($c->thumbnail);
+                } elseif (\Illuminate\Support\Str::startsWith($c->thumbnail, 'public/')) {
+                    $thumbUrl = asset('storage/' . \Illuminate\Support\Str::after($c->thumbnail, 'public/'));
+                } elseif (\Illuminate\Support\Str::startsWith($c->thumbnail, 'images/')) {
+                    $thumbUrl = asset($c->thumbnail);
+                } else {
+                    $thumbUrl = asset('storage/' . ltrim($c->thumbnail, '/'));
+                }
+            } else {
+                // Gunakan aset yang pasti ada sebagai placeholder
+                $thumbUrl = asset('images/campaigns/tech.png');
+            }
         @endphp
         
-        <div class="bg-neutral-900 border border-neutral-800 rounded-2xl relative overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:border-violet-900 hover:shadow-[0_10px_40px_rgba(91,33,182,0.15)] group flex flex-col {{ $status === 'draft' ? 'opacity-70 grayscale-[50%]' : '' }}"
+        <div x-data="{ deleteOpen: false }"
+             class="bg-neutral-900 border border-neutral-800 rounded-2xl relative overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:border-violet-900 hover:shadow-[0_10px_40px_rgba(91,33,182,0.15)] group flex flex-col {{ $status === 'draft' ? 'opacity-70 grayscale-[50%]' : '' }}"
              x-show="(currentStatus === 'all' || currentStatus === '{{ $status }}') && (searchQuery === '' || '{{ strtolower(addslashes($c->title)) }}'.includes(searchQuery.toLowerCase()))"
              x-transition:enter="transition ease-out duration-200"
              x-transition:enter-start="opacity-0 scale-95"
@@ -111,11 +127,11 @@
                     </div>
                 </div>
                 
-                {{-- Menu Icon --}}
+                {{-- Edit Icon --}}
                 <div class="absolute top-3 right-3 z-10">
-                    <button class="w-8 h-8 flex items-center justify-center rounded-lg bg-black/40 backdrop-blur-md border border-white/10 text-white hover:bg-white/10 transition-colors focus:outline-none">
-                        <i data-lucide="more-vertical" class="w-4 h-4"></i>
-                    </button>
+                    <a href="{{ route('brand.campaigns.edit', $c) }}" title="Ubah campaign" class="w-8 h-8 flex items-center justify-center rounded-lg bg-black/40 backdrop-blur-md border border-white/10 text-white hover:bg-white/10 transition-colors focus:outline-none">
+                        <i data-lucide="pencil" class="w-4 h-4"></i>
+                    </a>
                 </div>
             </div>
 
@@ -150,12 +166,25 @@
 
             {{-- Catatan Kaki Actions --}}
             <div class="px-5 py-4 border-t border-white/5 bg-white/[0.01] flex justify-between items-center relative z-10">
-                <button class="text-[11px] font-bold text-slate-400 hover:text-white transition-colors flex items-center gap-1.5">
-                    <i data-lucide="settings" class="w-3.5 h-3.5"></i> Setelan
+                <button type="button" @click="deleteOpen = true" class="text-[11px] font-bold text-slate-400 hover:text-red-400 transition-colors flex items-center gap-1.5">
+                    <i data-lucide="trash-2" class="w-3.5 h-3.5"></i> Hapus
                 </button>
                 <a href="{{ route('brand.submissions') }}" class="text-[11px] font-black {{ $status === 'active' ? 'text-violet-400 hover:text-fuchsia-400' : 'text-slate-400 hover:text-white' }} transition-colors flex items-center gap-1.5 px-4 py-2 rounded-lg {{ $status === 'active' ? 'bg-violet-500/10 hover:bg-violet-500/20' : 'bg-white/5 hover:bg-white/10' }}">
                     Review UGC <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
                 </a>
+            </div>
+
+            <div x-show="deleteOpen" x-cloak class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4">
+                <form method="POST" action="{{ route('brand.campaigns.destroy', $c) }}" class="w-full max-w-sm rounded-2xl border border-neutral-800 bg-neutral-950 p-5">
+                    @csrf
+                    @method('DELETE')
+                    <h4 class="text-sm font-semibold text-white">Hapus Campaign?</h4>
+                    <p class="mt-2 text-xs leading-5 text-slate-400">Campaign {{ $c->title }} akan dihapus dari database.</p>
+                    <div class="mt-5 flex justify-end gap-2">
+                        <button type="button" @click="deleteOpen = false" class="rounded-xl px-3 py-2 text-xs font-semibold text-slate-400 hover:text-white hover:bg-white/5">Batal</button>
+                        <button class="rounded-xl bg-red-500 px-3 py-2 text-xs font-semibold text-white">Hapus</button>
+                    </div>
+                </form>
             </div>
         </div>
         @endforeach

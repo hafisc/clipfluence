@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Campaign;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\Rule;
 
 class CampaignController extends Controller
 {
@@ -24,52 +25,59 @@ class CampaignController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required|string|max:255',
-            'type' => 'required|string|in:video,clip',
-            'slots' => 'required|integer|min:1',
-            'thumbnail' => 'required|image|mimes:jpeg,png,jpg|max:5120', // 5MB max
-            'desc' => 'required|string',
-            'full_brief' => 'required|string',
-            'donts' => 'required|string',
-            'assets_url' => 'nullable|url',
-            'deadline' => 'required|date',
-            'video_length' => 'required|string|max:50',
-            'link' => 'required|url',
-            'platform' => 'required|string',
-            'budget' => 'required|numeric|min:0',
-            'price_per_1k' => 'required|numeric|min:0',
-        ]);
-
-        $thumbnailPath = null;
-        if ($request->hasFile('thumbnail')) {
-            $thumbnailPath = $request->file('thumbnail')->store('campaigns', 'public');
-        }
+        $validated = $this->validatedCampaign($request, true);
 
         // Determine status based on action button
         $status = $request->input('action') === 'active' ? 'active' : 'draft';
 
         /** @var \App\Models\User $user */
         $user = auth()->user();
-        $campaign = $user->campaigns()->create([
-            'title' => $request->title,
-            'type' => $request->type,
-            'slots' => $request->slots,
-            'thumbnail' => $thumbnailPath,
-            'desc' => $request->desc,
-            'full_brief' => $request->full_brief,
-            'donts' => $request->donts,
-            'assets_url' => $request->assets_url,
-            'deadline' => $request->deadline,
-            'video_length' => $request->video_length,
-            'link' => $request->link,
-            'platform' => $request->platform,
-            'budget' => $request->budget,
-            'price_per_1k' => $request->price_per_1k,
+        $user->campaigns()->create(array_merge($validated, [
+            'thumbnail' => $request->file('thumbnail')->store('campaigns', 'public'),
             'status' => $status,
-        ]);
+        ]));
 
         return redirect()->route('brand.campaigns')->with('success', 'Campaign berhasil ' . ($status === 'active' ? 'diluncurkan!' : 'disimpan sebagai draft.'));
+    }
+
+    public function edit(Campaign $campaign)
+    {
+        $this->ensureOwner($campaign);
+
+        return view('brand.campaigns.create', compact('campaign'));
+    }
+
+    public function update(Request $request, Campaign $campaign)
+    {
+        $this->ensureOwner($campaign);
+
+        $validated = $this->validatedCampaign($request, false);
+        $validated['status'] = $request->input('action') === 'active' ? 'active' : 'draft';
+
+        if ($request->hasFile('thumbnail')) {
+            if ($campaign->thumbnail) {
+                Storage::disk('public')->delete($campaign->thumbnail);
+            }
+
+            $validated['thumbnail'] = $request->file('thumbnail')->store('campaigns', 'public');
+        }
+
+        $campaign->update($validated);
+
+        return redirect()->route('brand.campaigns')->with('success', 'Campaign berhasil diperbarui.');
+    }
+
+    public function destroy(Campaign $campaign)
+    {
+        $this->ensureOwner($campaign);
+
+        if ($campaign->thumbnail) {
+            Storage::disk('public')->delete($campaign->thumbnail);
+        }
+
+        $campaign->delete();
+
+        return redirect()->route('brand.campaigns')->with('success', 'Campaign berhasil dihapus.');
     }
     
     public function search(Request $request)
@@ -101,5 +109,30 @@ class CampaignController extends Controller
             });
         
         return response()->json(['campaigns' => $campaigns]);
+    }
+
+    private function validatedCampaign(Request $request, bool $thumbnailRequired): array
+    {
+        return $request->validate([
+            'title' => ['required', 'string', 'max:255'],
+            'type' => ['required', 'string', Rule::in(['video', 'clip'])],
+            'slots' => ['required', 'integer', 'min:1'],
+            'thumbnail' => [$thumbnailRequired ? 'required' : 'nullable', 'image', 'mimes:jpeg,png,jpg', 'max:5120'],
+            'desc' => ['required', 'string'],
+            'full_brief' => ['required', 'string'],
+            'donts' => ['required', 'string'],
+            'assets_url' => ['nullable', 'url'],
+            'deadline' => ['required', 'date'],
+            'video_length' => ['required', 'string', 'max:50'],
+            'link' => ['required', 'url'],
+            'platform' => ['required', 'string', Rule::in(['all', 'tiktok', 'ig_reels', 'yt_shorts'])],
+            'budget' => ['required', 'numeric', 'min:0'],
+            'price_per_1k' => ['required', 'numeric', 'min:0'],
+        ]);
+    }
+
+    private function ensureOwner(Campaign $campaign): void
+    {
+        abort_unless($campaign->user_id === auth()->id(), 403);
     }
 }

@@ -86,7 +86,7 @@
                     <div class="w-9 h-9 lg:w-11 lg:h-11 rounded-xl  flex items-center justify-center shrink-0">
                         <span class="text-xl lg:text-2xl drop-shadow-[0_2px_4px_rgba(245,158,11,0.3)]">⏳</span>
                     </div>
-                    <p class="text-[10px] lg:text-[11px] text-slate-400 font-semibold uppercase tracking-wider">Menunggu Review</p>
+                    <p class="text-[10px] lg:text-[11px] text-slate-400 font-semibold uppercase tracking-wider">Menunggu Reviu</p>
                 </div>
                 
                 @if($pendingReview > 0)
@@ -109,7 +109,7 @@
                 <div class="w-10 h-10 rounded-xl bg-violet-500/15 flex items-center justify-center">
                     <i data-lucide="check-square" class="w-5 h-5 text-violet-400"></i>
                 </div>
-                <span class="text-[10px] font-bold text-slate-300 leading-tight">Review<br>Konten</span>
+                <span class="text-[10px] font-bold text-slate-300 leading-tight">Revieu<br>Konten</span>
             </a>
             <a href="#" class="bg-neutral-900 border border-neutral-800 rounded-2xl transition-all duration-150 active:scale-95 active:bg-neutral-800 flex flex-col items-center justify-center gap-2 p-3.5 text-center">
                 <div class="w-10 h-10 rounded-xl bg-fuchsia-500/15 flex items-center justify-center">

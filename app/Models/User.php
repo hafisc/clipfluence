@@ -16,6 +16,9 @@ class User extends Authenticatable
         'email',
         'password',
         'role',
+        'kyc_status',
+        'kyc_document_type',
+        'kyc_reviewed_at',
         'balance',
         'bank_name',
         'bank_account',
@@ -39,6 +42,7 @@ class User extends Authenticatable
     {
         return [
             'email_verified_at' => 'datetime',
+            'kyc_reviewed_at' => 'datetime',
             'password' => 'hashed',
         ];
     }

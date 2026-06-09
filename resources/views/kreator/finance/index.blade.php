@@ -22,7 +22,7 @@
 
     <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-5 mb-8">
         <div>
-            <h1 class="text-2xl lg:text-3xl font-black text-white tracking-tight mb-2">My Wallet</h1>
+            <h1 class="text-2xl lg:text-3xl font-black text-white tracking-tight mb-2">Dompet Saya</h1>
             <p class="text-sm text-slate-400">Atur penghasilan, tarik dana komisi, dan kelola rekening kamu.</p>
         </div>
         <button class="flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-sm font-bold text-white transition-all hover:scale-[1.02] active:scale-95 bg-gradient-to-br from-violet-600 to-fuchsia-500 shadow-[0_8px_24px_rgba(139,92,246,0.35)]" 

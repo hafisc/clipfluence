@@ -63,7 +63,7 @@
 
         <a href="{{ route('kreator.finance') }}" class="kreator-link {{ request()->routeIs('kreator.finance*') ? 'active' : '' }}">
             <i data-lucide="wallet-cards" class="w-4 h-4 flex-shrink-0"></i>
-            Wallet & Penarikan
+            Dompet & Penarikan
         </a>
 
     </nav>

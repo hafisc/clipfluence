@@ -38,6 +38,7 @@
         }
 
         body { font-family: 'Inter', sans-serif; }
+        [x-cloak] { display: none !important; }
         ::-webkit-scrollbar { width: 4px; height: 4px; }
         ::-webkit-scrollbar-track { background: #0a0a0a; }
         ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 99px; }

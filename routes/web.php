@@ -2,6 +2,10 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\AIChatController;
+use App\Http\Controllers\Admin\CampaignController as AdminCampaignController;
+use App\Http\Controllers\Admin\FinanceController as AdminFinanceController;
+use App\Http\Controllers\Admin\KycController as AdminKycController;
+use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -58,14 +62,23 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
     Route::middleware([\App\Http\Middleware\IsAdmin::class])->group(function() {
         Route::get('/dashboard', fn() => view('admin.dashboard.index'))->name('dashboard');
-        Route::get('/users', fn() => view('admin.users.index'))->name('users');
-        Route::get('/kreators', fn() => view('admin.kreators.index'))->name('kreators');
-        Route::get('/brands', fn() => view('admin.brands.index'))->name('brands');
-        Route::get('/kyc', fn() => view('admin.kyc.index'))->name('kyc');
-        Route::get('/campaigns', fn() => view('admin.campaigns.index'))->name('campaigns');
+        Route::get('/users', [UserController::class, 'internal'])->name('users');
+        Route::post('/users', [UserController::class, 'storeInternal'])->name('users.store');
+        Route::patch('/users/{user}', [UserController::class, 'update'])->name('users.update');
+        Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
+        Route::get('/kreators', [UserController::class, 'kreators'])->name('kreators');
+        Route::get('/brands', [UserController::class, 'brands'])->name('brands');
+        Route::get('/kyc', [AdminKycController::class, 'index'])->name('kyc');
+        Route::patch('/kyc/{user}', [AdminKycController::class, 'update'])->name('kyc.update');
+        Route::get('/campaigns', [AdminCampaignController::class, 'index'])->name('campaigns');
+        Route::post('/campaigns', [AdminCampaignController::class, 'store'])->name('campaigns.store');
+        Route::patch('/campaigns/{campaign}', [AdminCampaignController::class, 'update'])->name('campaigns.update');
+        Route::delete('/campaigns/{campaign}', [AdminCampaignController::class, 'destroy'])->name('campaigns.destroy');
         Route::get('/ugc', fn() => view('admin.ugc.index'))->name('ugc');
-        Route::get('/payouts', fn() => view('admin.payouts.index'))->name('payouts');
-        Route::get('/withdrawals', fn() => view('admin.withdrawals.index'))->name('withdrawals');
+        Route::get('/payouts', [AdminFinanceController::class, 'payouts'])->name('payouts');
+        Route::patch('/payouts/{deposit}', [AdminFinanceController::class, 'updateDeposit'])->name('payouts.update');
+        Route::get('/withdrawals', [AdminFinanceController::class, 'withdrawals'])->name('withdrawals');
+        Route::patch('/withdrawals/{withdrawal}', [AdminFinanceController::class, 'updateWithdrawal'])->name('withdrawals.update');
         Route::get('/disputes', fn() => view('admin.disputes.index'))->name('disputes');
         Route::get('/analytics', fn() => view('admin.analytics.index'))->name('analytics');
         Route::get('/fraud', fn() => view('admin.fraud.index'))->name('fraud');
@@ -116,6 +129,9 @@ Route::middleware(['auth', \App\Http\Middleware\IsBrand::class])->prefix('brand'
     Route::get('/campaigns/search', [\App\Http\Controllers\Brand\CampaignController::class, 'search'])->name('campaigns.search');
     Route::get('/campaigns/create', [\App\Http\Controllers\Brand\CampaignController::class, 'create'])->name('campaigns.create');
     Route::post('/campaigns', [\App\Http\Controllers\Brand\CampaignController::class, 'store'])->name('campaigns.store');
+    Route::get('/campaigns/{campaign}/edit', [\App\Http\Controllers\Brand\CampaignController::class, 'edit'])->name('campaigns.edit');
+    Route::patch('/campaigns/{campaign}', [\App\Http\Controllers\Brand\CampaignController::class, 'update'])->name('campaigns.update');
+    Route::delete('/campaigns/{campaign}', [\App\Http\Controllers\Brand\CampaignController::class, 'destroy'])->name('campaigns.destroy');
     
     Route::get('/submissions', [\App\Http\Controllers\Brand\SubmissionController::class, 'index'])->name('submissions');
     Route::post('/submissions/{submission}/approve', [\App\Http\Controllers\Brand\SubmissionController::class, 'approve'])->name('submissions.approve');

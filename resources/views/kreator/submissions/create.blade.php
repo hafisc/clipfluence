@@ -35,8 +35,8 @@
                 <label class="text-[0.7rem] font-bold text-slate-500 uppercase tracking-widest block mb-2">Kampanye <span class="text-red-500 normal-case font-black">*</span></label>
                 <div class="relative">
                     <select name="campaign_id" required class="w-full bg-[#080808] border-none shadow-[0_0_0_1px_rgba(255,255,255,0.07)] rounded-xl py-3 px-4 text-[0.875rem] text-slate-200 outline-none transition-shadow duration-200 focus:shadow-[0_0_0_1.5px_rgba(139,92,246,0.5),_0_0_0_4px_rgba(139,92,246,0.07)] appearance-none cursor-pointer bg-no-repeat pr-10 [&>option]:bg-[#111] [&>option]:text-slate-200" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'12\' height=\'12\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23475569\' stroke-width=\'2.5\'%3E%3Cpath d=\'m6 9 6 6 6-6\'/%3E%3C/svg%3E'); background-position: right 1rem center;">
-                        <option value="" disabled selected>Pilih campaign yang sedang kamu kerjakan…</option>
-                        @foreach(\App\Models\Kampanye::where('status', 'active')->get() as $campaign)
+                        <option value="" disabled selected>Pilih kampanye yang sedang kamu kerjakan…</option>
+                        @foreach(\App\Models\Campaign::where('status', 'active')->get() as $campaign)
                             <option value="{{ $campaign->id }}">{{ $campaign->title }} — Rp {{ number_format($campaign->price_per_1k, 0, ',', '.') }} / 1K Tayangan</option>
                         @endforeach
                     </select>
@@ -76,7 +76,7 @@
                     </div>
                 </div>
                 <div>
-                    <label class="text-[0.7rem] font-bold text-slate-500 uppercase tracking-widest block mb-2">Link URL Postingan Video <span class="text-red-500 normal-case font-black">*</span></label>
+                    <label class="text-[0.7rem] font-bold text-slate-500 uppercase tracking-widest block mb-2">Tautan Postingan Video <span class="text-red-500 normal-case font-black">*</span></label>
                     <div class="relative">
                         <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                             <i data-lucide="link-2" class="w-3.5 h-3.5 text-slate-600"></i>
@@ -112,7 +112,7 @@
                             <i data-lucide="upload-cloud" class="w-6 h-6 text-slate-500 transition-colors group-hover:text-violet-400"></i>
                         </div>
                         <p class="text-sm font-semibold text-slate-300 mb-1">
-                            <span class="text-violet-400">Klik untuk upload</span> atau seret & lepas di sini
+                            <span class="text-violet-400">Klik untuk unggah</span> atau seret & lepas di sini
                         </p>
                         <p class="text-xs text-slate-600">PNG, JPG, JPEG · Maks. 2 MB</p>
 

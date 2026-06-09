@@ -38,7 +38,7 @@
             <span class="text-xs font-bold text-violet-300 uppercase tracking-wider">AI-Powered Video Clipper</span>
         </div>
         <h1 class="text-3xl font-black text-white">Potong Video Otomatis dengan AI</h1> --}}
-        <p class="text-sm text-slate-400 max-w-2xl mx-auto">Paste link video dari YouTube, TikTok, atau platform lainnya. AI akan menganalisis dan memotong bagian terbaik secara otomatis.</p>
+        <p class="text-sm text-slate-400 max-w-2xl mx-auto">Tempel Tautan video dari <i>YouTube</i>, <i>TikTok</i>, atau platform lainnya. <i>AI</i> akan menganalisis dan memotong bagian terbaik secara otomatis.</p>
     </div>
 
     {{-- TAB NAVIGATION --}}
@@ -47,7 +47,7 @@
                 class="flex-1 py-3 px-4 rounded-xl text-sm font-semibold transition-all duration-200 flex items-center justify-center gap-2"
                 :class="activeTab === 'generate' ? 'bg-violet-500/20 text-violet-300 shadow-[0_0_0_1px_rgba(139,92,246,0.5)]' : 'text-slate-500 hover:text-slate-300 hover:bg-white/5'">
             <i data-lucide="wand-2" class="w-4 h-4"></i>
-            Generate Clips
+            Membuat Klip
         </button>
         <button @click="activeTab = 'history'" 
                 class="flex-1 py-3 px-4 rounded-xl text-sm font-semibold transition-all duration-200 flex items-center justify-center gap-2"
@@ -84,7 +84,7 @@
             <div class="flex items-center justify-between mb-4">
                 <h2 class="text-sm font-bold text-white flex items-center gap-2">
                     <i data-lucide="link" class="w-4 h-4 text-violet-400"></i>
-                    Paste Link Video
+                    Tempel Tautan Video
                 </h2>
                 <span x-show="videoInfo" class="text-xs px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 font-semibold" style="display:none">
                     <i data-lucide="check-circle-2" class="w-3 h-3 inline"></i> Video Terdeteksi
@@ -409,7 +409,7 @@
             <i data-lucide="video" class="w-10 h-10 text-slate-700"></i>
         </div>
         <h3 class="text-lg font-bold text-slate-500 mb-2">Belum Ada Video</h3>
-        <p class="text-sm text-slate-600 mb-6">Paste link video di atas untuk memulai</p>
+        <p class="text-sm text-slate-600 mb-6">Tempel tautan video di atas untuk memulai</p>
         <div class="flex flex-wrap justify-center gap-2">
             <span class="px-3 py-1.5 rounded-lg bg-[#0f0f0f] border border-white/5 text-xs text-slate-500">Podcast</span>
             <span class="px-3 py-1.5 rounded-lg bg-[#0f0f0f] border border-white/5 text-xs text-slate-500">Tutorial</span>
@@ -440,7 +440,7 @@
             <div class="flex items-center gap-3">
                 <select x-model="historyFilter" @change="loadHistory()" 
                         class="bg-black/40 border border-white/10 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-violet-500/50">
-                    <option value="all">Semua Clip</option>
+                    <option value="all">Semua Klip</option>
                     <option value="today">Hari Ini</option>
                     <option value="week">Minggu Ini</option>
                     <option value="month">Bulan Ini</option>
@@ -448,11 +448,11 @@
                 <button @click="loadHistory()" 
                         class="px-3 py-2 bg-violet-600 hover:bg-violet-500 text-white text-sm font-semibold rounded-lg transition-all flex items-center gap-2">
                     <i data-lucide="refresh-cw" class="w-4 h-4"></i>
-                    Refresh
+                    Muat Ulang
                 </button>
             </div>
             <div class="text-xs text-slate-500">
-                Total: <span x-text="historyClips.length"></span> clip
+                Total: <span x-text="historyClips.length"></span> klip
             </div>
         </div>
 
@@ -539,7 +539,7 @@
             <p class="text-sm text-slate-600 mb-6">Generate clip pertama Anda untuk melihat riwayat</p>
             <button @click="activeTab = 'generate'" 
                     class="px-6 py-3 bg-violet-600 hover:bg-violet-500 text-white text-sm font-bold rounded-lg transition-all">
-                Generate Clip Sekarang
+                Generate Klip Sekarang
             </button>
         </div>
 
@@ -582,7 +582,7 @@ function aiClipper() {
         
         // Steps
         steps: [
-            { icon: 'link', label: 'Paste Link' },
+            { icon: 'link', label: 'Tempel Tautan' },
             { icon: 'settings', label: 'Atur Setting' },
             { icon: 'brain-circuit', label: 'AI Proses' },
             { icon: 'download', label: 'Unduh' }
