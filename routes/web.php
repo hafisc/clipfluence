@@ -4,6 +4,8 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\AIChatController;
 use App\Http\Controllers\Admin\CampaignController as AdminCampaignController;
 use App\Http\Controllers\Admin\FinanceController as AdminFinanceController;
+use App\Http\Controllers\Admin\NotificationController as AdminNotificationController;
+use App\Http\Controllers\Admin\SearchController as AdminSearchController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -61,6 +63,7 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
     Route::middleware([\App\Http\Middleware\IsAdmin::class])->group(function() {
         Route::get('/dashboard', fn() => view('admin.dashboard.index'))->name('dashboard');
+        Route::get('/search', [AdminSearchController::class, 'index'])->name('search');
         Route::get('/users', [UserController::class, 'internal'])->name('users');
         Route::post('/users', [UserController::class, 'storeInternal'])->name('users.store');
         Route::patch('/users/{user}', [UserController::class, 'update'])->name('users.update');
@@ -79,7 +82,8 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
         Route::get('/disputes', fn() => view('admin.disputes.index'))->name('disputes');
         Route::get('/analytics', fn() => view('admin.analytics.index'))->name('analytics');
         Route::get('/fraud', fn() => view('admin.fraud.index'))->name('fraud');
-        Route::get('/notifications', fn() => view('admin.notifications.index'))->name('notifications');
+        Route::get('/notifications', [AdminNotificationController::class, 'index'])->name('notifications');
+        Route::post('/notifications', [AdminNotificationController::class, 'store'])->name('notifications.store');
         Route::get('/logs', fn() => view('admin.logs.index'))->name('logs');
         Route::get('/settings', [\App\Http\Controllers\Admin\SettingsController::class, 'index'])->name('settings');
         Route::post('/settings', [\App\Http\Controllers\Admin\SettingsController::class, 'update'])->name('settings.update');

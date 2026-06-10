@@ -20,17 +20,23 @@
     <div class="flex items-center gap-3">
 
         <!-- Cari -->
-        <div class="hidden md:flex items-center gap-2 bg-neutral-900 border border-neutral-800 rounded-xl px-3 py-2 text-sm text-slate-500 hover:border-neutral-700 transition-colors cursor-text w-48">
+        <form method="GET" action="{{ route('admin.search') }}" class="hidden md:flex items-center gap-2 bg-neutral-900 border border-neutral-800 rounded-xl px-3 py-2 text-sm text-slate-500 hover:border-neutral-700 focus-within:border-brand/60 transition-colors w-56">
             <i data-lucide="search" class="w-4 h-4 flex-shrink-0"></i>
-            <span class="text-xs">Cari sesuatu...</span>
-        </div>
+            <input
+                type="search"
+                name="q"
+                value="{{ request('q') }}"
+                placeholder="Cari sesuatu..."
+                class="w-full bg-transparent text-xs text-slate-300 placeholder-slate-500 outline-none"
+            >
+        </form>
 
         <!-- Notifikasi -->
-        <button class="relative w-9 h-9 flex items-center justify-center rounded-xl bg-neutral-900 border border-neutral-800 text-slate-400 hover:text-white hover:border-neutral-700 transition-all">
+        <a href="{{ route('admin.notifications') }}" class="relative w-9 h-9 flex items-center justify-center rounded-xl bg-neutral-900 border border-neutral-800 text-slate-400 hover:text-white hover:border-neutral-700 transition-all" title="Notifikasi">
             <i data-lucide="bell" class="w-4 h-4"></i>
             <!-- Badge -->
             <span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-brand border border-[#0d0d0d]"></span>
-        </button>
+        </a>
 
         <!-- Avatar -->
         @php
