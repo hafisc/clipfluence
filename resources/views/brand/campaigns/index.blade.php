@@ -3,7 +3,22 @@
 @section('title', 'Kampanye Saya')
 
 @section('content')
-<div class="max-w-7xl mx-auto pb-12 pt-2" x-data="{ currentStatus: 'all', searchQuery: '' }">
+<div class="max-w-7xl mx-auto pb-12 pt-2" 
+     x-data="{ 
+         currentStatus: 'all', 
+         searchQuery: '',
+         campaigns: [
+             @foreach($campaigns as $c)
+                 { id: {{ $c->id }}, status: '{{ strtolower($c->status) }}', title: '{{ strtolower(addslashes($c->title)) }}' },
+             @endforeach
+         ],
+         hasVisibleCampaigns() {
+             return this.campaigns.some(c => 
+                 (this.currentStatus === 'all' || this.currentStatus === c.status) && 
+                 (this.searchQuery === '' || c.title.includes(this.searchQuery.toLowerCase()))
+             );
+         }
+     }">
 
     {{-- FLASH MESSAGES --}}
     @if (session('success'))
@@ -191,13 +206,17 @@
     </div>
     
     {{-- Empty State for Filtered Results --}}
-    <div x-show="currentStatus !== 'all' && !document.querySelectorAll('[x-show]:not([style*=\"display: none\"])').length" 
-         class="w-full flex flex-col items-center justify-center py-16 px-6 border border-dashed border-neutral-800 rounded-3xl bg-[#111111]/30 mt-8">
+    <div x-show="!hasVisibleCampaigns()" 
+         class="w-full flex flex-col items-center justify-center py-16 px-6 border border-dashed border-neutral-800 rounded-3xl bg-[#111111]/30 mt-8"
+         x-transition>
         <div class="w-16 h-16 bg-neutral-900 border border-neutral-800 rounded-full flex items-center justify-center mb-4">
             <i data-lucide="filter-x" class="w-6 h-6 text-slate-500"></i>
         </div>
         <h3 class="text-lg font-bold text-white mb-1">Tidak Ada Kampanye</h3>
-        <p class="text-sm text-slate-500 text-center" x-text="'Tidak ada campaign dengan status ' + (currentStatus === 'active' ? 'Aktif' : currentStatus === 'completed' ? 'Selesai' : 'Draft')"></p>
+        <p class="text-sm text-slate-500 text-center" 
+           x-text="searchQuery !== '' 
+                   ? 'Tidak ada campaign yang cocok dengan pencarian \'' + searchQuery + '\'' 
+                   : 'Tidak ada campaign dengan status ' + (currentStatus === 'active' ? 'Aktif' : currentStatus === 'completed' ? 'Selesai' : 'Draft')"></p>
     </div>
     @endif
 
