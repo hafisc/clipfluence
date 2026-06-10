@@ -1,5 +1,5 @@
 {{-- Floating Toolbar - pojok kanan bawah --}}
-<div id="floating-toolbar" class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+<div id="floating-toolbar" class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3" style="position: fixed !important; bottom: 24px !important; right: 24px !important; z-index: 50 !important;">
 
     {{-- Action Buttons (muncul saat toolbar dibuka) --}}
     <div id="toolbar-actions" class="flex flex-col items-end gap-3 transition-all duration-300 origin-bottom"

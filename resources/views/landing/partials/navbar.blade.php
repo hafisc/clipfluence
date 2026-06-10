@@ -7,26 +7,26 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-20">
             <!-- Bagian Logo Kiri -->
-            <a href="/" class="flex-shrink-0 flex items-center gap-3">
-                <img src="{{ asset('images/brand/logo-icon.png') }}" alt="Clipfluence" class="w-9 h-9 object-contain drop-shadow-[0_0_10px_rgba(139,92,246,0.5)]">
+            <!-- Bagian Logo Kiri -->
+            <a href="/" @click.prevent="if(window.location.pathname === '/') { activeTab = 'brand'; window.history.replaceState(null, '', '/'); } else { window.location.href = '/'; }" class="flex-shrink-0 flex items-center gap-3">
+                <img src="{{ asset('images/brand/logo-icon.png') }}" alt="Clipfluence" class="w-9 h-9 object-contain drop-shadow-[0_0_10px_rgba(139,92,246,0.6)]">
                 <!-- Typografi teks Logo -->
                 <span class="font-bold text-2xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-400">
-                    Clip<span class="text-brand-light">fluence</span>
+                    Clip<span class="text-brand">fluence</span>
                 </span>
             </a>
 
             <!-- Link Navigasi Tengah (Desktop) -->
             <div class="hidden md:flex items-center space-x-8">
-                <a href="{{ request()->is('/') ? '#fitur' : '/#fitur' }}" class="text-slate-300 hover:text-white transition-colors text-sm font-medium">Cara Kerja</a>
-                <a href="/register?role=creator" class="text-slate-300 hover:text-white transition-colors text-sm font-medium">Untuk Kreator</a>
-                <a href="/register?role=brand" class="text-slate-300 hover:text-white transition-colors text-sm font-medium">Untuk Merek</a>
+                <a href="#cara-kerja" class="text-slate-300 hover:text-white transition-colors text-sm font-medium">Cara Kerja</a>
+                <a href="/?tab=creator" @click.prevent="if(window.location.pathname === '/') { activeTab = 'creator'; window.history.replaceState(null, '', '/?tab=creator'); } else { window.location.href = '/?tab=creator'; }" :class="activeTab === 'creator' ? 'text-brand font-semibold' : 'text-slate-300'" class="hover:text-white transition-colors text-sm font-medium">Untuk Kreator</a>
+                <a href="/?tab=brand" @click.prevent="if(window.location.pathname === '/') { activeTab = 'brand'; window.history.replaceState(null, '', '/?tab=brand'); } else { window.location.href = '/?tab=brand'; }" :class="activeTab === 'brand' ? 'text-brand font-semibold' : 'text-slate-300'" class="hover:text-white transition-colors text-sm font-medium">Untuk Merek</a>
             </div>
 
             <!-- Tombol Aksi Kanan (Desktop) -->
             <div class="hidden md:flex items-center space-x-4">
-
-                <!-- Tombol <em>CTA</em> Masuk dengan warna merek premium -->
-                <a href="/login" class="px-6 py-2 rounded-full bg-gradient-to-r from-brand to-brand text-white text-sm font-bold shadow-lg shadow-brand/25 hover:shadow-brand/40 transition-all duration-300 transform hover:-translate-y-0.5 flex items-center gap-2">
+                <!-- Tombol CTA Masuk dengan warna merek premium -->
+                <a href="/login" class="px-6 py-2 rounded-full bg-gradient-to-r from-brand to-brand-hover text-white text-sm font-bold shadow-lg shadow-brand/25 hover:shadow-brand/40 transition-all duration-300 transform hover:-translate-y-0.5 flex items-center gap-2">
                     Masuk <i data-lucide="arrow-right" class="w-4 h-4"></i>
                 </a>
             </div>
@@ -52,12 +52,12 @@
         class="md:hidden absolute top-20 left-0 w-full bg-black border-b border-white/10 shadow-2xl"
         style="display: none;">
         <div class="px-4 py-6 space-y-4 flex flex-col">
-            <a href="{{ request()->is('/') ? '#fitur' : '/#fitur' }}" class="text-slate-300 hover:text-white text-base font-medium transition-colors">Cara Kerja</a>
-            <a href="/register?role=creator" class="text-slate-300 hover:text-white text-base font-medium transition-colors">Untuk Kreator</a>
-            <a href="/register?role=brand" class="text-slate-300 hover:text-white text-base font-medium transition-colors">Untuk Merek</a>
+            <a href="#cara-kerja" @click="mobileMenuOpen = false" class="text-slate-300 hover:text-white text-base font-medium transition-colors">Cara Kerja</a>
+            <a href="/?tab=creator" @click="mobileMenuOpen = false; if(window.location.pathname === '/') { activeTab = 'creator'; window.history.replaceState(null, '', '/?tab=creator'); } else { window.location.href = '/?tab=creator'; }" :class="activeTab === 'creator' ? 'text-brand font-semibold' : 'text-slate-300'" class="text-base font-medium transition-colors">Untuk Kreator</a>
+            <a href="/?tab=brand" @click="mobileMenuOpen = false; if(window.location.pathname === '/') { activeTab = 'brand'; window.history.replaceState(null, '', '/?tab=brand'); } else { window.location.href = '/?tab=brand'; }" :class="activeTab === 'brand' ? 'text-brand font-semibold' : 'text-slate-300'" class="text-base font-medium transition-colors">Untuk Merek</a>
             <!-- Garis Pemisah -->
             <div class="h-px w-full bg-neutral-900 my-4"></div>
-            <a href="/login" class="w-full text-center px-5 py-3 rounded-xl bg-gradient-to-r from-brand to-brand text-white text-base font-bold shadow-lg shadow-brand/25">
+            <a href="/login" class="w-full text-center px-5 py-3 rounded-xl bg-gradient-to-r from-brand to-brand-hover text-white text-base font-bold shadow-lg shadow-brand/25">
                 Masuk
             </a>
         </div>

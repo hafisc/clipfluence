@@ -66,7 +66,7 @@
         .hover\:text-brand-light:hover { color: var(--admin-accent) !important; }
     </style>
 </head>
-<body class="bg-black text-slate-50 antialiased selection:bg-brand/30 selection:text-brand-light">
+<body class="bg-black text-slate-50 antialiased selection:bg-brand/30 selection:text-brand-light" x-data="{ activeTab: '{{ request()->query('tab') === 'creator' ? 'creator' : 'brand' }}' }">
 
     <!-- Memanggil komponen Bilah Navigasi Global -->
     @include('landing.partials.navbar')

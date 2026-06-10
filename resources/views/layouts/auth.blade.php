@@ -66,14 +66,15 @@
         <div class="absolute -bottom-40 -right-40 w-96 h-96 bg-brand/10 rounded-full blur-[100px] mix-blend-screen"></div>
     </div>
 
+    <!-- Tombol kembali ke Landing (paling kiri atas) -->
+    <div class="absolute top-6 left-6 z-20">
+        <a href="/" class="inline-flex items-center gap-2 text-xs font-semibold text-slate-400 hover:text-white transition-all duration-300 group px-4 py-2 rounded-full bg-neutral-900/60 border border-neutral-800 hover:border-neutral-700/80 backdrop-blur-md shadow-sm hover:shadow-brand/5 hover:bg-neutral-900">
+            <i data-lucide="arrow-left" class="w-3.5 h-3.5 group-hover:-translate-x-0.5 transition-transform duration-300"></i> Kembali ke Beranda
+        </a>
+    </div>
+
     <!-- Main Content Container -->
     <main class="relative z-10 w-full max-w-md px-6 py-12">
-        <!-- Tombol kembali ke Landing -->
-        <div class="mb-6 flex justify-start">
-            <a href="/" class="inline-flex items-center gap-2 text-xs font-semibold text-slate-400 hover:text-white transition-all duration-300 group px-4 py-2 rounded-full bg-neutral-900/60 border border-neutral-800 hover:border-neutral-700/80 backdrop-blur-md shadow-sm hover:shadow-brand/5 hover:bg-neutral-900">
-                <i data-lucide="arrow-left" class="w-3.5 h-3.5 group-hover:-translate-x-0.5 transition-transform duration-300"></i> Kembali ke Beranda
-            </a>
-        </div>
 
         <!-- Logo -->
         <div class="flex flex-col items-center justify-center mb-10 text-center">
