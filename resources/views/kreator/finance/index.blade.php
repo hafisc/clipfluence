@@ -167,14 +167,25 @@
             {{-- Input Nominal --}}
             <div>
                 <label class="text-[10px] font-bold text-slate-500 uppercase tracking-widest block mb-2">Nominal Penarikan (Rp)</label>
-                <div class="relative">
-                    <span class="absolute left-4 top-1/2 -translate-y-1/2 font-black text-slate-500">Rp</span>
-                    <input type="number" name="amount" class="w-full bg-black border-none text-[1.5rem] font-extrabold shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)] text-white rounded-2xl pl-12 pr-5 py-4 outline-none transition-shadow duration-200 focus:shadow-[inset_0_0_0_1.5px_rgba(139,92,246,0.6),_0_0_0_4px_rgba(139,92,246,0.1)]" value="{{ auth()->user()->balance }}" max="{{ auth()->user()->balance }}" min="50000" placeholder="0">
-                </div>
-                <div class="flex items-center justify-between mt-2 px-1 text-[11px]">
-                    <span class="text-slate-500 font-medium">Saldo Maksimal</span>
-                    <span class="font-bold text-violet-400">Rp {{ number_format(auth()->user()->balance, 0, ',', '.') }}</span>
-                </div>
+                @if(auth()->user()->balance < 50000)
+                    <div class="relative">
+                        <span class="absolute left-4 top-1/2 -translate-y-1/2 font-black text-slate-500">Rp</span>
+                        <input type="number" name="amount" disabled class="w-full bg-neutral-900/40 border-none text-[1.5rem] font-extrabold shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05)] text-slate-500 rounded-2xl pl-12 pr-5 py-4 outline-none cursor-not-allowed" value="0">
+                    </div>
+                    <div class="mt-3 bg-rose-500/10 border border-rose-500/25 text-rose-400 p-3.5 rounded-xl text-xs flex items-start gap-2.5 shadow-sm">
+                        <i data-lucide="alert-circle" class="w-4.5 h-4.5 text-rose-400 flex-shrink-0 mt-0.5"></i>
+                        <span>Saldo Anda (<strong>Rp {{ number_format(auth()->user()->balance, 0, ',', '.') }}</strong>) belum mencukupi batas penarikan minimum sebesar <strong>Rp 50.000</strong>.</span>
+                    </div>
+                @else
+                    <div class="relative">
+                        <span class="absolute left-4 top-1/2 -translate-y-1/2 font-black text-slate-500">Rp</span>
+                        <input type="number" name="amount" class="w-full bg-black border-none text-[1.5rem] font-extrabold shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)] text-white rounded-2xl pl-12 pr-5 py-4 outline-none transition-shadow duration-200 focus:shadow-[inset_0_0_0_1.5px_rgba(139,92,246,0.6),_0_0_0_4px_rgba(139,92,246,0.1)]" value="{{ auth()->user()->balance }}" max="{{ auth()->user()->balance }}" min="50000" placeholder="0" required>
+                    </div>
+                    <div class="flex items-center justify-between mt-2 px-1 text-[11px]">
+                        <span class="text-slate-500 font-medium">Saldo Maksimal</span>
+                        <span class="font-bold text-violet-400">Rp {{ number_format(auth()->user()->balance, 0, ',', '.') }}</span>
+                    </div>
+                @endif
             </div>
 
             {{-- Bank Info --}}
@@ -192,7 +203,7 @@
                         @endif
                     </p>
                 </div>
-                @if(auth()->user()->bank_name)
+                @if(auth()->user()->bank_name && auth()->user()->bank_account)
                     <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-500"></i>
                 @else
                     <i data-lucide="alert-circle" class="w-5 h-5 text-rose-500"></i>
@@ -200,9 +211,19 @@
             </div>
 
             {{-- Action Button --}}
-            <button type="submit" class="w-full py-4 text-white text-sm font-black rounded-xl transition-all shadow-[0_8px_20px_rgba(139,92,246,0.3)] hover:shadow-[0_8px_25px_rgba(139,92,246,0.45)] hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2 bg-gradient-to-br from-violet-600 to-fuchsia-500">
-                <i data-lucide="lock" class="w-4 h-4"></i> Konfirmasi Penarikan
-            </button>
+            @if(auth()->user()->balance < 50000)
+                <button type="button" disabled class="w-full py-4 text-slate-500 text-sm font-black rounded-xl bg-neutral-900 border border-neutral-800/80 cursor-not-allowed flex items-center justify-center gap-2">
+                    <i data-lucide="lock" class="w-4 h-4"></i> Saldo Tidak Cukup
+                </button>
+            @elseif(!(auth()->user()->bank_name && auth()->user()->bank_account))
+                <button type="button" onclick="document.getElementById('wd_modal').classList.add('hidden'); document.getElementById('edit_bank_modal').classList.remove('hidden')" class="w-full py-4 text-rose-400 border border-rose-500/20 bg-rose-500/10 text-sm font-black rounded-xl hover:bg-rose-500/20 transition-all flex items-center justify-center gap-2">
+                    <i data-lucide="alert-circle" class="w-4 h-4"></i> Atur Rekening Terlebih Dahulu
+                </button>
+            @else
+                <button type="submit" class="w-full py-4 text-white text-sm font-black rounded-xl transition-all shadow-[0_8px_20px_rgba(139,92,246,0.3)] hover:shadow-[0_8px_25px_rgba(139,92,246,0.45)] hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2 bg-gradient-to-br from-violet-600 to-fuchsia-500">
+                    <i data-lucide="lock" class="w-4 h-4"></i> Konfirmasi Penarikan
+                </button>
+            @endif
         </form>
     </div>
 </div>

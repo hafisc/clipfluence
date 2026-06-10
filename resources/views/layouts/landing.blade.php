@@ -9,7 +9,8 @@
     <!-- Memuat aset CSS & JS Laravel Vite -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     
-    <!-- Alpine.js untuk interaktivitas UI ringan seperti dropdown & mobile menu -->
+    <!-- Alpine.js untuk interaktivitas UI ringan seperti dropdown & mobile menu (dengan plugin collapse) -->
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     
     <!-- AOS.js untuk animasi scroll yang smooth -->
@@ -20,8 +21,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- Lucide Icons (Ringan dan modern) -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Lucide Icons (Menggunakan versi 0.395.0 agar mencakup ikon sosial media/brand) -->
+    <script src="https://unpkg.com/lucide@0.395.0"></script>
     
     @php
         $adminSettings = [];

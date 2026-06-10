@@ -118,8 +118,8 @@
                             categoryOpen: false,
                             loading: false,
                             get roleLabel() {
-                                if (this.role === 'creator') return 'Kreator / Clipper';
-                                if (this.role === 'brand') return 'Merek / Perusahaan';
+                                if (this.role === 'creator') return 'Clipper';
+                                if (this.role === 'brand') return 'Brand / Perusahaan';
                                 return 'Umum / Lainnya';
                             },
                             get categoryLabel() {
@@ -203,7 +203,7 @@
                                         :class="role === 'creator' ? 'bg-neutral-900 text-white' : 'text-slate-400'">
                                         <i data-lucide="clapperboard" class="w-4 h-4 text-brand-light"></i>
                                         <div class="flex-1">
-                                            <div class="font-semibold text-white">Kreator / Clipper</div>
+                                            <div class="font-semibold text-white">Clipper</div>
                                             <div class="text-xs text-slate-500">Mencari campaign atau sponsor</div>
                                         </div>
                                         <i data-lucide="check" class="w-4 h-4 text-brand-light" x-show="role === 'creator'"></i>
@@ -214,7 +214,7 @@
                                         :class="role === 'brand' ? 'bg-neutral-900 text-white' : 'text-slate-400'">
                                         <i data-lucide="building-2" class="w-4 h-4 text-emerald-400"></i>
                                         <div class="flex-1">
-                                            <div class="font-semibold text-white">Merek / Perusahaan</div>
+                                            <div class="font-semibold text-white">Brand / Perusahaan</div>
                                             <div class="text-xs text-slate-500">Mempromosikan produk atau kampanye</div>
                                         </div>
                                         <i data-lucide="check" class="w-4 h-4 text-emerald-400" x-show="role === 'brand'"></i>
