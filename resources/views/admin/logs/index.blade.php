@@ -7,7 +7,7 @@
 @php
 $logs = [
     ['action'=>'User Diblokir','actor'=>'Super Admin','target'=>'dimas@gmail.com','ip'=>'103.12.45.1','time'=>'5 menit lalu','type'=>'admin'],
-    ['action'=>'KYC Diverifikasi','actor'=>'Super Admin','target'=>'Kevin Kreator','ip'=>'103.12.45.1','time'=>'22 menit lalu','type'=>'admin'],
+    ['action'=>'Profil Kreator Diperbarui','actor'=>'Super Admin','target'=>'Kevin Kreator','ip'=>'103.12.45.1','time'=>'22 menit lalu','type'=>'admin'],
     ['action'=>'Masuk Berhasil','actor'=>'brand@clipfluence.com','target'=>'–','ip'=>'180.252.3.77','time'=>'1 jam lalu','type'=>'auth'],
     ['action'=>'Kampanye Dibuat','actor'=>'wardah@brand.com','target'=>'Summer Glow 2026','ip'=>'36.75.12.99','time'=>'2 jam lalu','type'=>'campaign'],
     ['action'=>'Konten UGC Ditolak','actor'=>'Super Admin','target'=>'Rafi Ananda – Video #003','ip'=>'103.12.45.1','time'=>'3 jam lalu','type'=>'admin'],

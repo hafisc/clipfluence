@@ -24,22 +24,19 @@
         </a>
 
         <!-- Dropdown: Pengguna -->
-        <div x-data="{ open: {{ request()->routeIs('admin.users*', 'admin.kreators*', 'admin.brands*', 'admin.kyc*') ? 'true' : 'false' }} }">
-            <button @click="open = !open" class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-sm font-medium hover:text-white hover:bg-white/5 transition-all duration-150 {{ request()->routeIs('admin.users*', 'admin.kreators*', 'admin.brands*', 'admin.kyc*') ? 'text-white' : 'text-slate-400' }}">
+        <div x-data="{ open: {{ request()->routeIs('admin.users*', 'admin.kreators*', 'admin.brands*') ? 'true' : 'false' }} }">
+            <button @click="open = !open" class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-sm font-medium hover:text-white hover:bg-white/5 transition-all duration-150 {{ request()->routeIs('admin.users*', 'admin.kreators*', 'admin.brands*') ? 'text-white' : 'text-slate-400' }}">
                 <div class="flex items-center gap-3">
-                    <i data-lucide="users" class="w-4 h-4 flex-shrink-0 {{ request()->routeIs('admin.users*', 'admin.kreators*', 'admin.brands*', 'admin.kyc*') ? 'text-brand' : '' }}"></i>
+                    <i data-lucide="users" class="w-4 h-4 flex-shrink-0 {{ request()->routeIs('admin.users*', 'admin.kreators*', 'admin.brands*') ? 'text-brand' : '' }}"></i>
                     Pengguna & Entitas
                 </div>
                 <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-200" :class="open ? 'rotate-180' : ''"></i>
             </button>
-            <div x-show="open" x-collapse style="display: {{ request()->routeIs('admin.users*', 'admin.kreators*', 'admin.brands*', 'admin.kyc*') ? 'block' : 'none' }};">
+            <div x-show="open" x-collapse style="display: {{ request()->routeIs('admin.users*', 'admin.kreators*', 'admin.brands*') ? 'block' : 'none' }};">
                 <div class="ml-5 pl-4 border-l border-neutral-800 space-y-1 mt-1">
                     <a href="{{ route('admin.users') }}" class="block py-2 text-xs font-medium hover:text-white transition-colors {{ request()->routeIs('admin.users*') ? 'text-brand' : 'text-slate-500' }}">Staf Internal</a>
                     <a href="{{ route('admin.kreators') }}" class="block py-2 text-xs font-medium hover:text-white transition-colors {{ request()->routeIs('admin.kreators*') ? 'text-brand' : 'text-slate-500' }}">Daftar Kreator</a>
                     <a href="{{ route('admin.brands') }}" class="block py-2 text-xs font-medium hover:text-white transition-colors {{ request()->routeIs('admin.brands*') ? 'text-brand' : 'text-slate-500' }}">Daftar Merek</a>
-                    <a href="{{ route('admin.kyc') }}" class="flex items-center justify-between py-2 text-xs font-medium hover:text-white transition-colors {{ request()->routeIs('admin.kyc*') ? 'text-brand' : 'text-slate-500' }}">
-                        Verifikasi KYC <span class="text-[9px] bg-amber-500/10 text-amber-400 border border-amber-500/20 px-1.5 py-0.5 rounded-full font-bold">5</span>
-                    </a>
                 </div>
             </div>
         </div>

@@ -101,21 +101,6 @@
                     </a>
                 </div>
 
-                {{-- KYC Task --}}
-                <div class="group bg-neutral-800/30 border border-neutral-800 rounded-xl p-4 hover:border-amber-500/40 transition-all cursor-pointer">
-                    <div class="flex items-center justify-between mb-2">
-                        <div class="flex items-center gap-2">
-                            <span class="w-2 h-2 rounded-full bg-amber-500 shadow-[0_0_5px_rgba(245,158,11,0.6)]"></span>
-                            <span class="text-sm font-semibold text-white">Verifikasi KYC</span>
-                        </div>
-                        <span class="text-xs font-bold text-amber-500 bg-amber-500/10 border border-amber-500/20 rounded-full px-2 py-0.5">5</span>
-                    </div>
-                    <p class="text-xs text-slate-500 mb-3">KTP dan Selfie kreator baru perlu divalidasi manual.</p>
-                    <a href="{{ route('admin.kyc') }}" class="text-xs font-medium text-amber-500 hover:text-amber-400 flex items-center gap-1 w-max">
-                        Validasi Kreator <i data-lucide="arrow-right" class="w-3 h-3"></i>
-                    </a>
-                </div>
-
                 {{-- Withdrawal Task --}}
                 <div class="group bg-neutral-800/30 border border-neutral-800 rounded-xl p-4 hover:border-emerald-500/40 transition-all cursor-pointer">
                     <div class="flex items-center justify-between mb-2">

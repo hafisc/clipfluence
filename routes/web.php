@@ -4,7 +4,6 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\AIChatController;
 use App\Http\Controllers\Admin\CampaignController as AdminCampaignController;
 use App\Http\Controllers\Admin\FinanceController as AdminFinanceController;
-use App\Http\Controllers\Admin\KycController as AdminKycController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -68,8 +67,6 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
         Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
         Route::get('/kreators', [UserController::class, 'kreators'])->name('kreators');
         Route::get('/brands', [UserController::class, 'brands'])->name('brands');
-        Route::get('/kyc', [AdminKycController::class, 'index'])->name('kyc');
-        Route::patch('/kyc/{user}', [AdminKycController::class, 'update'])->name('kyc.update');
         Route::get('/campaigns', [AdminCampaignController::class, 'index'])->name('campaigns');
         Route::post('/campaigns', [AdminCampaignController::class, 'store'])->name('campaigns.store');
         Route::patch('/campaigns/{campaign}', [AdminCampaignController::class, 'update'])->name('campaigns.update');

@@ -8,6 +8,9 @@
     @if(session('success'))
         <div class="rounded-xl border border-emerald-500/20 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-300">{{ session('success') }}</div>
     @endif
+    @if(session('error'))
+        <div class="rounded-xl border border-red-500/20 bg-red-500/10 px-4 py-3 text-sm text-red-300">{{ session('error') }}</div>
+    @endif
     @if($errors->any())
         <div class="rounded-xl border border-red-500/20 bg-red-500/10 px-4 py-3 text-sm text-red-300">{{ $errors->first() }}</div>
     @endif
@@ -64,7 +67,7 @@
                         <td class="px-5 py-3.5"><span class="text-xs font-semibold px-2.5 py-1 rounded-full border {{ $statusClass }}">{{ ucfirst($deposit->status) }}</span></td>
                         <td class="px-5 py-3.5">
                             <div class="flex flex-wrap gap-1.5">
-                                @if($deposit->status !== 'success')
+                                @if($deposit->status === 'pending')
                                 <form method="POST" action="{{ route('admin.payouts.update', $deposit) }}">
                                     @csrf @method('PATCH')
                                     <input type="hidden" name="status" value="success">
@@ -72,8 +75,6 @@
                                         <i data-lucide="check" class="w-3 h-3"></i> Sahkan
                                     </button>
                                 </form>
-                                @endif
-                                @if(!in_array($deposit->status, ['failed', 'expired'], true))
                                 <form method="POST" action="{{ route('admin.payouts.update', $deposit) }}">
                                     @csrf @method('PATCH')
                                     <input type="hidden" name="status" value="failed">
@@ -81,6 +82,8 @@
                                         <i data-lucide="x" class="w-3 h-3"></i> Gagalkan
                                     </button>
                                 </form>
+                                @else
+                                <span class="text-xs text-slate-500">Sudah diproses</span>
                                 @endif
                             </div>
                         </td>

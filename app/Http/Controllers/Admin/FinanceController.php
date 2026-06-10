@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Deposit;
 use App\Models\Withdrawal;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
 
 class FinanceController extends Controller
@@ -28,26 +29,37 @@ class FinanceController extends Controller
     public function updateDeposit(Request $request, Deposit $deposit)
     {
         $validated = $request->validate([
-            'status' => ['required', Rule::in(['pending', 'success', 'failed', 'expired'])],
+            'status' => ['required', Rule::in(['success', 'failed'])],
         ]);
 
-        $oldStatus = $deposit->status;
         $newStatus = $validated['status'];
 
-        if ($oldStatus !== 'success' && $newStatus === 'success') {
-            $deposit->user?->increment('balance', $deposit->amount);
+        $processed = DB::transaction(function () use ($deposit, $newStatus) {
+            $lockedDeposit = Deposit::whereKey($deposit->getKey())->lockForUpdate()->firstOrFail();
+
+            if ($lockedDeposit->status !== 'pending') {
+                return false;
+            }
+
+            if ($newStatus === 'success') {
+                $lockedDeposit->user?->increment('balance', $lockedDeposit->amount);
+            }
+
+            $lockedDeposit->update([
+                'status' => $newStatus,
+                'payment_type' => $lockedDeposit->payment_type ?: 'manual_admin',
+            ]);
+
+            return true;
+        });
+
+        if (! $processed) {
+            return back()->with('error', 'Transaksi ini sudah diproses dan tidak bisa diubah lagi.');
         }
 
-        if ($oldStatus === 'success' && $newStatus !== 'success') {
-            $deposit->user?->decrement('balance', $deposit->amount);
-        }
-
-        $deposit->update([
-            'status' => $newStatus,
-            'payment_type' => $deposit->payment_type ?: 'manual_admin',
-        ]);
-
-        return back()->with('success', 'Status transaksi berhasil diperbarui.');
+        return back()->with('success', $newStatus === 'success'
+            ? 'Transaksi berhasil disahkan dan saldo brand ditambahkan.'
+            : 'Transaksi berhasil digagalkan.');
     }
 
     public function withdrawals()
